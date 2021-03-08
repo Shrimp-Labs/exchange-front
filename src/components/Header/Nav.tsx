@@ -8,20 +8,8 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://pippi.finance/farms">
         <TranslatedText translationId={2}>Farm</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pippi.finance/staking">
-        <TranslatedText translationId={4}>Staking</TranslatedText>
-      </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pippi.finance/syrup">
-        SYRUP Pool
-      </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://exchange.pippi.finance" className="active">
         <TranslatedText translationId={8}>Exchange</TranslatedText>
-      </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pancakeswap.info">
-        Analytics
-      </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pippi.finance/lottery">
-        <TranslatedText translationId={14}>Lottery</TranslatedText>
       </StyledAbsoluteLink>
     </StyledNav>
   )

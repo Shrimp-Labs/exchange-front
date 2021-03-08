@@ -13,8 +13,8 @@ import { useETHBalances } from '../../state/wallet/hooks'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
-import LanguageSelectMenu from './LanguageSelectMenu'
-import Menu from '../Menu'
+// import LanguageSelectMenu from './LanguageSelectMenu'
+// import Menu from '../Menu'
 import Nav from './Nav'
 import ThemeSwitch from './ThemeSwitch'
 import { useIsDarkMode } from '../../state/user/hooks'
@@ -168,8 +168,8 @@ export default function Header() {
           <HeaderElementWrap>
             {isMobile && <ThemeSwitch />}
             <Settings />
-            <Menu />
-            <LanguageSelectMenu />
+            {/* <Menu />
+            <LanguageSelectMenu /> */}
           </HeaderElementWrap>
         </HeaderControls>
       </RowBetween>

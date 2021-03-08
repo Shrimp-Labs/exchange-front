@@ -5,8 +5,7 @@ src/constants/localisation/crowdInApi.ts
 sftp-config.json
 # dependencies
 /node_modules
-*node_modules/
-*/dist/*
+*node_modules/*
 
 # testing
 /coverage
