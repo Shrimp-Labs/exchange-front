@@ -2361,7 +2361,7 @@
     truffle-flattener "^1.4.4"
     truffle-hdwallet-provider "^1.0.17"
 
-"@pancakeswap-libs/sdk@file:./forks/pancakeswap-sdk":
+"@pancakeswap-libs/sdk@file:./forks/pipi-sdk":
   version "1.0.1"
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"

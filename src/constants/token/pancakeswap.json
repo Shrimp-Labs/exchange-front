@@ -8,7 +8,42 @@
   },
   "tags": {},
   "logoURI": "/images/coins/bnb.png",
-  "keywords": ["pancake", "default"],
+  "keywords": ["pippi", "default"],
   "tokens": [
+    {
+      "name": "ETH",
+      "symbol": "ETH",
+      "address": "0x64ff637fb478863b7468bc97d30a5bf3a428a1fd",
+      "chainId": 128,
+      "decimals": 18
+    },
+    {
+      "name": "Pippi Shrimp Token",
+      "symbol": "PIPI",
+      "address": "0x64ff637fb478863b7468bc97d30a5bf3a428a1fd",
+      "chainId": 128,
+      "decimals": 18
+    },
+    {
+      "name": "MDX Token",
+      "symbol": "MDX",
+      "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
+      "chainId": 128,
+      "decimals": 18
+    },
+    {
+      "name": "Heco-Peg HUSD Token",
+      "symbol": "HUSD",
+      "address": "0x0298c2b32eae4da002a15f36fdf7615bea3da047",
+      "chainId": 128,
+      "decimals": 8
+    },
+    {
+      "name": "Heco-Peg HBTC Token",
+      "symbol": "HBTC",
+      "address": "0x66a79d23e58475d2738179ca52cd0b41d73f0bea",
+      "chainId": 128,
+      "decimals": 18
+    }
   ]
 }
