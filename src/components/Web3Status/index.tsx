@@ -167,6 +167,8 @@ function Web3StatusInner() {
   const { t } = useTranslation()
   const { account, connector, error } = useWeb3React()
 
+  console.log(account, error)
+
   const { ENSName } = useENSName(account ?? undefined)
 
   const allTransactions = useAllTransactions()

@@ -20,7 +20,7 @@ export const ETH = new Token(ChainId.MAINNET, '0x2170ed0880ac9a755fd29b2688956bd
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.BSCTESTNET]: [WETH[ChainId.BSCTESTNET]]
+  [ChainId.TESTNET]: [WETH[ChainId.TESTNET]]
 }
 
 // used to construct intermediary pairs for trading
@@ -54,8 +54,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [
-      new Token(ChainId.MAINNET, '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82', 18, 'CAKE', 'PancakeSwap Token'),
-      new Token(ChainId.MAINNET, '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
+      new Token(ChainId.MAINNET, '0xaaae746b5e55d14398879312660e9fde07fbc1dc', 18, 'PIPI', 'PIPI SHRIMP Token'),
+      new Token(ChainId.MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT')
     ],
     [BUSD, USDT],
     [DAI, USDT]
