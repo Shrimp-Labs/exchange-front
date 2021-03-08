@@ -5,7 +5,6 @@
   "private": true,
   "devDependencies": {
     "@ethersproject/experimental": "^5.0.1",
-    "@pancakeswap-libs/sdk": "1.0.1",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
@@ -109,6 +108,7 @@
   "dependencies": {
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@types/webfontloader": "^1.6.32",
+    "@pancakeswap-libs/sdk": "file:./pancakeswap-sdk",
     "serialize-javascript": "^5.0.1",
     "webfontloader": "^1.6.28"
   }
