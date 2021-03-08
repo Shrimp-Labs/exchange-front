@@ -108,7 +108,7 @@
   "dependencies": {
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@types/webfontloader": "^1.6.32",
-    "@pancakeswap-libs/sdk": "file:./forks/pancakeswap-sdk",
+    "@pancakeswap-libs/sdk": "file:./forks/pipi-sdk",
     "serialize-javascript": "^5.0.1",
     "webfontloader": "^1.6.28"
   }
