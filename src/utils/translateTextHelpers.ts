@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import { useContext } from 'react'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 
