@@ -27,7 +27,7 @@ export default {
     md: 12,
     lg: 24
   },
-  gradient: 'linear-gradient(180deg, #54dade 0%, #24c7d6 76.22%)',
+  gradient: 'linear-gradient(180deg, #6E84FB 0%, #6E84FB 76.22%)',
   mediaWidth: mediaWidthTemplates,
   // css snippets
   flexColumnNoWrap: css`
@@ -37,5 +37,6 @@ export default {
   flexRowNoWrap: css`
     display: flex;
     flex-flow: row nowrap;
-  `
+  `,
+  siteWidth: '1000px'
 }

@@ -11,7 +11,6 @@ import AccountDetails from '../AccountDetails'
 import PendingView from './PendingView'
 import Option from './Option'
 import { SUPPORTED_WALLETS } from '../../constants'
-import { ExternalLink } from '../Shared'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { injected, fortmatic, portis } from '../../connectors'
@@ -79,18 +78,6 @@ const UpperSection = styled.div`
     margin-top: 0;
     font-weight: 500;
   }
-`
-
-const Blurb = styled.div`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  ${({ theme }) => theme.mediaWidth.upToMedium`
-    margin: 1rem;
-    font-size: 12px;
-  `};
 `
 
 const OptionGrid = styled.div`
@@ -337,7 +324,7 @@ export default function WalletModal({
           </HeaderRow>
         ) : (
           <HeaderRow>
-            <HoverText>Connect to a wallet</HoverText>
+            <HoverText>Connect wallet</HoverText>
           </HeaderRow>
         )}
         <ContentWrapper>
@@ -350,14 +337,6 @@ export default function WalletModal({
             />
           ) : (
             <OptionGrid>{getOptions()}</OptionGrid>
-          )}
-          {walletView !== WALLET_VIEWS.PENDING && (
-            <Blurb>
-              <span>New to BSC? &nbsp;</span>{' '}
-              <ExternalLink href="https://docs.binance.org/smart-chain/wallet/metamask.html">
-                Learn more about wallets
-              </ExternalLink>
-            </Blurb>
           )}
         </ContentWrapper>
       </UpperSection>

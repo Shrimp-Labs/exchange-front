@@ -11,9 +11,9 @@ export default {
     text4: '#565A69',
 
     // backgrounds / greys
-    bg0: '#191326',
-    bg1: '#2b233f',
-    bg2: '#2b233f',
+    bg0: '#2F2E2D',
+    bg1: '#3D3D3D',
+    bg2: '#2F2E2D',
     bg3: '#40444F',
     bg4: '#565A69',
     bg5: '#6C7284',
@@ -23,7 +23,7 @@ export default {
     advancedBG: 'rgba(0,0,0,0.1)',
 
     //primary colors
-    primary1: '#24c7d6',
+    primary1: '#6E84FB',
     primary4: '#376bad70',
     primary5: '#153d6f70',
 
@@ -32,6 +32,7 @@ export default {
     buttonText: '#ffffff',
 
     // secondary colors
-    secondary1: '#24c7d6'
+    secondary1: '#24c7d6',
+    normal: '#FFF',
   }
 }
