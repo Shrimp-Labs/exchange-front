@@ -45,12 +45,12 @@ export default function SyrupWarningModal({
           {transactionType !== '' && (
             <>
               <TYPE.body color={'red2'}>
-                Please be careful when <strong>{transactionType}</strong> SYRUP.
+                Please be careful when <strong>{transactionType}</strong> XPIPI.
               </TYPE.body>
               <TYPE.body color={'red2'}>
                 {transactionType === 'Buying'
-                  ? 'You will not receive CAKE rewards for holding purchased SYRUP.'
-                  : 'You will need to buy back the same amount of SYRUP to be able to convert back to CAKE.'}
+                  ? 'You will not receive PIPI rewards for holding purchased XPIPI.'
+                  : 'You will need to buy back the same amount of XPIPI to be able to convert back to PIPI.'}
               </TYPE.body>
             </>
           )}
