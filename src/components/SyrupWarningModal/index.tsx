@@ -40,17 +40,17 @@ export default function SyrupWarningModal({
         <AutoColumn gap="lg">
           <AutoRow gap="6px">
             <StyledWarningIcon />
-            <TYPE.main color={'red2'}>Syrup Warning</TYPE.main>
+            <TYPE.main color={'red2'}>XPIPI Warning</TYPE.main>
           </AutoRow>
           {transactionType !== '' && (
             <>
               <TYPE.body color={'red2'}>
-                Please be careful when <strong>{transactionType}</strong> SYRUP.
+                Please be careful when <strong>{transactionType}</strong> XPIPI.
               </TYPE.body>
               <TYPE.body color={'red2'}>
                 {transactionType === 'Buying'
-                  ? 'You will not receive CAKE rewards for holding purchased SYRUP.'
-                  : 'You will need to buy back the same amount of SYRUP to be able to convert back to CAKE.'}
+                  ? 'You will not receive PIPI rewards for holding purchased SYRUP.'
+                  : 'You will need to buy back the same amount of XPIPI to be able to convert back to PIPI.'}
               </TYPE.body>
             </>
           )}

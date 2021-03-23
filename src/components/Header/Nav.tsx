@@ -6,10 +6,19 @@ const Nav: React.FC = () => {
   return (
     <StyledNav>
       <StyledAbsoluteLink href="https://pippi.finance/farms">
-        <TranslatedText translationId={2}>Farm</TranslatedText>
+        <TranslatedText translationId={112}>Farm</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://pippi.finance/staking">
+        <TranslatedText translationId={113}>Staking</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://pippi.finance/syrup">
+        <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://exchange.pippi.finance" className="active">
-        <TranslatedText translationId={8}>Exchange</TranslatedText>
+        <TranslatedText translationId={116}>Exchange</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
+        <TranslatedText translationId={115}>Docs</TranslatedText>
       </StyledAbsoluteLink>
     </StyledNav>
   )
@@ -27,19 +36,39 @@ const StyledNav = styled.nav`
 `
 
 const StyledAbsoluteLink = styled.a`
-  color: #12aab5;
-  padding-left: 10px;
-  padding-right: 10px;
+  position: relative;
+  color: ${(props) => props.theme.colors.normal};
+  font-weight: 700;
+  margin-left: ${(props) => props.theme.spacing[3]}px;
+  margin-right: ${(props) => props.theme.spacing[3]}px;
   text-decoration: none;
   &:hover {
-    color: #452a7a;
+    color: ${(props) => props.theme.colors.red[300]};
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: ${(props) => props.theme.colors.red[300]};
+    }
   }
   &.active {
-    color: #452a7a;
+    color: ${(props) => props.theme.colors.red[300]};
+    &::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: ${(props) => props.theme.colors.red[300]};
+    }
   }
   @media (max-width: 400px) {
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-left: ${(props) => props.theme.spacing[2]}px;
+    margin-right: ${(props) => props.theme.spacing[2]}px;
   }
 `
 

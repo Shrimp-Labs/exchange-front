@@ -30,6 +30,18 @@ export default {
     buttonText: '#ffffff',
 
     // secondary colors
-    secondary1: '#13aab5'
+    secondary1: '#13aab5',
+    bg: '#FFFFFF',
+    cardBg: '#fff',
+    cardBg2: '#F2F2F2',
+    cardBg3: '#ECEFFF',
+    cardBg4: '#F6F6F6',
+    cardBg5: '#3D3D3D',
+    primary: '#EE9715',
+    secondary: '#6E84FB',
+    normal: '#000',
+    inputBg: '#FFF9F0',
+    strokColor: '#E1E1E1',
+    navBg: '#C4C4C4',
   }
 }
