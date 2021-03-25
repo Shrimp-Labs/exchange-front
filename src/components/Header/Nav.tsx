@@ -5,16 +5,16 @@ import TranslatedText from '../TranslatedText'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledAbsoluteLink href="https://pippi.finance/farms">
+      <StyledAbsoluteLink href="https://app.pippi.finance/farms">
         <TranslatedText translationId={112}>Farm</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pippi.finance/staking">
+      <StyledAbsoluteLink href="https://app.pippi.finance/staking">
         <TranslatedText translationId={113}>Staking</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://pippi.finance/syrup">
+      <StyledAbsoluteLink href="https://app.pippi.finance/syrup">
         <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://exchange.pippi.finance" className="active">
+      <StyledAbsoluteLink href="https://swap.pippi.finance/" className="active">
         <TranslatedText translationId={116}>Exchange</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
