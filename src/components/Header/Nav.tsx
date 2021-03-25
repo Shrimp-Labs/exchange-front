@@ -20,6 +20,9 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
         <TranslatedText translationId={115}>Docs</TranslatedText>
       </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://docs.pippi.finance">
+        <TranslatedText translationId={115}>Docs</TranslatedText>
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }
@@ -38,12 +41,11 @@ const StyledNav = styled.nav`
 const StyledAbsoluteLink = styled.a`
   position: relative;
   color: ${(props) => props.theme.colors.normal};
-  font-weight: 700;
-  margin-left: ${(props) => props.theme.spacing[3]}px;
-  margin-right: ${(props) => props.theme.spacing[3]}px;
+  margin-left: 16px;
+  margin-right: 16px;
   text-decoration: none;
   &:hover {
-    color: ${(props) => props.theme.colors.red[300]};
+    color: ${(props) => props.theme.colors.red3};
     &::after {
       position: absolute;
       content: '';
@@ -51,11 +53,11 @@ const StyledAbsoluteLink = styled.a`
       bottom: -5px;
       width: 100%;
       height: 2px;
-      background: ${(props) => props.theme.colors.red[300]};
+      background: ${(props) => props.theme.colors.red3};
     }
   }
   &.active {
-    color: ${(props) => props.theme.colors.red[300]};
+    color: ${(props) => props.theme.colors.red3};
     &::after {
       position: absolute;
       content: '';
@@ -63,13 +65,12 @@ const StyledAbsoluteLink = styled.a`
       bottom: -5px;
       width: 100%;
       height: 2px;
-      background: ${(props) => props.theme.colors.red[300]};
+      background: ${(props) => props.theme.colors.red3};
     }
   }
   @media (max-width: 400px) {
-    margin-left: ${(props) => props.theme.spacing[2]}px;
-    margin-right: ${(props) => props.theme.spacing[2]}px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 `
-
 export default Nav

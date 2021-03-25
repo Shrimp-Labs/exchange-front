@@ -41,8 +41,10 @@ export interface Colors {
   green2: Color
   red1: Color
   red2: Color
+  red3: Color
   yellow1: Color
   yellow2: Color
+  normal: Color
 }
 
 export interface Grids {
@@ -67,5 +69,6 @@ declare module 'styled-components' {
     // css snippets
     flexColumnNoWrap: FlattenSimpleInterpolation
     flexRowNoWrap: FlattenSimpleInterpolation
+    siteWidth: string
   }
 }

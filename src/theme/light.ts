@@ -11,7 +11,7 @@ export default {
     text4: '#C3C5CB',
 
     // backgrounds / greys
-    bg0: '#F5F3F3',
+    bg0: '#fff',
     bg1: '#FFFDFA',
     bg2: '#F5F3F3',
     bg3: '#EDEEF2',
@@ -21,7 +21,7 @@ export default {
     advancedBG: 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: '#43d3db',
+    primary1: '#6E84FB',
     primary4: '#bfe0e2',
     primary5: '#daedef',
 

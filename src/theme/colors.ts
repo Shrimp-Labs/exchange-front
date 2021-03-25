@@ -1,34 +1,18 @@
-export const white = '#FFF'
-export const black = '#000'
+export const white = '#FFFFFF'
+export const black = '#000000'
 
 export const green = {
-  500: '##00d1810',
+  green1: '#27AE60',
+  green2: '#43d3db'
 }
 
 export const red = {
-  100: '#FFFDFE',
-  200: '#ffc2a8',
-  300: '#F19390',
-}
-
-export const grey = {
-  100: '#167e86',
-  200: '#24C7D6',
-  300: '#FFFDFA',
-  400: '#12AAB5',
-  500: '#805e49',
-  600: '#452A7A', // dark primary
-  700: '#474747',
-  800: '#2d1e12',
-  900: '#F2F2F2',
-
-}
-
-export const blue = {
-  100: '#6E84FB',
-  200: '#ECEFFF',
+  red1: '#FF6871',
+  red2: '#F82D3A',
+  red3: '#F19390'
 }
 
 export const yellow = {
-  100: '#EE9715',
+  yellow1: '#FFE270',
+  yellow2: '#F3841E'
 }

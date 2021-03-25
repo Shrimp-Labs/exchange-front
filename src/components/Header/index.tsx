@@ -19,7 +19,6 @@ import Nav from './Nav'
 import ThemeSwitch from './ThemeSwitch'
 import { useIsDarkMode } from '../../state/user/hooks'
 
-import { RowBetween } from '../Row'
 import Web3Status from '../Web3Status'
 
 const HeaderFrame = styled.div`
@@ -51,7 +50,7 @@ const HeaderElementWrap = styled.div`
   align-items: center;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    margin-top: 0.5rem;
+    padding-left: 10px;
 `};
 `
 
@@ -114,8 +113,6 @@ const HeaderControls = styled.div`
   align-items: center;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    flex-direction: column;
-    align-items: flex-end;
   `};
 `
 
@@ -130,13 +127,22 @@ const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.TESTNET]: 'testnet'
 }
 
+const StyledTopBarInner = styled.div`
+  margin-top: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: ${(props) => props.theme.siteWidth};
+  width: 100%;
+`
+
 export default function Header() {
   const isDark = useIsDarkMode()
   const { account, chainId } = useActiveWeb3React()
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   return (
     <HeaderFrame>
-      <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
+      <StyledTopBarInner>
         <HeaderElement>
           <Title href="https://pippi.finance/">
             <UniIcon>
@@ -172,7 +178,7 @@ export default function Header() {
             <LanguageSelectMenu /> */}
           </HeaderElementWrap>
         </HeaderControls>
-      </RowBetween>
+      </StyledTopBarInner>
     </HeaderFrame>
   )
 }

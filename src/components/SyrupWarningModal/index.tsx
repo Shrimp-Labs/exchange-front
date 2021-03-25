@@ -49,7 +49,7 @@ export default function SyrupWarningModal({
               </TYPE.body>
               <TYPE.body color={'red2'}>
                 {transactionType === 'Buying'
-                  ? 'You will not receive PIPI rewards for holding purchased SYRUP.'
+                  ? 'You will not receive PIPI rewards for holding purchased XPIPI.'
                   : 'You will need to buy back the same amount of XPIPI to be able to convert back to PIPI.'}
               </TYPE.body>
             </>
