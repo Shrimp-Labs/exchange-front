@@ -74,7 +74,7 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
           </TYPE.main>
           {chainId && (
             <ExternalLink style={{ fontWeight: 400 }} href={getEtherscanLink(chainId, token.address, 'token')}>
-              <TYPE.blue title={token.address}>{shortenAddress(token.address)} (View on BscScan)</TYPE.blue>
+              <TYPE.blue title={token.address}>{shortenAddress(token.address)} (View on hecochain)</TYPE.blue>
             </ExternalLink>
           )}
         </AutoColumn>
@@ -105,12 +105,12 @@ export default function TokenWarningModal({
             <TYPE.main color={'red2'}>Token imported</TYPE.main>
           </AutoRow>
           <TYPE.body color={'red2'}>
-            Anyone can create an BEP20 token on BSC with <em>any</em> name, including creating fake versions of
+            Anyone can create an herc20 token on hecochain with <em>any</em> name, including creating fake versions of
             existing tokens and tokens that claim to represent projects that do not have a token.
           </TYPE.body>
           <TYPE.body color={'red2'}>
             This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research
-            when interacting with arbitrary BEP20 tokens.
+            when interacting with arbitrary herc20 tokens.
           </TYPE.body>
           <TYPE.body color={'red2'}>
             If you purchase an arbitrary token, <strong>you may be unable to sell it back.</strong>

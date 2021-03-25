@@ -33,6 +33,17 @@ export default {
 
     // secondary colors
     secondary1: '#24c7d6',
+    bg: '#2F2E2D',
+    cardBg: '#3D3D3D',
+    cardBg2: '#191326',
+    cardBg3: '#51535E',
+    cardBg4: '#2F2E2D',
+    cardBg5: '#332525',
+    primary: '#EE9715',
+    secondary: '#FFF',
     normal: '#FFF',
+    inputBg: '#2F2E2D',
+    strokColor: '#2F2E2D',
+    navBg: '#2F2E2D',
   }
 }

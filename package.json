@@ -1,6 +1,6 @@
 {
   "name": "@pancakeswap/interface",
-  "description": "Pancakeswap Interface",
+  "description": "pipswap Interface",
   "homepage": ".",
   "private": true,
   "devDependencies": {

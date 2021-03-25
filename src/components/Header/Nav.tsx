@@ -15,7 +15,10 @@ const Nav: React.FC = () => {
         <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://exchange.pippi.finance" className="active">
-        <TranslatedText translationId={8}>Exchange</TranslatedText>
+        <TranslatedText translationId={116}>Exchange</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
+        <TranslatedText translationId={115}>Docs</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://docs.pippi.finance">
         <TranslatedText translationId={115}>Docs</TranslatedText>

@@ -94,7 +94,7 @@ function TransactionSubmittedContent({
           {chainId && hash && (
             <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')}>
               <Text fontWeight={500} fontSize={14} color={theme.colors.primary1}>
-                View on bscscan
+                View on hecochain
               </Text>
             </ExternalLink>
           )}
