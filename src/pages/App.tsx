@@ -96,13 +96,14 @@ export default function App() {
   }
 
   useEffect(() => {
-    const storedLangCode = localStorage.getItem('pancakeSwapLanguage')
-    if (storedLangCode) {
-      const storedLang = getStoredLang(storedLangCode)
-      setSelectedLanguage(storedLang)
-    } else {
-      setSelectedLanguage(EN)
-    }
+    setSelectedLanguage(EN)
+    // const storedLangCode = localStorage.getItem('pancakeSwapLanguage')
+    // if (storedLangCode) {
+    //   const storedLang = getStoredLang(storedLangCode)
+    //   setSelectedLanguage(storedLang)
+    // } else {
+    //   setSelectedLanguage(EN)
+    // }
   }, [])
 
   const fetchTranslationsForSelectedLanguage = async () => {
