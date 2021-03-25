@@ -20,9 +20,6 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
         <TranslatedText translationId={115}>Docs</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://docs.pippi.finance">
-        <TranslatedText translationId={115}>Docs</TranslatedText>
-      </StyledAbsoluteLink>
     </StyledNav>
   )
 }
