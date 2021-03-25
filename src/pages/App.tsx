@@ -25,7 +25,7 @@ import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import { EN } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
-import { allLanguages } from '../constants/localisation/languageCodes'
+// import { allLanguages } from '../constants/localisation/languageCodes'
 // import backimg from '../assets/images/bg.png'
 import LogoH from '../assets/images/logoh.png'
 
@@ -89,11 +89,11 @@ export default function App() {
 
   const stringTranslationsApi = new StringTranslations(credentials)
 
-  const getStoredLang = (storedLangCode: string) => {
-    return allLanguages.filter(language => {
-      return language.code === storedLangCode
-    })[0]
-  }
+  // const getStoredLang = (storedLangCode: string) => {
+  //   return allLanguages.filter(language => {
+  //     return language.code === storedLangCode
+  //   })[0]
+  // }
 
   useEffect(() => {
     setSelectedLanguage(EN)
