@@ -100,6 +100,13 @@
       "address": "0xb1f80844a1b84c61ab80cafd88b1f8c09f9342e1",
       "chainId": 128,
       "decimals": 8
+    },
+    {
+      "name": "TPT",
+      "symbol": "TPT",
+      "address": "0x9ef1918a9bee17054b35108bd3e2665e2af1bb1b",
+      "chainId": 128,
+      "decimals": 4
     }
   ]
 }
