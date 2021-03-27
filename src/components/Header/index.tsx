@@ -144,7 +144,7 @@ export default function Header() {
     <HeaderFrame>
       <StyledTopBarInner>
         <HeaderElement>
-          <Title href="https://pippi.finance/">
+          <Title href="https://app.pippi.finance/">
             <UniIcon>
               { !isDark?
                 <img src={Logob} alt="logo" />
