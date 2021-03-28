@@ -56,10 +56,10 @@ export function SwapPoolTabs({ active }: { active: 'swap' | 'pool' }) {
   return (
     <Tabs style={{ marginBottom: '20px' }}>
       <StyledNavLink id={`swap-nav-link`} to={'/swap'} isActive={() => active === 'swap'}>
-        <TranslatedText translationId={8}>Swap</TranslatedText>
+        <TranslatedText translationId={182}>Swap</TranslatedText>
       </StyledNavLink>
       <StyledNavLink id={`pool-nav-link`} to={'/pool'} isActive={() => active === 'pool'}>
-        <TranslatedText translationId={74}>Pool</TranslatedText>
+        <TranslatedText translationId={184}>Pool</TranslatedText>
       </StyledNavLink>
     </Tabs>
   )

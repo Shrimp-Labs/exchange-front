@@ -1,12 +1,9 @@
 import { ChainId } from '@pancakeswap-libs/sdk'
-import React from 'react'
+import React, {useCallback, useState} from 'react'
 import { isMobile } from 'react-device-detect'
 import { Text } from 'rebass'
 
 import styled from 'styled-components'
-
-import Logow from '../../assets/images/logow.png'
-import Logob from '../../assets/images/logob.png'
 
 import { useActiveWeb3React } from '../../hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -14,12 +11,15 @@ import { useETHBalances } from '../../state/wallet/hooks'
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
 // import LanguageSelectMenu from './LanguageSelectMenu'
-// import Menu from '../Menu'
+import LngSwith from './LngSwith'
 import Nav from './Nav'
 import ThemeSwitch from './ThemeSwitch'
 import { useIsDarkMode } from '../../state/user/hooks'
 
 import Web3Status from '../Web3Status'
+import Logo from './Logo'
+import menuIcon from '../../assets/images/menu-light.png'
+import MobileMenu from '../MobileMenu'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -36,7 +36,16 @@ const HeaderFrame = styled.div`
     position: relative;
   `};
 `
-
+const Menu = styled.div`
+  display: none;
+  img {
+    display: block;
+    width: 36px;
+  }
+  @media (max-width: 850px) {
+    display: block;
+  }
+`
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
@@ -45,13 +54,11 @@ const HeaderElement = styled.div`
   }
 `
 
-const HeaderElementWrap = styled.div`
+const HeaderControlsMobile = styled.div`
   display: flex;
+  width: 220px;
   align-items: center;
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding-left: 10px;
-`};
+  justify-content: space-between;
 `
 
 const Title = styled.a`
@@ -92,21 +99,6 @@ const NetworkCard = styled(YellowCard)`
   padding: 8px 12px;
 `
 
-const UniIcon = styled.div`
-  transition: transform 0.3s ease;
-  :hover {
-    transform: rotate(-5deg);
-  }
-  img {
-    height: 2.5rem;
-  }
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    img {
-      height: 2rem;
-    }
-  `};
-`
-
 const HeaderControls = styled.div`
   display: flex;
   flex-direction: row;
@@ -128,56 +120,66 @@ const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
 }
 
 const StyledTopBarInner = styled.div`
-  margin-top: 20px;
   align-items: center;
   display: flex;
   justify-content: space-between;
   max-width: ${(props) => props.theme.siteWidth};
   width: 100%;
+  padding: 0 20px;
 `
 
 export default function Header() {
   const isDark = useIsDarkMode()
   const { account, chainId } = useActiveWeb3React()
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
+  const [mobileMenu, setMobileMenu] = useState(false)
+  const handlePresentMobileMenu = useCallback(() => {
+    setMobileMenu(true)
+  }, [setMobileMenu])
+  const handleDismissMobileMenu = useCallback(() => {
+    setMobileMenu(false)
+  }, [setMobileMenu])
   return (
     <HeaderFrame>
       <StyledTopBarInner>
         <HeaderElement>
           <Title href="https://app.pippi.finance/">
-            <UniIcon>
-              { !isDark?
-                <img src={Logob} alt="logo" />
-                :
-                <img src={Logow} alt="logo" />
-              }
-            </UniIcon>
+          <Logo isDark={isDark} />
           </Title>
         </HeaderElement>
 
-        <Nav />
-        <HeaderControls>
-          {!isMobile && <ThemeSwitch />}
-          <HeaderElement>
-            <TestnetWrapper>
-              {!isMobile && chainId && NETWORK_LABELS[chainId] && <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>}
-            </TestnetWrapper>
-            <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
-              {account && userEthBalance ? (
-                <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                  {userEthBalance?.toSignificant(4)} HT
-                </BalanceText>
-              ) : null}
-              <Web3Status />
-            </AccountElement>
-          </HeaderElement>
-          <HeaderElementWrap>
-            {isMobile && <ThemeSwitch />}
+        
+        {
+          isMobile && <HeaderControlsMobile>
+            <Menu onClick={handlePresentMobileMenu}>
+              <img src={menuIcon} alt="menu" />
+            </Menu>
+            <LngSwith />
+            <ThemeSwitch />
             <Settings />
-            {/* <Menu />
-            <LanguageSelectMenu /> */}
-          </HeaderElementWrap>
-        </HeaderControls>
+          </HeaderControlsMobile>
+        }
+        {
+          !isMobile && <HeaderControls>
+            <Nav />
+            <ThemeSwitch />
+            <HeaderElement>
+              <TestnetWrapper>
+                {!isMobile && chainId && NETWORK_LABELS[chainId] && <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>}
+              </TestnetWrapper>
+              <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+                {account && userEthBalance ? (
+                  <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
+                    {userEthBalance?.toSignificant(4)} HT
+                  </BalanceText>
+                ) : null}
+                <Web3Status />
+              </AccountElement>
+            </HeaderElement>
+            <Settings />
+          </HeaderControls>
+        }
+        <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
       </StyledTopBarInner>
     </HeaderFrame>
   )

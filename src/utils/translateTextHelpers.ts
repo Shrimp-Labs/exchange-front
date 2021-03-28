@@ -1,6 +1,6 @@
  /* eslint-disable */ 
-// import { useContext } from 'react'
-// import { TranslationsContext } from '../hooks/TranslationsContext'
+import { useContext } from 'react'
+import { TranslationsContext } from '../hooks/TranslationsContext'
 
 const variableRegex = /\%(.*?)\%/
 
@@ -28,11 +28,10 @@ export const getTranslation = (translations: Array<any>, translationId: number, 
 }
 
 export const TranslateString = (translationId: number, fallback: string) => {
-  // const { translations } = useContext(TranslationsContext)
-  return fallback
-  // if (translations[0] === 'error') {
-  //   return fallback
-  // } else if (translations.length > 0) {
-  //   return getTranslation(translations, translationId, fallback)
-  // }
+  const { translations } = useContext(TranslationsContext)
+  if (translations[0] === 'error') {
+    return fallback
+  } else if (translations.length > 0) {
+    return getTranslation(translations, translationId, fallback)
+  }
 }

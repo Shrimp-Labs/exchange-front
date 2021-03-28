@@ -137,11 +137,11 @@ export function useDerivedMintInfo(
   }
 
   if (pairState === PairState.INVALID) {
-    error = error ?? TranslateString(136, 'Invalid pair')
+    error = error ?? TranslateString(208, 'Invalid pair')
   }
 
   if (!parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? TranslateString(84, 'Enter an amount')
+    error = error ?? TranslateString(210, 'Enter an amount')
   }
 
   const { [Field.CURRENCY_A]: currencyAAmount, [Field.CURRENCY_B]: currencyBAmount } = parsedAmounts

@@ -155,10 +155,10 @@ export function CurrencySearch({
       <PaddedColumn gap="14px">
         <RowBetween>
           <Text fontWeight={500} fontSize={16}>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
+            <TranslatedText translationId={186}>Select a token</TranslatedText>
             <QuestionHelper
               text={TranslateString(
-                130,
+                214,
                 'Find a token by searching for its name or symbol or by pasting its address below.'
               )}
             />
@@ -179,7 +179,7 @@ export function CurrencySearch({
         )}
         <RowBetween>
           <Text fontSize={14} fontWeight={500}>
-            <TranslatedText translationId={126}>Token name</TranslatedText>
+            <TranslatedText translationId={188}>Token name</TranslatedText>
           </Text>
           <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder(iso => !iso)} />
         </RowBetween>

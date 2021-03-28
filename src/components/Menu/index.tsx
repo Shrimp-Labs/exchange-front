@@ -102,7 +102,7 @@ export default function Menu() {
           </MenuItem>
           <MenuItem id="link" href="https://docs.pippi.finance">
             <BookOpen size={14} />
-            <TranslatedText translationId={10}>Docs</TranslatedText>
+            <TranslatedText translationId={120}>Docs</TranslatedText>
           </MenuItem>
           <MenuItem id="link" href={CODE_LINK}>
             <Code size={14} />
@@ -110,7 +110,7 @@ export default function Menu() {
           </MenuItem>
           <MenuItem id="link" href="https://t.me/pippishrmp_swap">
             <MessageCircle size={14} />
-            <TranslatedText translationId={34}>Telegram</TranslatedText>
+            <TranslatedText translationId={124}>Telegram</TranslatedText>
           </MenuItem>
           {/* <MenuItem id="link" href="https://pancakeswap.info">
             <PieChart size={14} />

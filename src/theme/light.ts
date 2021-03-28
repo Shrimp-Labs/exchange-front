@@ -16,7 +16,7 @@ export default {
     bg2: '#F5F3F3',
     bg3: '#EDEEF2',
     bg4: '#CED0D9',
-    bg5: '#43d3db',
+    bg5: '#C4C4C4',
     modalBG: 'rgba(0,0,0,0.3)',
     advancedBG: 'rgba(255,255,255,0.6)',
 

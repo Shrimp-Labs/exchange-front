@@ -137,7 +137,7 @@ export default function CurrencyInputPanel({
   onUserInput,
   onMax,
   showMaxButton,
-  label = TranslateString(132, 'Input'),
+  label = TranslateString(212, 'Input'),
   onCurrencySelect,
   currency,
   disableCurrencySelect = false,
@@ -222,7 +222,7 @@ export default function CurrencyInputPanel({
                     ? currency.symbol.slice(0, 4) +
                       '...' +
                       currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)
-                    : currency?.symbol) || <TranslatedText translationId={82}>Select a currency</TranslatedText>}
+                    : currency?.symbol) || <TranslatedText translationId={180}>Select a currency</TranslatedText>}
                 </StyledTokenName>
               )}
               {!disableCurrencySelect && <StyledDropDown selected={!!currency} />}

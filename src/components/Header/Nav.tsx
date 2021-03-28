@@ -30,9 +30,6 @@ const StyledNav = styled.nav`
   font-size: 20px;
   line-height: 45px;
   font-weight: 500;
-  @media (max-width: 600px) {
-    display: none;
-  }
 `
 
 const StyledAbsoluteLink = styled.a`

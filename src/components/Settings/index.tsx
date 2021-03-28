@@ -194,7 +194,7 @@ export default function SettingsTab() {
         <MenuFlyout>
           <AutoColumn gap="md" style={{ padding: '1rem' }}>
             <Text fontWeight={600} fontSize={14}>
-              <TranslatedText translationId={86}>Transaction Settings</TranslatedText>
+              <TranslatedText translationId={190}>Transaction Settings</TranslatedText>
             </Text>
             <TransactionSettings
               rawSlippage={userSlippageTolerance}
@@ -203,13 +203,13 @@ export default function SettingsTab() {
               setDeadline={setDeadline}
             />
             <Text fontWeight={600} fontSize={14}>
-              <TranslatedText translationId={94}>Interface Settings</TranslatedText>
+              <TranslatedText translationId={192}>Interface Settings</TranslatedText>
             </Text>
 
             <RowBetween>
               <RowFixed>
                 <TYPE.black fontWeight={400} fontSize={14} color={theme.colors.text2}>
-                  <TranslatedText translationId={96}>Toggle Audio Mode</TranslatedText>
+                  <TranslatedText translationId={194}>Toggle Audio Mode</TranslatedText>
                 </TYPE.black>
               </RowFixed>
               <Toggle isActive={audioMode} toggle={toggleSetAudioMode} />

@@ -96,7 +96,7 @@ export default function PoolFinder() {
             </Row>
           ) : (
             <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
-              <TranslatedText translationId={82}>Select a Token</TranslatedText>
+              <TranslatedText translationId={186}>Select a Token</TranslatedText>
             </Text>
           )}
         </ButtonDropdownLight>
@@ -120,7 +120,7 @@ export default function PoolFinder() {
             </Row>
           ) : (
             <Text fontWeight={500} fontSize={20} marginLeft={'12px'}>
-              <TranslatedText translationId={82}>Select a Token</TranslatedText>
+              <TranslatedText translationId={186}>Select a Token</TranslatedText>
             </Text>
           )}
         </ButtonDropdownLight>
@@ -145,7 +145,7 @@ export default function PoolFinder() {
                   <Text textAlign="center">You don’t have liquidity in this pool yet.</Text>
                   <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                     <Text textAlign="center">
-                      <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
+                      <TranslatedText translationId={202}>Add Liquidity</TranslatedText>
                     </Text>
                   </StyledInternalLink>
                 </AutoColumn>
@@ -164,7 +164,7 @@ export default function PoolFinder() {
             <LightCard padding="45px 10px">
               <AutoColumn gap="sm" justify="center">
                 <Text textAlign="center" fontWeight={500}>
-                  <TranslatedText translationId={136}>Invalid pair.</TranslatedText>
+                  <TranslatedText translationId={208}>Invalid pair.</TranslatedText>
                 </Text>
               </AutoColumn>
             </LightCard>

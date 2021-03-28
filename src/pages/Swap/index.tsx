@@ -331,7 +331,7 @@ export default function Swap() {
               label={
                 independentField === Field.OUTPUT && !showWrap && trade
                   ? 'From (estimated)'
-                  : TranslateString(76, 'From')
+                  : TranslateString(222, 'From')
               }
               value={formattedAmounts[Field.INPUT]}
               showMaxButton={!atMaxAmountInput}
@@ -367,7 +367,7 @@ export default function Swap() {
               value={formattedAmounts[Field.OUTPUT]}
               onUserInput={handleTypeOutput}
               label={
-                independentField === Field.INPUT && !showWrap && trade ? 'To (estimated)' : TranslateString(80, 'To')
+                independentField === Field.INPUT && !showWrap && trade ? 'To (estimated)' : TranslateString(224, 'To')
               }
               showMaxButton={false}
               currency={currencies[Field.OUTPUT]}
