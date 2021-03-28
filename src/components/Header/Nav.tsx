@@ -9,7 +9,7 @@ const Nav: React.FC = () => {
         <TranslatedText translationId={112}>Farm</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://app.pippi.finance/staking">
-        <TranslatedText translationId={113}>Staking</TranslatedText>
+        <TranslatedText translationId={114}>Staking</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://app.pippi.finance/syrup">
         <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
