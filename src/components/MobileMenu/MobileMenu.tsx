@@ -51,20 +51,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({onDismiss, visible}) => {
             </Cn>
             <Cn>
               <StyledAbsoluteLink
+                href="https://app.pippi.finance/airdrop"
+                target="_blank"
+              >
+                <TranslatedText translationId={230}>airDrop</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink
                 href="https://docs.pippi.finance"
                 target="_blank"
               >
                 <TranslatedText translationId={120}>Docs</TranslatedText>
               </StyledAbsoluteLink>
             </Cn>
-              {/* <Cn>
-                <StyledAbsoluteLink
-                  href="https://ido.pippi.finance"
-                  target="_blank"
-                >
-                  IDO
-                </StyledAbsoluteLink>
-              </Cn> */}
+            
           </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
