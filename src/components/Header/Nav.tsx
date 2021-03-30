@@ -11,7 +11,7 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://app.pippi.finance/staking">
         <TranslatedText translationId={114}>Staking</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://app.pippi.finance/syrup">
+      <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
         <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
       </StyledAbsoluteLink>
       <StyledAbsoluteLink href="https://swap.pippi.finance/" className="active">

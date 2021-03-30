@@ -36,7 +36,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({onDismiss, visible}) => {
             </Cn>
             <Cn>
               <StyledAbsoluteLink
-                href="https://app.pippi.finance/syrup"
+                href="https://app.pippi.finance/xpipi"
               >
                   <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
               </StyledAbsoluteLink>
