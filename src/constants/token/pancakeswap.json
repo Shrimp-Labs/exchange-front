@@ -114,6 +114,13 @@
       "address": "0x52ee54dd7a68e9cf131b0a57fd6015c74d7140e2",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "LHB",
+      "symbol": "LHB",
+      "address": "0x8f67854497218043e1f72908ffe38d0ed7f24721",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
