@@ -107,6 +107,13 @@
       "address": "0x9ef1918a9bee17054b35108bd3e2665e2af1bb1b",
       "chainId": 128,
       "decimals": 4
+    },
+    {
+      "name": "PTD",
+      "symbol": "PTD",
+      "address": "0x52ee54dd7a68e9cf131b0a57fd6015c74d7140e2",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
