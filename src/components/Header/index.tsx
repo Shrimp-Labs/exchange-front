@@ -1,12 +1,12 @@
 import { ChainId } from '@pancakeswap-libs/sdk'
 import React, {useCallback, useState} from 'react'
 import { isMobile } from 'react-device-detect'
-import { Text } from 'rebass'
+// import { Text } from 'rebass'
 
 import styled from 'styled-components'
 
 import { useActiveWeb3React } from '../../hooks'
-import { useETHBalances } from '../../state/wallet/hooks'
+// import { useETHBalances } from '../../state/wallet/hooks'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
@@ -65,7 +65,7 @@ const Title = styled.a`
   display: flex;
   align-items: center;
   pointer-events: auto;
-
+  text-decoration: none;
   :hover {
     cursor: pointer;
   }
@@ -108,11 +108,11 @@ const HeaderControls = styled.div`
   `};
 `
 
-const BalanceText = styled(Text)`
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    display: none;
-  `};
-`
+// const BalanceText = styled(Text)`
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//     display: none;
+//   `};
+// `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.MAINNET]: null,
@@ -124,14 +124,18 @@ const StyledTopBarInner = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: ${(props) => props.theme.siteWidth};
+  min-width: ${(props) => props.theme.siteWidth};
   width: 100%;
   padding: 0 20px;
+  @media (max-width: 850px) {
+    min-width: auto;
+  }
 `
 
 export default function Header() {
   const isDark = useIsDarkMode()
   const { account, chainId } = useActiveWeb3React()
-  const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
+  // const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [mobileMenu, setMobileMenu] = useState(false)
   const handlePresentMobileMenu = useCallback(() => {
     setMobileMenu(true)
@@ -168,11 +172,11 @@ export default function Header() {
                 {!isMobile && chainId && NETWORK_LABELS[chainId] && <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>}
               </TestnetWrapper>
               <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
-                {account && userEthBalance ? (
+                {/* {account && userEthBalance ? (
                   <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
                     {userEthBalance?.toSignificant(4)} HT
                   </BalanceText>
-                ) : null}
+                ) : null} */}
                 <Web3Status />
               </AccountElement>
             </HeaderElement>

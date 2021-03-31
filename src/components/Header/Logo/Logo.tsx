@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import logoDark from '../../../assets/images/logo-pipi-dark.png'
 import logoLight from '../../../assets/images/logo-pipi-light.png'
@@ -9,14 +8,14 @@ interface LogoProps {
 }
 const Logo: React.FC<LogoProps> = ({ isDark }) => {
   return (
-    <StyledLogo to="/">
+    <StyledLogo>
       <img src={isDark ? logoDark : logoLight} alt="logo" />
       <StyledText>Pippi Shrimp</StyledText>
     </StyledLogo>
   )
 }
 
-const StyledLogo = styled(Link)`
+const StyledLogo = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;

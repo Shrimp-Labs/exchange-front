@@ -135,6 +135,13 @@
       "address": "0xc0ecc17c6c87b32b2a86d9f4a783974cb1e6507c",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "ONE",
+      "symbol": "ONE",
+      "address": "0x04baf95fd4c52fd09a56d840baee0ab8d7357bf0",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
