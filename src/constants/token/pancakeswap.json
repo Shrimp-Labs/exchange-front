@@ -127,7 +127,7 @@
       "symbol": "CAN",
       "address": "0x1e6395E6B059fc97a4ddA925b6c5ebf19E05c69f",
       "chainId": 128,
-      "decimals": 8
+      "decimals": 18
     },
     {
       "name": "JT",
