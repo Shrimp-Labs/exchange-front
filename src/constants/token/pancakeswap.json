@@ -121,6 +121,20 @@
       "address": "0x8f67854497218043e1f72908ffe38d0ed7f24721",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "CAN",
+      "symbol": "CAN",
+      "address": "0x1e6395E6B059fc97a4ddA925b6c5ebf19E05c69f",
+      "chainId": 128,
+      "decimals": 8
+    },
+    {
+      "name": "JT",
+      "symbol": "JT",
+      "address": "0xc0ecc17c6c87b32b2a86d9f4a783974cb1e6507c",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
