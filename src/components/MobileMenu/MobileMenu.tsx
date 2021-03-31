@@ -1,72 +1,57 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import TranslatedText from '../TranslatedText'
 
 interface MobileMenuProps {
-    onDismiss: () => void
-    visible?: boolean
+  onDismiss: () => void
+  visible?: boolean
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({onDismiss, visible}) => {
+// eslint-disable-next-line react/prop-types
+const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
   if (visible) {
     return (
       <StyledMobileMenuWrapper>
-        <StyledBackdrop onClick={onDismiss}/>
-          <StyledMobileMenu>
-            <Cn>
-              <StyledAbsoluteLink href="https://app.pippi.finance" >
-                <TranslatedText translationId={130}>Home</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            <Cn>
-              <StyledAbsoluteLink
-                href="https://app.pippi.finance/farms"
-              >
-                  <TranslatedText translationId={112}>Farm</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            <Cn>
-              <StyledAbsoluteLink
-                href="https://app.pippi.finance/staking"
-              >
-                <TranslatedText translationId={114}>Staking</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            <Cn>
-              <StyledAbsoluteLink
-                href="https://app.pippi.finance/xpipi"
-              >
-                  <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            <Cn>
-              <StyledLink
-                className="active"
-                to="/"
-              >
-                <TranslatedText translationId={116}>Exchange</TranslatedText>
-              </StyledLink>
-            </Cn>
-            <Cn>
-              <StyledAbsoluteLink
-                href="https://app.pippi.finance/airdrop"
-                target="_blank"
-              >
-                <TranslatedText translationId={230}>airDrop</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            <Cn>
-              <StyledAbsoluteLink
-                href="https://docs.pippi.finance"
-                target="_blank"
-              >
-                <TranslatedText translationId={120}>Docs</TranslatedText>
-              </StyledAbsoluteLink>
-            </Cn>
-            
-          </StyledMobileMenu>
+        <StyledBackdrop onClick={onDismiss} />
+        <StyledMobileMenu>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance">
+              <TranslatedText translationId={130}>Home</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/farms">
+              <TranslatedText translationId={112}>Farm</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/staking">
+              <TranslatedText translationId={114}>Staking</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
+              <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledLink className="active" to="/">
+              <TranslatedText translationId={116}>Exchange</TranslatedText>
+            </StyledLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/airdrop">
+              <TranslatedText translationId={230}>airDrop</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/nft">
+              <TranslatedText translationId={258}>NFT</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+        </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
   }

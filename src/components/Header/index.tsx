@@ -151,10 +151,8 @@ export default function Header() {
           <Logo isDark={isDark} />
           </Title>
         </HeaderElement>
-
-        
-        {
-          isMobile && <HeaderControlsMobile>
+        {isMobile && (
+          <HeaderControlsMobile>
             <Menu onClick={handlePresentMobileMenu}>
               <img src={menuIcon} alt="menu" />
             </Menu>
@@ -162,14 +160,16 @@ export default function Header() {
             <ThemeSwitch />
             <Settings />
           </HeaderControlsMobile>
-        }
-        {
-          !isMobile && <HeaderControls>
-            <Nav />
+        )}
+        {!isMobile && <Nav />}
+        {!isMobile && (
+          <HeaderControls>
             <ThemeSwitch />
             <HeaderElement>
               <TestnetWrapper>
-                {!isMobile && chainId && NETWORK_LABELS[chainId] && <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>}
+                {!isMobile && chainId && NETWORK_LABELS[chainId] && (
+                  <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>
+                )}
               </TestnetWrapper>
               <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
                 {/* {account && userEthBalance ? (
@@ -182,7 +182,7 @@ export default function Header() {
             </HeaderElement>
             <Settings />
           </HeaderControls>
-        }
+        )}
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
       </StyledTopBarInner>
     </HeaderFrame>

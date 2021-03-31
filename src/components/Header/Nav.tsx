@@ -17,8 +17,8 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://swap.pippi.finance/" className="active">
         <TranslatedText translationId={116}>Exchange</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://docs.pippi.finance" target="_blank">
-        <TranslatedText translationId={115}>Docs</TranslatedText>
+      <StyledAbsoluteLink href="https://app.pippi.finance/nft">
+        <TranslatedText translationId={258}>NFT</TranslatedText>
       </StyledAbsoluteLink>
     </StyledNav>
   )
@@ -27,9 +27,8 @@ const Nav: React.FC = () => {
 const StyledNav = styled.nav`
   align-items: center;
   display: flex;
-  font-size: 20px;
-  line-height: 45px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
 `
 
 const StyledAbsoluteLink = styled.a`
