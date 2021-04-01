@@ -11,7 +11,7 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-export const HUSD = new Token(ChainId.MAINNET, '0x0298c2b32eae4da002a15f36fdf7615bea3da047', 18, 'HUSD', 'Heco-Peg HUSD Token')
+export const HUSD = new Token(ChainId.MAINNET, '0x0298c2b32eae4da002a15f36fdf7615bea3da047', 8, 'HUSD', 'Heco-Peg HUSD Token')
 export const USDT = new Token(ChainId.MAINNET, '0xa71edc38d189767582c38a3145b5873052c3e47a', 18, 'USDT', 'Heco-Peg USDTHECO Token')
 export const ETH = new Token(ChainId.MAINNET, '0x64ff637fb478863b7468bc97d30a5bf3a428a1fd', 18, 'ETH', 'Heco-Peg ETH Token')
 
