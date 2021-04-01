@@ -142,6 +142,20 @@
       "address": "0x04baf95fd4c52fd09a56d840baee0ab8d7357bf0",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "PWT",
+      "symbol": "PWT",
+      "address": "0x9FFA142B9c7726E819bb637d4cb70F02224B2185",
+      "chainId": 128,
+      "decimals": 18
+    },
+    {
+      "name": "RDTK",
+      "symbol": "RDTK",
+      "address": "0x1E0aBaF926013fAdC7da19aD41665bb753639A94",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
