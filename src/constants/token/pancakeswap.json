@@ -156,6 +156,13 @@
       "address": "0x1E0aBaF926013fAdC7da19aD41665bb753639A94",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "FEI",
+      "symbol": "FEI",
+      "address": "0x485cdbff08a4f91a16689e73893a11ae8b76af6d",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
