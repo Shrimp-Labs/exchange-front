@@ -8,9 +8,9 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // backend: {
-    //   loadPath: `./locales/{{lng}}.json`
-    // },
+    backend: {
+      loadPath: `./locales/{{lng}}.json`
+    },
     react: {
       useSuspense: true
     },
