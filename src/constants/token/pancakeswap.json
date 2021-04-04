@@ -163,6 +163,13 @@
       "address": "0x485cdbff08a4f91a16689e73893a11ae8b76af6d",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "TRIBE",
+      "symbol": "TRIBE",
+      "address": "0x38999fa3a7320bd2c3609bf0f8cb5cd4c11d3fe1",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
