@@ -165,6 +165,7 @@ export default function Header() {
         {!isMobile && (
           <HeaderControls>
             <ThemeSwitch />
+            <LngSwith />
             <HeaderElement>
               <TestnetWrapper>
                 {!isMobile && chainId && NETWORK_LABELS[chainId] && (
