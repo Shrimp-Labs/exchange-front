@@ -1,18 +1,18 @@
 
-# Pancake Swap Listing Tutorial
+# Pippi Swap Listing Tutorial
 
-So, you’ve come, you’ve tasted our secret sauce and now you’re wanting to be a part of the PancakeSwap kitchen.
+So, you’ve come, you’ve tasted our secret sauce and now you’re wanting to be a part of the Pippi kitchen.
 
-If you’re interested in listing on the PancakeSwap exchange, follow this guide closely.
+If you’re interested in listing on the Pippi swap, follow this guide closely.
 
 ## Adding Tokens
 
-If you are seeking to be added to the [Pancakeswap.finance](https://pancakeswap.finance/) exchange, you should:
+If you are seeking to be added to the [swap.pippi.finance](https://swap.pippi.finance/) exchange, you should:
 
-1. Fork the [PancakeSwap Interface](https://github.com/pancakeswap/pancake-swap-interface/) repository on GitHub
+1. Fork the [Pippi Exchange Interface](https://github.com/Shrimp-Labs/exchange-front/) repository on GitHub
 2. Upload your **logo** in a 96*96px transparent .png format to the `/public/images/coins` directory. Please name the logo as your symbol in uppercase.
 
-3. Add your **token information** using the example format provided below to `pancakeswap.json` in the `/src/constants/token/` directory.
+3. Add your **token information** using the example format provided below to `pippiswap.json` in the `/src/constants/token/` directory.
 
 4. Create a **pull request** detailing information about your project, website address, and contact details (telegram)
 
@@ -20,22 +20,22 @@ If you are seeking to be added to the [Pancakeswap.finance](https://pancakeswap.
 
 **Logo format:**
 
-`SYRUP.png`
+`PIPI.png`
 
 **Token information format:**
 
 ```json
 {
-"name": "Syrup Token",
-"symbol": "SYRUP",
-"address": "0x009cF7bC57584b7998236eff51b98A168DceA9B0",
-"chainId": 56,
+"name": "PIPI Token",
+"symbol": "PIPI",
+"address": "0xaaae746b5e55d14398879312660e9fde07fbc1dc",
+"chainId": 128,
 "decimals": 18,
-"logoURI": "/images/coins/SYRUP.png"
+"logoURI": "/images/coins/PIPI.png"
 },
 ```
 
-If you're not comfortable with GitHub pull requests, please open a [new issue](https://github.com/pancakeswap/pancake-swap-interface/issues/new) requesting to be added.
+If you're not comfortable with GitHub pull requests, please open a [new issue](https://github.com/Shrimp-Labs/exchange-front/issues) requesting to be added.
 
 ## Reviews
 
