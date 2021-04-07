@@ -184,6 +184,13 @@
       "address": "0x0f1ed0e22a74a90d92746a1794394da117e4de40",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "MDIS",
+      "symbol": "MDIS",
+      "address": "0x7929142ad99b662207288d42ec0abacd95041317",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
