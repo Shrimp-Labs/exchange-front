@@ -13,7 +13,7 @@ import Settings from '../Settings'
 // import LanguageSelectMenu from './LanguageSelectMenu'
 import LngSwith from './LngSwith'
 import Nav from './Nav'
-import ThemeSwitch from './ThemeSwitch'
+// import ThemeSwitch from './ThemeSwitch'
 import { useIsDarkMode } from '../../state/user/hooks'
 
 import Web3Status from '../Web3Status'
@@ -56,7 +56,7 @@ const HeaderElement = styled.div`
 
 const HeaderControlsMobile = styled.div`
   display: flex;
-  width: 220px;
+  width: 80px;
   align-items: center;
   justify-content: space-between;
 `
@@ -156,15 +156,15 @@ export default function Header() {
             <Menu onClick={handlePresentMobileMenu}>
               <img src={menuIcon} alt="menu" />
             </Menu>
-            <LngSwith />
-            <ThemeSwitch />
+            {/* <LngSwith /> */}
+            {/* <ThemeSwitch /> */}
             <Settings />
           </HeaderControlsMobile>
         )}
         {!isMobile && <Nav />}
         {!isMobile && (
           <HeaderControls>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
             <LngSwith />
             <HeaderElement>
               <TestnetWrapper>

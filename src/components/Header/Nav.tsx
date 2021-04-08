@@ -27,7 +27,7 @@ const Nav: React.FC = () => {
 const StyledNav = styled.nav`
   align-items: center;
   display: flex;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
 `
 
@@ -38,7 +38,7 @@ const StyledAbsoluteLink = styled.a`
   margin-right: 16px;
   text-decoration: none;
   &:hover {
-    color: ${(props) => props.theme.colors.red3};
+    color: ${(props) => props.theme.colors.primary};
     &::after {
       position: absolute;
       content: '';
@@ -46,11 +46,11 @@ const StyledAbsoluteLink = styled.a`
       bottom: -5px;
       width: 100%;
       height: 2px;
-      background: ${(props) => props.theme.colors.red3};
+      background: ${props => props.theme.colors.primary};
     }
   }
   &.active {
-    color: ${(props) => props.theme.colors.red3};
+    color: ${props => props.theme.colors.primary};
     &::after {
       position: absolute;
       content: '';
@@ -58,7 +58,7 @@ const StyledAbsoluteLink = styled.a`
       bottom: -5px;
       width: 100%;
       height: 2px;
-      background: ${(props) => props.theme.colors.red3};
+      background: ${props => props.theme.colors.primary};
     }
   }
   @media (max-width: 400px) {

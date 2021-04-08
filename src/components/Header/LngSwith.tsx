@@ -4,7 +4,10 @@ import { LanguageContext } from '../../hooks/LanguageContext'
 import TranslatedText from '../TranslatedText'
 import { ZHCN, EN } from '../../constants/localisation/languageCodes'
 
-const AccountLink: React.FC = (props) => {
+interface MobileMenuProps {
+  className?: string
+}
+const AccountLink: React.FC<MobileMenuProps> = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   console.log(selectedLanguage)
   return (
@@ -24,18 +27,23 @@ const StyledButton = styled.div`
   width: 70px;
   height: 36px;
   line-height: 36px;
-  background: ${(props) => props.theme.colors.primary1};
-  color: ${(props) => props.theme.colors.white};
+  margin-right: 24px;
+  background: #E1E1E1;
+  color: ${props => props.theme.colors.normal};
+  border: 1px solid #E1E1E1;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+  align-items: center;
+  font-size: 14px;
 `
 const Button = styled.div`
   flex: 1;
   text-align: center;
+  border-radius: 8px;
+  background: ${props => props.theme.colors.white};
   &.unactive {
-    color: ${(props) => props.theme.colors.black};
-    background: #f6f6f6;
+    background: #E1E1E1;
   }
 `
 

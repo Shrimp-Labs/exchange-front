@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 
 import { NavLink } from 'react-router-dom'
 import TranslatedText from '../TranslatedText'
+import LngSwith from '../Header/LngSwith'
 
 interface MobileMenuProps {
   onDismiss: () => void
@@ -16,6 +17,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
       <StyledMobileMenuWrapper>
         <StyledBackdrop onClick={onDismiss} />
         <StyledMobileMenu>
+          <Bg></Bg>
           <Cn>
             <StyledAbsoluteLink href="https://app.pippi.finance">
               <TranslatedText translationId={130}>Home</TranslatedText>
@@ -51,6 +53,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
               <TranslatedText translationId={258}>NFT</TranslatedText>
             </StyledAbsoluteLink>
           </Cn>
+          <Bottom>
+            <LngSwith className="mobile-lng-swith"></LngSwith>
+          </Bottom>
         </StyledMobileMenu>
       </StyledMobileMenuWrapper>
     )
@@ -58,6 +63,33 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
   return null
 }
 
+const Bottom = styled.div`
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  width: 80%;
+  bottom: 40px;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  .mobile-lng-swith {
+    width:100%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+  }
+`
+
+const Bg = styled.div`
+  position: absolute;
+  left: 0;
+  width: 70%;
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(${require('../../assets/images/mobile-menu-bg.png')});
+  background-size: contain;
+`
 const StyledBackdrop = styled.div`
   position: absolute;
   top: 0px;
@@ -94,6 +126,7 @@ const StyledMobileMenu = styled.div`
   right: 100%;
   bottom: 0;
   width: calc(100% - 130px);
+  padding-top: 40px;
 `
 
 const StyledLink = styled(NavLink)`

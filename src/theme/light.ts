@@ -5,8 +5,8 @@ export default {
   colors: {
     ...base.colors,
     shadow1: '#2F80ED',
-    text1: '#452A7A',
-    text2: '#7645D9',
+    text1: '#443e3e',
+    text2: '#FFA4BD',
     text3: '#888D9B',
     text4: '#C3C5CB',
 
@@ -21,7 +21,7 @@ export default {
     advancedBG: 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: '#6E84FB',
+    primary1: '#FFA4BD',
     primary4: '#bfe0e2',
     primary5: '#daedef',
 
@@ -37,11 +37,11 @@ export default {
     cardBg3: '#ECEFFF',
     cardBg4: '#F6F6F6',
     cardBg5: '#3D3D3D',
-    primary: '#EE9715',
+    primary: '#FFA4BD',
     secondary: '#6E84FB',
     normal: '#000',
     inputBg: '#FFF9F0',
     strokColor: '#E1E1E1',
-    navBg: '#C4C4C4',
+    navBg: '#C4C4C4'
   }
 }
