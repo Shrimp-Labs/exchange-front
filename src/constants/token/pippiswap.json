@@ -191,6 +191,13 @@
       "address": "0x7929142ad99b662207288d42ec0abacd95041317",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "ODT",
+      "symbol": "ODT",
+      "address": "0x991075cc14a91fe001528943b3eb6df31cff431f",
+      "chainId": 128,
+      "decimals": 18
     }
   ]
 }
