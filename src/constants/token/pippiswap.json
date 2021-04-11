@@ -198,6 +198,13 @@
       "address": "0x991075cc14a91fe001528943b3eb6df31cff431f",
       "chainId": 128,
       "decimals": 18
+    },
+    {
+      "name": "HOO",
+      "symbol": "HOO",
+      "address": "0xe1d1f66215998786110ba0102ef558b22224c016",
+      "chainId": 128,
+      "decimals": 8
     }
   ]
 }
