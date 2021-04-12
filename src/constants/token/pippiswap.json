@@ -205,6 +205,13 @@
       "address": "0xe1d1f66215998786110ba0102ef558b22224c016",
       "chainId": 128,
       "decimals": 8
+    },
+    {
+      "name": "KusamaToken",
+      "symbol": "KSM",
+      "address": "0x5242bf8f601ae0bbe12aa2a3572bd4029adc2b2b",
+      "chainId": 128,
+      "decimals": 12
     }
   ]
 }
