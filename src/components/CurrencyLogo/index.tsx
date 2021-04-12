@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@pancakeswap-libs/sdk'
+import { ETHER, Token } from '@pancakeswap-libs/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -28,7 +28,7 @@ export default function CurrencyLogo({
   size = '24px',
   style
 }: {
-  currency?: Currency
+  currency?: any
   size?: string
   style?: React.CSSProperties
 }) {
@@ -50,11 +50,11 @@ export default function CurrencyLogo({
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }
-
-  return (currency as any)?.symbol ? (
+  console.log(currency, 'currency')
+  return (currency as any)?.address ? (
     <CoinLogo
       size={size}
-      srcs={[`/images/coins/${currency?.symbol?.replace('/', '') ?? 'token'}.png`]}
+      srcs={[`/images/coins/${currency?.address?.replace('/', '') ?? 'token'}.png`]}
       alt={`${currency?.symbol ?? 'token'} logo`}
       style={style}
     />
