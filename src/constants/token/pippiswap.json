@@ -15,203 +15,232 @@
       "symbol": "ETH",
       "address": "0x64ff637fb478863b7468bc97d30a5bf3a428a1fd",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/ETH.png"
     },
     {
       "name": "Pippi Shrimp Token",
       "symbol": "PIPI",
       "address": "0xaaae746b5e55d14398879312660e9fde07fbc1dc",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/PIPI.png"
     },
     {
       "name": "MDX Token",
       "symbol": "MDX",
       "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/MDX.png"
     },
     {
       "name": "Heco-Peg HUSD Token",
       "symbol": "HUSD",
       "address": "0x0298c2b32eae4da002a15f36fdf7615bea3da047",
       "chainId": 128,
-      "decimals": 8
+      "decimals": 8,
+      "logoURL": "https://swap.pippi.finance/images/coins/HUSD.png"
     },
     {
       "name": "Heco-Peg HBTC Token",
       "symbol": "HBTC",
       "address": "0x66a79d23e58475d2738179ca52cd0b41d73f0bea",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HBTC.png"
     },
     {
       "name": "Heco-Peg USDTHECO Token",
       "symbol": "USDT",
       "address": "0xa71edc38d189767582c38a3145b5873052c3e47a",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/USDT.png"
     },
     {
       "name": "Heco-Peg HDOT Token",
       "symbol": "HDOT",
       "address": "0xa2c49cee16a5e5bdefde931107dc1fae9f7773e3",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HDOT.png"
     },
     {
       "name": "Heco-Peg HLTC Token",
       "symbol": "HLTC",
       "address": "0xecb56cf772b5c9a6907fb7d32387da2fcbfb63b4",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HLTC.png"
     },
     {
       "name": "Heco-Peg HBCH Token",
       "symbol": "HBCH",
       "address": "0xef3cebd77e0c52cb6f60875d9306397b5caca375",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HBCH.png"
     },
     {
       "name": "Heco-Peg HFIL Token",
       "symbol": "HFIL",
       "address": "0xae3a768f9ab104c69a7cd6041fe16ffa235d1810",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HFIL.png"
     },
     {
       "name": "Heco-Peg HPT Token",
       "symbol": "HPT",
       "address": "0xe499ef4616993730ced0f31fa2703b92b50bb536",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HPT.png"
     },
     {
       "name": "Heco-Peg HXTZ Token",
       "symbol": "HXTZ",
       "address": "0x45e97dad828ad735af1df0473fc2735f0fd5330c",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/HXTZ.png"
     },
     {
       "name": "BEE",
       "symbol": "BEE",
       "address": "0xb1f80844a1b84c61ab80cafd88b1f8c09f9342e1",
       "chainId": 128,
-      "decimals": 8
+      "decimals": 8,
+      "logoURL": "https://swap.pippi.finance/images/coins/BEE.png"
     },
     {
       "name": "TPT",
       "symbol": "TPT",
       "address": "0x9ef1918a9bee17054b35108bd3e2665e2af1bb1b",
       "chainId": 128,
-      "decimals": 4
+      "decimals": 4,
+      "logoURL": "https://swap.pippi.finance/images/coins/TPT.png"
     },
     {
       "name": "PTD",
       "symbol": "PTD",
       "address": "0x52ee54dd7a68e9cf131b0a57fd6015c74d7140e2",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/PTD.png"
     },
     {
       "name": "LHB",
       "symbol": "LHB",
       "address": "0x8f67854497218043e1f72908ffe38d0ed7f24721",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/LHB.png"
     },
     {
       "name": "CAN",
       "symbol": "CAN",
       "address": "0x1e6395E6B059fc97a4ddA925b6c5ebf19E05c69f",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/CAN.png"
     },
     {
       "name": "JT",
       "symbol": "JT",
       "address": "0xc0ecc17c6c87b32b2a86d9f4a783974cb1e6507c",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/JT.png"
     },
     {
       "name": "ONE",
       "symbol": "ONE",
       "address": "0x04baf95fd4c52fd09a56d840baee0ab8d7357bf0",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/ONE.png"
     },
     {
       "name": "PWT",
       "symbol": "PWT",
       "address": "0x9FFA142B9c7726E819bb637d4cb70F02224B2185",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/PWT.png"
     },
     {
       "name": "RDTK",
       "symbol": "RDTK",
       "address": "0x1E0aBaF926013fAdC7da19aD41665bb753639A94",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/RDTK.png"
     },
     {
       "name": "FEI",
       "symbol": "FEI",
       "address": "0x485cdbff08a4f91a16689e73893a11ae8b76af6d",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/FEI.png"
     },
     {
       "name": "TRIBE",
       "symbol": "TRIBE",
       "address": "0x38999fa3a7320bd2c3609bf0f8cb5cd4c11d3fe1",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/TRIBE.png"
     },
     {
       "name": "SWF",
       "symbol": "SWF",
       "address": "0x0302A9778A61ABd0c9cc1A8FB8f9246f3fBCd18F",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/SWF.png"
     },
     {
       "name": "GDT",
       "symbol": "GDT",
       "address": "0x0f1ed0e22a74a90d92746a1794394da117e4de40",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/GDT.png"
     },
     {
       "name": "MDIS",
       "symbol": "MDIS",
       "address": "0x7929142ad99b662207288d42ec0abacd95041317",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/MDIS.png"
     },
     {
       "name": "ODT",
       "symbol": "ODT",
       "address": "0x991075cc14a91fe001528943b3eb6df31cff431f",
       "chainId": 128,
-      "decimals": 18
+      "decimals": 18,
+      "logoURL": "https://swap.pippi.finance/images/coins/ODT.png"
     },
     {
       "name": "HOO",
       "symbol": "HOO",
       "address": "0xe1d1f66215998786110ba0102ef558b22224c016",
       "chainId": 128,
-      "decimals": 8
+      "decimals": 8,
+      "logoURL": "https://swap.pippi.finance/images/coins/HOO.png"
     },
     {
       "name": "KusamaToken",
       "symbol": "KSM",
       "address": "0x5242bf8f601ae0bbe12aa2a3572bd4029adc2b2b",
       "chainId": 128,
-      "decimals": 12
+      "decimals": 12,
+      "logoURL": "https://swap.pippi.finance/images/coins/KSM.png"
     }
   ]
 }
