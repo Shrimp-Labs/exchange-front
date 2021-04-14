@@ -285,8 +285,7 @@ export default function WalletModal({
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
               <h5>
-                Please connect to the appropriate Binance Smart Chain network.
-                <a href="https://docs.binance.org/smart-chain/wallet/metamask.html">How?</a>
+                Please connect to heco Chain network.
               </h5>
             ) : (
               'Error connecting. Try refreshing the page.'
