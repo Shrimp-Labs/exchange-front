@@ -241,6 +241,14 @@
       "chainId": 128,
       "decimals": 12,
       "logoURI": "https://swap.pippi.finance/images/coins/0x5242bf8f601ae0bbe12aa2a3572bd4029adc2b2b.png"
+    },
+    {
+      "name": "xODT",
+      "symbol": "xODT",
+      "address": "0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1",
+      "chainId": 128,
+      "decimals": 12,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1.png"
     }
   ]
 }
