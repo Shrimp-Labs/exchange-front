@@ -253,10 +253,10 @@
     {
       "name": "dogecoin",
       "symbol": "dog",
-      "address": "0xeee3f65f911cd844db633dff502742dccc2390d1",
+      "address": "0x40280e26a572745b1152a54d1d44f365daa51618",
       "chainId": 128,
       "decimals": 8,
-      "logoURI": "https://swap.pippi.finance/images/coins/0xeee3f65f911cd844db633dff502742dccc2390d1.png"
+      "logoURI": "https://swap.pippi.finance/images/coins/0x40280e26a572745b1152a54d1d44f365daa51618.png"
     },
     {
       "name": "Shiba",
