@@ -247,8 +247,24 @@
       "symbol": "xODT",
       "address": "0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1",
       "chainId": 128,
-      "decimals": 12,
+      "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1.png"
+    },
+    {
+      "name": "dogecoin",
+      "symbol": "dog",
+      "address": "0xeee3f65f911cd844db633dff502742dccc2390d1",
+      "chainId": 128,
+      "decimals": 8,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xeee3f65f911cd844db633dff502742dccc2390d1.png"
+    },
+    {
+      "name": "Shiba",
+      "symbol": "SHIB",
+      "address": "0xe75eeaccbf4f08937ae50ca56212c03a49261e39",
+      "chainId": 128,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xe75eeaccbf4f08937ae50ca56212c03a49261e39.png"
     }
   ]
 }
