@@ -252,7 +252,7 @@
     },
     {
       "name": "dogecoin",
-      "symbol": "dog",
+      "symbol": "doge",
       "address": "0x40280e26a572745b1152a54d1d44f365daa51618",
       "chainId": 128,
       "decimals": 8,
