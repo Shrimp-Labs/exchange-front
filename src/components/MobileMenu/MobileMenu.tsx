@@ -88,7 +88,7 @@ const Bottom = styled.div`
   left: 0;
   z-index: 1000;
   width: 80%;
-  bottom: 40px;
+  bottom: 30px;
   right: 0;
   margin: auto;
   text-align: center;
@@ -153,7 +153,7 @@ const StyledMobileMenu = styled.div`
 const StyledLink = styled(NavLink)`
   position: relative;
   box-sizing: border-box;
-  color: ${(props) => props.theme.colors.normal};
+  color: rgb(127,134,143);
   font-size: 16px;
   font-weight: 700;
   text-align: left;
@@ -164,7 +164,7 @@ const StyledLink = styled(NavLink)`
 `
 const StyledAbsoluteLink = styled.a`
   position: relative;
-  color: ${(props) => props.theme.colors.normal};
+  color: rgb(127,134,143);
   font-weight: 700;
   text-decoration: none;
   &:hover {
@@ -180,9 +180,8 @@ const Cn = styled.div`
 const Price = styled.div`
   width: 100%;
   padding-top: 22px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   color: ${props => props.theme.colors.primary};
-  margin-right: 24px;
   text-align: left;
   font-weight: bolder;
 `
