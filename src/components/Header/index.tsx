@@ -1,25 +1,18 @@
-import { ChainId } from '@pancakeswap-libs/sdk'
 import React, {useCallback, useState} from 'react'
 import { isMobile } from 'react-device-detect'
 // import { Text } from 'rebass'
 
 import styled from 'styled-components'
-
-import { useActiveWeb3React } from '../../hooks'
-// import { useETHBalances } from '../../state/wallet/hooks'
-
-import { YellowCard } from '../Card'
 import Settings from '../Settings'
-// import LanguageSelectMenu from './LanguageSelectMenu'
-import LngSwith from './LngSwith'
+import useHtPrice from '../../hooks/useHtPrice'
+import LngSwithForWeb from './LngSwithForWeb'
 import Nav from './Nav'
-// import ThemeSwitch from './ThemeSwitch'
 import { useIsDarkMode } from '../../state/user/hooks'
-
-import Web3Status from '../Web3Status'
 import Logo from './Logo'
-import menuIcon from '../../assets/images/menu-light.png'
+import menuIcon from '../../assets/images/menu.png'
 import MobileMenu from '../MobileMenu'
+import AccountButton from './AccountButton'
+import Web3Status from '../Web3Status'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -29,22 +22,24 @@ const HeaderFrame = styled.div`
   width: 100%;
   top: 0;
   position: absolute;
+  background:  ${({ theme }) => theme.colors.bg1}
   z-index: 2;
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    padding: 12px 0 0 0;
     width: calc(100%);
     position: relative;
   `};
 `
 const Menu = styled.div`
   display: none;
-  img {
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display: block;
-    width: 36px;
-  }
-  @media (max-width: 850px) {
-    display: block;
-  }
+    width: 30px;
+    margin-right: 10px;
+    img {
+      width: 100%;
+      display: block;
+    }
+  `};
 `
 const HeaderElement = styled.div`
   display: flex;
@@ -56,7 +51,6 @@ const HeaderElement = styled.div`
 
 const HeaderControlsMobile = styled.div`
   display: flex;
-  width: 80px;
   align-items: center;
   justify-content: space-between;
 `
@@ -71,34 +65,6 @@ const Title = styled.a`
   }
 `
 
-const AccountElement = styled.div<{ active: boolean }>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: ${({ theme, active }) => (!active ? theme.colors.bg1 : theme.colors.bg3)};
-  border-radius: 12px;
-  white-space: nowrap;
-  width: 100%;
-
-  :focus {
-    border: 1px solid blue;
-  }
-`
-
-const TestnetWrapper = styled.div`
-  white-space: nowrap;
-  width: fit-content;
-  margin-left: 10px;
-  pointer-events: auto;
-`
-
-const NetworkCard = styled(YellowCard)`
-  width: fit-content;
-  margin-right: 10px;
-  border-radius: 12px;
-  padding: 8px 12px;
-`
-
 const HeaderControls = styled.div`
   display: flex;
   flex-direction: row;
@@ -108,34 +74,36 @@ const HeaderControls = styled.div`
   `};
 `
 
-// const BalanceText = styled(Text)`
-//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-//     display: none;
-//   `};
-// `
-
-const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
-  [ChainId.MAINNET]: null,
-  [ChainId.TESTNET]: 'testnet'
-}
-
 const StyledTopBarInner = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  max-width: ${(props) => props.theme.siteWidth};
-  min-width: ${(props) => props.theme.siteWidth};
   width: 100%;
-  padding: 0 20px;
+  box-sizing: border-box;
+  padding: 10px 10px;
   @media (max-width: 850px) {
     min-width: auto;
   }
 `
+const StyledAccountButtonWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    .lng-switch, .price {
+      display: none;
+    }
+  `};
+`
+const Price = styled.div`
+  color: ${props => props.theme.colors.primary};
+  margin-right: 24px;
+  font-weight: bolder;
+`
 
 export default function Header() {
   const isDark = useIsDarkMode()
-  const { account, chainId } = useActiveWeb3React()
-  // const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
+  const { pippiPrice } = useHtPrice()
   const [mobileMenu, setMobileMenu] = useState(false)
   const handlePresentMobileMenu = useCallback(() => {
     setMobileMenu(true)
@@ -147,41 +115,31 @@ export default function Header() {
     <HeaderFrame>
       <StyledTopBarInner>
         <HeaderElement>
+          <Menu onClick={handlePresentMobileMenu}>
+            <img src={menuIcon} alt="menu" />
+          </Menu>
           <Title href="https://app.pippi.finance/">
-          <Logo isDark={isDark} />
+            <Logo isDark={isDark} />
           </Title>
+          {!isMobile && <Nav />}
         </HeaderElement>
         {isMobile && (
           <HeaderControlsMobile>
-            <Menu onClick={handlePresentMobileMenu}>
-              <img src={menuIcon} alt="menu" />
-            </Menu>
-            {/* <LngSwith /> */}
-            {/* <ThemeSwitch /> */}
+            <AccountButton />
             <Settings />
           </HeaderControlsMobile>
         )}
-        {!isMobile && <Nav />}
         {!isMobile && (
           <HeaderControls>
-            {/* <ThemeSwitch /> */}
-            <LngSwith />
             <HeaderElement>
-              <TestnetWrapper>
-                {!isMobile && chainId && NETWORK_LABELS[chainId] && (
-                  <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>
-                )}
-              </TestnetWrapper>
-              <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
-                {/* {account && userEthBalance ? (
-                  <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                    {userEthBalance?.toSignificant(4)} HT
-                  </BalanceText>
-                ) : null} */}
+              <StyledAccountButtonWrapper>
                 <Web3Status />
-              </AccountElement>
+                <Price className="number price">1PIPI=${pippiPrice.toFixed(3)}</Price>
+                <AccountButton />
+                <Settings />
+                <LngSwithForWeb />
+              </StyledAccountButtonWrapper>
             </HeaderElement>
-            <Settings />
           </HeaderControls>
         )}
         <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />

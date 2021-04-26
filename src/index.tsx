@@ -10,15 +10,17 @@ import { NetworkContextName } from './constants'
 import './i18n'
 import App from './pages/App'
 import store from './state'
-import { useIsDarkMode } from './state/user/hooks'
+// import { useIsDarkMode } from './state/user/hooks'
 import ApplicationUpdater from './state/application/updater'
 import ListsUpdater from './state/lists/updater'
 import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
-import { lightTheme, darkTheme } from './theme'
+import { lightTheme } from './theme'
 import { FixedGlobalStyle, ThemedGlobalStyle } from './components/Shared'
 import getLibrary from './utils/getLibrary'
+import RefreshProvider from './contexts/RefreshProvider'
+import PriceProvider from './contexts/PriceProvider'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
@@ -57,10 +59,10 @@ function Updaters() {
 }
 
 function ThemeProvider({ children }: { children?: React.ReactNode }) {
-  const isDark = useIsDarkMode()
-  const theme = isDark ? darkTheme : lightTheme
+  // const isDark = useIsDarkMode()
+  // const theme = isDark ? darkTheme : lightTheme
 
-  return <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
+  return <StyledThemeProvider theme={lightTheme}>{children}</StyledThemeProvider>
 }
 
 ReactDOM.render(
@@ -70,10 +72,14 @@ ReactDOM.render(
       <Web3ProviderNetwork getLibrary={getLibrary}>
         <Provider store={store}>
           <Updaters />
-          <ThemeProvider>
-            <ThemedGlobalStyle />
-            <App />
-          </ThemeProvider>
+          <RefreshProvider>
+            <PriceProvider >
+              <ThemeProvider>
+                <ThemedGlobalStyle />
+                <App />
+              </ThemeProvider>
+            </PriceProvider>
+          </RefreshProvider>
         </Provider>
       </Web3ProviderNetwork>
     </Web3ReactProvider>

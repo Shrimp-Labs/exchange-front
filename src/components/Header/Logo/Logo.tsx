@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logoDark from '../../../assets/images/logo-pipi-dark.png'
 import logoLight from '../../../assets/images/logo-pipi-light.png'
+import logoText from '../../../assets/images/logo_text.png'
 
 interface LogoProps {
   isDark: boolean
@@ -10,7 +11,7 @@ const Logo: React.FC<LogoProps> = ({ isDark }) => {
   return (
     <StyledLogo>
       <img src={isDark ? logoDark : logoLight} alt="logo" />
-      <StyledText>Pippi Shrimp</StyledText>
+      <img src={logoText} alt="text" className="text" />
     </StyledLogo>
   )
 }
@@ -20,31 +21,21 @@ const StyledLogo = styled.div`
   display: flex;
   justify-content: center;
   margin: 0;
-  min-width: 44px;
   padding: 0;
   text-decoration: none;
   img {
-    width: 60px;
+    width: 37px;
   }
-  @media (max-width: 600px) {
-    img {
-      width: 40px;
+  .text {
+    margin-left: 6px;
+    height: 23px;
+    width: auto;
+  }
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    .text {
+      display: none
     }
-    
-  }
-`
-
-const StyledText = styled.span`
-  color: ${(props) => props.theme.colors.normal}; 
-  font-family: "Noto Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  margin-left: 10px;
-  @media (max-width: 850px) {
-    display: none;
-    font-size: 14px;
-  }
+  `};
 `
 
 export default Logo

@@ -238,7 +238,6 @@ export default function Web3Status() {
 
   return (
     <>
-      <Web3StatusInner />
       <WalletModal ENSName={ENSName ?? undefined} pendingTransactions={pending} confirmedTransactions={confirmed} />
     </>
   )

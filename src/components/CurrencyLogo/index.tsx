@@ -50,7 +50,6 @@ export default function CurrencyLogo({
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }
-  console.log(currency, 'currency')
   return (currency as any)?.address ? (
     <CoinLogo
       size={size}

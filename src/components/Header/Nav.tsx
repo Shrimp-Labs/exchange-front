@@ -20,6 +20,15 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://app.pippi.finance/nft">
         <TranslatedText translationId={258}>NFT</TranslatedText>
       </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://app.pippi.finance/ido">
+        <TranslatedText translationId={264}>IDO</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://info.pippi.finance">
+        <TranslatedText translationId={262}>Analytics</TranslatedText>
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://voting.pippi.finance">
+        <TranslatedText translationId={284}>Voting</TranslatedText>
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }
@@ -33,33 +42,12 @@ const StyledNav = styled.nav`
 
 const StyledAbsoluteLink = styled.a`
   position: relative;
-  color: ${(props) => props.theme.colors.normal};
+  color: rgb(127, 134, 143);
   margin-left: 16px;
   margin-right: 16px;
   text-decoration: none;
   &:hover {
-    color: ${(props) => props.theme.colors.primary};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${props => props.theme.colors.primary};
-    }
-  }
-  &.active {
-    color: ${props => props.theme.colors.primary};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${props => props.theme.colors.primary};
-    }
+    color: ${({ theme }) => theme.colors.primary}
   }
   @media (max-width: 400px) {
     margin-left: 16px;

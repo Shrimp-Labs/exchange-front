@@ -12,12 +12,9 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "strict": true,
-    "alwaysStrict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "moduleResolution": "node",
@@ -29,14 +26,15 @@
     "types": [
       "react-spring",
       "jest"
-    ]
+    ],
+    "strict": true
   },
   "exclude": [
     "node_modules",
     "cypress"
   ],
   "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
+    "./src/i18n.ts",
+    // "./src/**/*.tsx"
   ]
 }

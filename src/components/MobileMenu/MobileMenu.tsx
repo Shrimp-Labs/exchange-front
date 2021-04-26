@@ -4,6 +4,8 @@ import styled, { keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import TranslatedText from '../TranslatedText'
 import LngSwith from '../Header/LngSwith'
+import useHTPrice from '../../hooks/useHtPrice'
+import { useActiveWeb3React } from '../../hooks'
 
 interface MobileMenuProps {
   onDismiss: () => void
@@ -12,6 +14,8 @@ interface MobileMenuProps {
 
 // eslint-disable-next-line react/prop-types
 const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
+  const { pippiPrice } = useHTPrice()
+  const { account } = useActiveWeb3React()
   if (visible) {
     return (
       <StyledMobileMenuWrapper>
@@ -53,7 +57,23 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
               <TranslatedText translationId={258}>NFT</TranslatedText>
             </StyledAbsoluteLink>
           </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/ido">
+              <TranslatedText translationId={264}>IDO</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://info.pippi.finance">
+              <TranslatedText translationId={262}>Analytics</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
+            <StyledAbsoluteLink href="https://voting.pippi.finance">
+              <TranslatedText translationId={284}>Voting</TranslatedText>
+            </StyledAbsoluteLink>
+          </Cn>
           <Bottom>
+            {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
             <LngSwith className="mobile-lng-swith"></LngSwith>
           </Bottom>
         </StyledMobileMenu>
@@ -82,13 +102,14 @@ const Bottom = styled.div`
 
 const Bg = styled.div`
   position: absolute;
-  left: 0;
+  right: 0;
   width: 70%;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background: url(${require('../../assets/images/mobile-menu-bg.png')});
   background-size: contain;
+  transform: rotate(180deg);
 `
 const StyledBackdrop = styled.div`
   position: absolute;
@@ -126,7 +147,7 @@ const StyledMobileMenu = styled.div`
   right: 100%;
   bottom: 0;
   width: calc(100% - 130px);
-  padding-top: 40px;
+  padding-top: 24px;
 `
 
 const StyledLink = styled(NavLink)`
@@ -137,29 +158,8 @@ const StyledLink = styled(NavLink)`
   font-weight: 700;
   text-align: left;
   text-decoration: none;
-  &:hover {
-    color: ${(props) => props.theme.colors.red3};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${(props) => props.theme.colors.red3};
-    }
-  }
   &.active {
     color: ${(props) => props.theme.colors.red3};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${(props) => props.theme.colors.red3};
-    }
   }
 `
 const StyledAbsoluteLink = styled.a`
@@ -169,30 +169,21 @@ const StyledAbsoluteLink = styled.a`
   text-decoration: none;
   &:hover {
     color: ${(props) => props.theme.colors.red3};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${(props) => props.theme.colors.red3};
-    }
   }
   &.active {
     color: ${(props) => props.theme.colors.red3};
-    &::after {
-      position: absolute;
-      content: '';
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background: ${(props) => props.theme.colors.red3};
-    }
   }
 `
 const Cn = styled.div`
-  margin: 32px 24px;
+  margin: 24px 24px 0 24px;
+`
+const Price = styled.div`
+  width: 100%;
+  padding-top: 22px;
+  padding-bottom: 30px;
+  color: ${props => props.theme.colors.primary};
+  margin-right: 24px;
+  text-align: left;
+  font-weight: bolder;
 `
 export default MobileMenu

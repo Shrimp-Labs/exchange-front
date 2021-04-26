@@ -96,7 +96,7 @@ export default function App() {
 
   useEffect(() => {
     setSelectedLanguage(EN)
-    const storedLangCode = localStorage.getItem('pippiSwapLanguage')
+    const storedLangCode = localStorage.getItem('pipipSwapLanguage')
     if (storedLangCode) {
       const storedLang = getStoredLang(storedLangCode)
       setSelectedLanguage(storedLang)

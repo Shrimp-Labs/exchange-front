@@ -9,41 +9,50 @@ interface MobileMenuProps {
 }
 const AccountLink: React.FC<MobileMenuProps> = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
-  console.log(selectedLanguage)
   return (
-      <StyledButton>
-        <Button className={(selectedLanguage && selectedLanguage.code === EN.code) || !selectedLanguage ? 'active': 'unactive'} onClick={() => { setSelectedLanguage(EN) }}>
-          <TranslatedText translationId={134}>EN</TranslatedText>
-        </Button>
-        <Button className={selectedLanguage && selectedLanguage.code === ZHCN.code ? 'active': 'unactive'} onClick={() => { setSelectedLanguage(ZHCN) }}>
-          <TranslatedText translationId={136}>CN</TranslatedText>
-        </Button>
-      </StyledButton>
+    <StyledButton>
+      <Button
+        className={(selectedLanguage && selectedLanguage.code === EN.code) || !selectedLanguage ? 'active' : 'unactive'}
+        onClick={() => {
+          setSelectedLanguage(EN)
+        }}
+      >
+        {EN.language}
+      </Button>
+      <span>/</span>
+      <Button
+        className={selectedLanguage && selectedLanguage.code === ZHCN.code ? 'active' : 'unactive'}
+        onClick={() => {
+          setSelectedLanguage(ZHCN)
+        }}
+      >
+        {ZHCN.language}
+      </Button>
+    </StyledButton>
   )
 }
 
 const StyledButton = styled.div`
   display: flex;
-  width: 70px;
-  height: 36px;
-  line-height: 36px;
-  margin-right: 24px;
-  background: #E1E1E1;
+  height: 26px;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 26px;
   color: ${props => props.theme.colors.normal};
-  border: 1px solid #E1E1E1;
-  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
   align-items: center;
   font-size: 14px;
+  span {
+    margin: 0 20px;
+  }
 `
 const Button = styled.div`
-  flex: 1;
-  text-align: center;
+  text-align: left;
   border-radius: 8px;
-  background: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.primary};
   &.unactive {
-    background: #E1E1E1;
+    color: #2f3644;
   }
 `
 

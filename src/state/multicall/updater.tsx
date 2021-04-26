@@ -145,8 +145,6 @@ export default function Updater(): null {
       cancellations.current?.cancellations?.forEach(c => c())
     }
 
-    // console.log(calls)
-
     dispatch(
       fetchingMulticallResults({
         calls,
