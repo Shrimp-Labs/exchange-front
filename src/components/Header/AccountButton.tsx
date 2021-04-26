@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import userlogo from '../../assets/images/user-logo-gray.png'
 import useHTPrice from '../../hooks/useHtPrice'
@@ -16,13 +16,13 @@ interface AccountButtonProps {}
 
 const AccountButton: React.FC<AccountButtonProps> = () => {
   const { pippiPrice } = useHTPrice()
-  const { account, unsetConnector } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
   const sushiBalance = useTokenBalance(getPipiAddress())
   const toggleWalletModal = useWalletModalToggle()
   const handleSignOutClick = useCallback(() => {
     window.localStorage.removeItem(CONNECTOR_STORAGE_ID)
     // unsetConnector()
-  }, [unsetConnector])
+  }, [])
   const copy = () => {
     const input = document.createElement('input')
     input.setAttribute('readonly', 'readonly')

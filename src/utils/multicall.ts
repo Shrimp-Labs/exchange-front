@@ -9,7 +9,7 @@ interface Call {
   name: string // Function name on the contract (example: balanceOf)
   params?: any[] // Function params
 }
-let count = 0
+
 const multicall = async (abi: any[], calls: Call[]) => {
   const web3 = getWeb3NoAccount()
   const multi = new web3.eth.Contract((MultiCallAbi as unknown) as AbiItem, getMulticallAddress())

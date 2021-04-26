@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { LanguageContext } from '../../hooks/LanguageContext'
-import TranslatedText from '../TranslatedText'
 import { ZHCN, EN } from '../../constants/localisation/languageCodes'
 
 interface MobileMenuProps {
@@ -50,7 +49,7 @@ const StyledButton = styled.div`
 const Button = styled.div`
   text-align: left;
   border-radius: 8px;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${props => props.theme.colors.primary};
   &.unactive {
     color: #2f3644;
   }
