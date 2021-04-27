@@ -22,6 +22,7 @@ const StyledLogo = styled.div`
   justify-content: center;
   margin: 0;
   padding: 0;
+  margin-right: 42px;
   text-decoration: none;
   img {
     width: 37px;

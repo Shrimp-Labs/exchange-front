@@ -77,7 +77,7 @@ const Button = styled.div`
 const Modal = styled.div`
   position: absolute;
   left: 0;
-  top: 60px;
+  top: 56px;
   width: 100px;
   display: none;
   border-radius: 12px;

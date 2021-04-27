@@ -43,15 +43,13 @@ const StyledNav = styled.nav`
 const StyledAbsoluteLink = styled.a`
   position: relative;
   color: rgb(127, 134, 143);
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-right: 24px;
   text-decoration: none;
   &:hover {
     color: ${({ theme }) => theme.colors.primary}
   }
   @media (max-width: 400px) {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-right: 24px;
   }
 `
 export default Nav

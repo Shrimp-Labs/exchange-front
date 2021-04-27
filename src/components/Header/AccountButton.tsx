@@ -197,7 +197,7 @@ const StyledAccountButton = styled.div`
 const Modal = styled.div`
   position: absolute;
   right: 0;
-  top: 60px;
+  top: 56px;
   width: 300px;
   padding: 4px 12px 12px 12px;
   display: none;
