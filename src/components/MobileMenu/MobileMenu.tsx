@@ -22,56 +22,58 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
         <StyledBackdrop onClick={onDismiss} />
         <StyledMobileMenu>
           <Bg></Bg>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance">
-              <TranslatedText translationId={130}>Home</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/farms">
-              <TranslatedText translationId={112}>Farm</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/staking">
-              <TranslatedText translationId={114}>Staking</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
-              <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledLink className="active" to="/">
-              <TranslatedText translationId={116}>Exchange</TranslatedText>
-            </StyledLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/airdrop">
-              <TranslatedText translationId={230}>airDrop</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/nft">
-              <TranslatedText translationId={258}>NFT</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/ido">
-              <TranslatedText translationId={264}>IDO</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://info.pippi.finance">
-              <TranslatedText translationId={262}>Analytics</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://voting.pippi.finance">
-              <TranslatedText translationId={284}>Voting</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
+          <MenuItemWrapper>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance">
+                <TranslatedText translationId={130}>Home</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/farms">
+                <TranslatedText translationId={112}>Farm</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/staking">
+                <TranslatedText translationId={114}>Staking</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
+                <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledLink className="active" to="/">
+                <TranslatedText translationId={116}>Exchange</TranslatedText>
+              </StyledLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/airdrop">
+                <TranslatedText translationId={230}>airDrop</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/nft">
+                <TranslatedText translationId={258}>NFT</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://app.pippi.finance/ido">
+                <TranslatedText translationId={264}>IDO</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://info.pippi.finance">
+                <TranslatedText translationId={262}>Analytics</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+            <Cn>
+              <StyledAbsoluteLink href="https://voting.pippi.finance">
+                <TranslatedText translationId={284}>Voting</TranslatedText>
+              </StyledAbsoluteLink>
+            </Cn>
+          </MenuItemWrapper>
           <Bottom>
             {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
             <LngSwith className="mobile-lng-swith"></LngSwith>
@@ -84,13 +86,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
 }
 
 const Bottom = styled.div`
-  position: absolute;
   left: 0;
   z-index: 1000;
   width: 80%;
-  bottom: 30px;
   right: 0;
-  margin: auto;
+  margin: 0 auto 22px;
   text-align: center;
   .mobile-lng-swith {
     width:100%;
@@ -105,9 +105,8 @@ const Bg = styled.div`
   right: 0;
   width: 70%;
   height: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
   background: url(${require('../../assets/images/mobile-menu-bg.png')});
+  background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(180deg);
 `
@@ -117,7 +116,8 @@ const StyledBackdrop = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: ${(props) => props.theme.colors.bg5};
+  background-color: ${(props) => props.theme.colors.black};
+  opacity: 0.9;
 `
 
 const StyledMobileMenuWrapper = styled.div`
@@ -147,7 +147,10 @@ const StyledMobileMenu = styled.div`
   right: 100%;
   bottom: 0;
   width: calc(100% - 130px);
-  padding-top: 24px;
+  padding: 10% 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const StyledLink = styled(NavLink)`
@@ -174,13 +177,18 @@ const StyledAbsoluteLink = styled.a`
     color: ${(props) => props.theme.colors.red3};
   }
 `
+
+const MenuItemWrapper = styled.div`
+  overflow: scroll;
+  z-index: 1000;
+`
+
 const Cn = styled.div`
   margin: 24px 24px 0 24px;
 `
 const Price = styled.div`
   width: 100%;
-  padding-top: 22px;
-  padding-bottom: 10px;
+  padding: 22px 0;
   color: ${props => props.theme.colors.primary};
   text-align: left;
   font-weight: bolder;
