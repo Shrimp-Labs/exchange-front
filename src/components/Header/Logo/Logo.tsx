@@ -25,7 +25,7 @@ const StyledLogo = styled.div`
   margin-right: 42px;
   text-decoration: none;
   img {
-    width: 37px;
+    width: 26px;
   }
   .text {
     margin-left: 6px;
