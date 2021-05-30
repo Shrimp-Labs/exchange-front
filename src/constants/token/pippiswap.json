@@ -305,6 +305,14 @@
       "chainId": 128,
       "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0xfe2f1890d8dc69cf16d611c71fef4a811ca84575.png"
+    },
+    {
+      "name": "Heco Good Bank",
+      "symbol": "HGB",
+      "address": "0xfe04c1d41502ac0d664b1b41dc23e1a4803188e2",
+      "chainId": 128,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xfe04c1d41502ac0d664b1b41dc23e1a4803188e2.png"
     }
   ]
 }
