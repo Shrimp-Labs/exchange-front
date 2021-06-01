@@ -313,6 +313,15 @@
       "chainId": 128,
       "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0xfe04c1d41502ac0d664b1b41dc23e1a4803188e2.png"
+    },
+    {
+      "name": "Heco-Peg PHA Token",
+      "symbol": "PHA",
+      "address": "0x51aa144e0c2fec20c5f19e25352838ff7fe1ed74",
+      "chainId": 128,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0x51aa144e0c2fec20c5f19e25352838ff7fe1ed74.png"
+      
     }
   ]
 }
