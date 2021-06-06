@@ -52,11 +52,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
               <TranslatedText translationId={258}>NFT</TranslatedText>
             </StyledAbsoluteLink>
           </Cn>
-          <Cn>
+          {/* <Cn>
             <StyledAbsoluteLink href="https://app.pippi.finance/ido">
               Initial Sale
             </StyledAbsoluteLink>
-          </Cn>
+          </Cn> */}
           <Cn>
             <StyledAbsoluteLink href="https://info.pippi.finance" target="_blank">
               <TranslatedText translationId={262}>Analytics</TranslatedText>

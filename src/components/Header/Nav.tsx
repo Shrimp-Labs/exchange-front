@@ -20,9 +20,9 @@ const Nav: React.FC = () => {
       <StyledAbsoluteLink href="https://app.pippi.finance/nft">
         <TranslatedText translationId={258}>NFT</TranslatedText>
       </StyledAbsoluteLink>
-      <StyledAbsoluteLink href="https://app.pippi.finance/ido">
+      {/* <StyledAbsoluteLink href="https://app.pippi.finance/ido">
         Initial Sale
-      </StyledAbsoluteLink>
+      </StyledAbsoluteLink> */}
       <StyledAbsoluteLink href="https://info.pippi.finance" target="_blank">
         <TranslatedText translationId={262}>Analytics</TranslatedText>
       </StyledAbsoluteLink>
