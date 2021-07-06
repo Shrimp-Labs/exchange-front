@@ -38,6 +38,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
             </StyledAbsoluteLink>
           </Cn>
           <Cn>
+            <StyledAbsoluteLink href="https://app.pippi.finance/auto">
+              LockDrop
+            </StyledAbsoluteLink>
+          </Cn>
+          <Cn>
             <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
               <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
             </StyledAbsoluteLink>
@@ -97,12 +102,12 @@ const Bottom = styled.div`
 
 const Bg = styled.div`
   position: absolute;
-  right: 0;
+  right: -15px;
   width: 70%;
   height: 300px;
   background-position: center;
   background-repeat: no-repeat;
-  background: url(${require('../../assets/images/mobile-menu-bg.png')});
+  background-image: url(${require('../../assets/images/mobile-menu-bg.png')});
   background-size: contain;
   transform: rotate(180deg);
 `
