@@ -321,7 +321,14 @@
       "chainId": 128,
       "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0x51aa144e0c2fec20c5f19e25352838ff7fe1ed74.png"
-      
+    },
+    {
+      "name": "HTMoon",
+      "symbol": "HTMoon",
+      "address": "0xb62e3b6a3866f5754fdefcf82e733310e2851043",
+      "chainId": 128,
+      "decimals": 9,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xb62e3b6a3866f5754fdefcf82e733310e2851043.png"
     }
   ]
 }
