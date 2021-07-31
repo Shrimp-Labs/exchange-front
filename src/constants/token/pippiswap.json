@@ -179,22 +179,6 @@
       "logoURI": "https://swap.pippi.finance/images/coins/0x1E0aBaF926013fAdC7da19aD41665bb753639A94.png"
     },
     {
-      "name": "FEI",
-      "symbol": "FEI",
-      "address": "0x485cdbff08a4f91a16689e73893a11ae8b76af6d",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x485cdbff08a4f91a16689e73893a11ae8b76af6d.png"
-    },
-    {
-      "name": "TRIBE",
-      "symbol": "TRIBE",
-      "address": "0x38999fa3a7320bd2c3609bf0f8cb5cd4c11d3fe1",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x38999fa3a7320bd2c3609bf0f8cb5cd4c11d3fe1.png"
-    },
-    {
       "name": "SWF",
       "symbol": "SWF",
       "address": "0x0302A9778A61ABd0c9cc1A8FB8f9246f3fBCd18F",
@@ -211,44 +195,12 @@
       "logoURI": "https://swap.pippi.finance/images/coins/0x0f1ed0e22a74a90d92746a1794394da117e4de40.png"
     },
     {
-      "name": "MDIS",
-      "symbol": "MDIS",
-      "address": "0x7929142ad99b662207288d42ec0abacd95041317",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x7929142ad99b662207288d42ec0abacd95041317.png"
-    },
-    {
-      "name": "ODT",
-      "symbol": "ODT",
-      "address": "0x991075cc14a91fe001528943b3eb6df31cff431f",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x991075cc14a91fe001528943b3eb6df31cff431f.png"
-    },
-    {
       "name": "HOO",
       "symbol": "HOO",
       "address": "0xe1d1f66215998786110ba0102ef558b22224c016",
       "chainId": 128,
       "decimals": 8,
       "logoURI": "https://swap.pippi.finance/images/coins/0xe1d1f66215998786110ba0102ef558b22224c016.png"
-    },
-    {
-      "name": "KusamaToken",
-      "symbol": "KSM",
-      "address": "0x5242bf8f601ae0bbe12aa2a3572bd4029adc2b2b",
-      "chainId": 128,
-      "decimals": 12,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x5242bf8f601ae0bbe12aa2a3572bd4029adc2b2b.png"
-    },
-    {
-      "name": "xODT",
-      "symbol": "xODT",
-      "address": "0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0xBE4D8fBeFE4070bCAfc12D90e80Bd1c58e868Af1.png"
     },
     {
       "name": "dogecoin",
@@ -281,14 +233,6 @@
       "chainId": 128,
       "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0xfD6cE15009D46c6327649218431E8643F82f6D64.png"
-    },
-    {
-      "name": "Shepherd Dog",
-      "symbol": "EDOG",
-      "address": "0x3d51b22388C4F6d9cF7E80437224874B1E7E03c8",
-      "chainId": 128,
-      "decimals": 18,
-      "logoURI": "https://swap.pippi.finance/images/coins/0x3d51b22388C4F6d9cF7E80437224874B1E7E03c8.png"
     },
     {
       "name": "Kiwi Money",
