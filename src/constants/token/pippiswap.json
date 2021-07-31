@@ -329,6 +329,22 @@
       "chainId": 128,
       "decimals": 9,
       "logoURI": "https://swap.pippi.finance/images/coins/0xb62e3b6a3866f5754fdefcf82e733310e2851043.png"
+    },
+    {
+      "name": "FA.CASH",
+      "symbol": "FA",
+      "address": "0xaca179e010a5d0624d103d2e8e563b26716194ce",
+      "chainId": 128,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xaca179e010a5d0624d103d2e8e563b26716194ce.png"
+    },
+    {
+      "name": "Toad",
+      "symbol": "Toad",
+      "address": "0xb686cfa8e734b07bb372b7f8a3318a639b34cd58",
+      "chainId": 128,
+      "decimals": 9,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xb686cfa8e734b07bb372b7f8a3318a639b34cd58.png"
     }
   ]
 }
