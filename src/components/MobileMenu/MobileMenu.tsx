@@ -1,8 +1,13 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
-
+import React, { useState } from 'react'
+import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import TranslatedText from '../TranslatedText'
+
+import { ReactComponent as ArrowRight } from '../../assets/images/arrow-right.svg'
+import ImageLogo from '../../assets/images/logo.png'
+import ImageClose from '../../assets/images/close.png'
+import ImageNavBack from '../../assets/images/nav-back.png'
+
+import { useI18n } from '../../i18n/i18n-react'
 import LngSwith from '../Header/LngSwith'
 import useHTPrice from '../../hooks/useHtPrice'
 import { useActiveWeb3React } from '../../hooks'
@@ -12,75 +17,203 @@ interface MobileMenuProps {
   visible?: boolean
 }
 
-// eslint-disable-next-line react/prop-types
-const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
-  const { pippiPrice } = useHTPrice()
-  const { account } = useActiveWeb3React()
-  if (visible) {
+const views = {
+  root: [
+    {
+      to: '/',
+      label: 'Exchange',
+      i18nKey: 'nav-exchange',
+    },
+    {
+      label: 'Mining',
+      i18nKey: 'nav-mining',
+      view: 'mining',
+    },
+    {
+      label: 'Tool',
+      i18nKey: 'nav-tool',
+      view: 'tool',
+    },
+    {
+      label: 'More',
+      i18nKey: 'nav-more',
+      view: 'more',
+    },
+  ],
+  mining: [
+    {
+      label: 'Liquidity Mining',
+      i18nKey: 'nav-liquidity-mining',
+      to: 'https://app.pippi.finance/farms',
+    },
+    {
+      label: 'Staking Mining',
+      i18nKey: 'nav-staking-mining',
+      to: 'https://app.pippi.finance/staking',
+    },
+    {
+      label: 'xPIPI Pool',
+      i18nKey: 'nav-xpipi-pool',
+      to: 'https://app.pippi.finance/xpipi',
+    },
+    {
+      label: 'LockDrop',
+      i18nKey: 'nav-lockDrop',
+      to: 'https://app.pippi.finance/auto',
+    },
+  ],
+  tool: [
+    {
+      label: 'Voting',
+      i18nKey: 'nav-voting',
+      to: 'https://voting.pippi.finance',
+      target: '_blank',
+    },
+    {
+      label: 'Analytics',
+      i18nKey: 'nav-analytics',
+      to: 'https://info.pippi.finance',
+      target: '_blank',
+    },
+    {
+      label: 'NFT',
+      i18nKey: '',
+      to: 'https://app.pippi.finance/nft',
+    },
+  ],
+  more: [
+    {
+      label: 'Docs',
+      i18nKey: 'nav-docs',
+      to: 'https://docs.pippi.finance/',
+      target: '_blank',
+    },
+    {
+      label: 'Code',
+      i18nKey: 'nav-code',
+      to: 'https://github.com/Shrimp-Labs',
+      target: '_blank',
+    },
+    {
+      label: 'Blog',
+      i18nKey: 'nav-blog',
+      to: 'https://medium.com/@shrimpswap',
+      target: '_blank',
+    },
+    {
+      label: 'Annoucement',
+      i18nKey: 'nav-annoucement',
+      to: 'https://twitter.com/pippishrimpswap',
+      target: '_blank',
+    },
+  ],
+}
+
+function NavItem({ label, i18nKey, to, target, view, onGotoView, onClick }: any) {
+  const i18n = useI18n()
+
+  if (view) {
     return (
-      <StyledMobileMenuWrapper>
-        <StyledBackdrop onClick={onDismiss} />
-        <StyledMobileMenu>
-          <Bg></Bg>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance">
-              <TranslatedText translationId={130}>Home</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/farms">
-              <TranslatedText translationId={112}>Farm</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/staking">
-              <TranslatedText translationId={114}>Staking</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/auto">
-              LockDrop
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/xpipi">
-              <TranslatedText translationId={132}>xPIPI Pools</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledLink className="active" to="/">
-              <TranslatedText translationId={116}>Exchange</TranslatedText>
-            </StyledLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/nft">
-              <TranslatedText translationId={258}>NFT</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          {/* <Cn>
-            <StyledAbsoluteLink href="https://app.pippi.finance/ido">
-              Initial Sale
-            </StyledAbsoluteLink>
-          </Cn> */}
-          <Cn>
-            <StyledAbsoluteLink href="https://info.pippi.finance" target="_blank">
-              <TranslatedText translationId={262}>Analytics</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Cn>
-            <StyledAbsoluteLink href="https://voting.pippi.finance" target="_blank">
-              <TranslatedText translationId={284}>Voting</TranslatedText>
-            </StyledAbsoluteLink>
-          </Cn>
-          <Bottom>
-            {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
-            <LngSwith className="mobile-lng-swith"></LngSwith>
-          </Bottom>
-        </StyledMobileMenu>
-      </StyledMobileMenuWrapper>
+      <div className="nav-item" onClick={onGotoView}>
+        {i18n(i18nKey, label)}
+        <ArrowRight className="icon icon-arrow-right" />
+      </div>
     )
   }
-  return null
+
+  if (to.startsWith('http')) {
+    return (
+      <StyledAbsoluteLink
+        className="nav-item"
+        target={target}
+        href="https://swap.pippi.finance"
+      >
+        {i18n(i18nKey, label)}
+      </StyledAbsoluteLink>
+    )
+  }
+
+  return (
+    <StyledLink className="nav-item" exact activeClassName="active" to={to} onClick={onClick}>
+      {i18n(i18nKey, label)}
+    </StyledLink>
+  )
+}
+
+const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
+  const i18n = useI18n()
+  // const { account } = useWallet()
+  const { pippiPrice } = useHTPrice()
+  const [view, setView] = useState('root')
+  const { account } = useActiveWeb3React()
+
+  const handleClose = () => {
+    onDismiss()
+    setView('root')
+  }
+
+  if (!visible) {
+    return null
+  }
+
+  let bodyView = (
+      <>
+        <div className="navs">
+          {views[view].map((item) => (
+            <NavItem
+              {...item}
+              key={item.label}
+              onClick={handleClose}
+              onGotoView={() => {
+                if (item.view) {
+                  setView(item.view)
+                }
+              }}
+            />
+          ))}
+        </div>
+        <Bottom>
+          {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
+          <LngSwith className="mobile-lng-swith"></LngSwith>
+        </Bottom>
+      </>
+    )
+  
+
+  return (
+    <StyledMobileMenuWrapper>
+      <div className="menu-bg" />
+      <div className="menu-wrapper">
+        <div className="top">
+          {view === 'root' ? (
+            <>
+              <img className="icon icon-logo" src={ImageLogo} alt="" />
+              <img
+                className="icon icon-close"
+                src={ImageClose}
+                alt=""
+                onClick={handleClose}
+              />
+            </>
+          ) : (
+            <>
+              <div className="back-container" onClick={() => setView('root')}>
+                <img className="icon icon-back" src={ImageNavBack} alt="" />
+                <span>{i18n('nav-back', 'Back')}</span>
+              </div>
+              <img
+                className="icon icon-close"
+                src={ImageClose}
+                alt=""
+                onClick={handleClose}
+              />
+            </>
+          )}
+        </div>
+        <div className="body">{bodyView}</div>
+      </div>
+    </StyledMobileMenuWrapper>
+  )
 }
 
 const Bottom = styled.div`
@@ -100,24 +233,14 @@ const Bottom = styled.div`
   }
 `
 
-const Bg = styled.div`
-  position: absolute;
-  right: -15px;
-  width: 70%;
-  height: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(${require('../../assets/images/mobile-menu-bg.png')});
-  background-size: contain;
-  transform: rotate(180deg);
-`
-const StyledBackdrop = styled.div`
-  position: absolute;
-  top: 0px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: ${(props) => props.theme.colors.bg5};
+const Price = styled.div`
+  font-family: Futura;
+  font-weight: bold;
+  font-size: 14px;
+  color: #2eaeb6;
+  padding: 15px 0;
+  margin-right: 0;
+  text-align: left;
 `
 
 const StyledMobileMenuWrapper = styled.div`
@@ -127,62 +250,143 @@ const StyledMobileMenuWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1000;
-`
+  background-color: ${(props) => props.theme.colors.cardBg};
 
-const slideIn = keyframes`
-  0% {
-    transform: translateX(0)
+  .menu-bg {
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 70%;
+    height: 300px;
+    background: url(${require('../../assets/images/mobile-menu-bg.png')});
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
   }
-  100% {
-    transform: translateX(100%);
-  }
-`
 
-const StyledMobileMenu = styled.div`
-  animation: ${slideIn} 0.3s forwards ease-out;
-  background-color: ${(props) => props.theme.colors.bg1};
-  border-left: 1px solid ${(props) => props.theme.colors.bg1};
-  position: absolute;
-  top: 0;
-  right: 100%;
-  bottom: 0;
-  width: calc(100% - 130px);
-  padding-top: 24px;
+  .menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 56px;
+  }
+
+  .top {
+    flex: 0 0 auto;
+    padding-top: 48px;
+    display: flex;
+    align-items: center;
+
+    .icon-logo {
+      position: relative;
+      left: -10px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .icon-close {
+      width: 16px;
+      height: 16px;
+      margin-left: auto;
+    }
+
+    .icon-back {
+      width: 24px;
+      height: 18px;
+      margin-right: 12px;
+    }
+
+    .back-container {
+      display: flex;
+      align-items: center;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      color: #000000;
+    }
+  }
+
+  .body {
+    flex: 1 0 auto;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #2f3644;
+
+    .icon-arrow-right {
+      margin-left: 5px;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      top: -1px;
+      right: -10px;
+    }
+  }
+
+  .nav-item + .nav-item {
+    margin-top: 30px;
+  }
+
+  .footer {
+    margin-top: auto;
+    padding: 40px 0;
+    .popup {
+      border-top: 1px solid #d8dee3;
+    }
+    .row {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      .label {
+        font-weight: bold;
+        font-size: 14px;
+        text-align: left;
+      }
+
+      .value {
+        user-select: none;
+        display: flex;
+        margin-left: auto;
+        padding-left: 40px;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: right;
+
+        .icon-arrow {
+          position: relative;
+          display: block;
+          top: 2px;
+          margin-left: 5px;
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+  }
 `
 
 const StyledLink = styled(NavLink)`
-  position: relative;
-  box-sizing: border-box;
-  color: rgb(127,134,143);
-  font-size: 16px;
-  font-weight: 700;
-  text-align: left;
   text-decoration: none;
-  &.active {
-    color: ${(props) => props.theme.colors.red3};
-  }
 `
+
 const StyledAbsoluteLink = styled.a`
-  position: relative;
-  color: rgb(127,134,143);
-  font-weight: 700;
   text-decoration: none;
-  &:hover {
-    color: ${(props) => props.theme.colors.red3};
-  }
-  &.active {
-    color: ${(props) => props.theme.colors.red3};
-  }
 `
-const Cn = styled.div`
-  margin: 24px 24px 0 24px;
-`
-const Price = styled.div`
-  width: 100%;
-  padding-top: 22px;
-  padding-bottom: 10px;
-  color: ${props => props.theme.colors.primary};
-  text-align: left;
-  font-weight: bolder;
-`
+
 export default MobileMenu
+

@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import { LanguageContext } from '../../hooks/LanguageContext'
 import { ZHCN, EN } from '../../constants/localisation/languageCodes'
 
+import { useLanguage } from '../../i18n/i18n-react'
+import { ZH_CN } from '../../i18n/languageCode'
+
 interface SwithProps {
   className?: string
 }
 const AccountLink: React.FC<SwithProps> = props => {
   const { selectedLanguage, handleSetSelectedLanguage } = useContext(LanguageContext)
+  const [language, setLanguage] = useLanguage()
 
   return (
     <StyledButton className={props.className}>
@@ -17,6 +21,7 @@ const AccountLink: React.FC<SwithProps> = props => {
           className={selectedLanguage?.code === EN.code ? 'active' : 'unactive'}
           onClick={() => {
             handleSetSelectedLanguage(EN)
+            setLanguage(EN.code)
           }}
         >
           {EN.language}
@@ -25,6 +30,7 @@ const AccountLink: React.FC<SwithProps> = props => {
           className={selectedLanguage?.code === ZHCN.code ? 'active' : 'unactive'}
           onClick={() => {
             handleSetSelectedLanguage(ZHCN)
+            setLanguage(ZH_CN.code)
           }}
         >
           {ZHCN.language}

@@ -27,6 +27,7 @@ import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import { allLanguages } from '../constants/localisation/languageCodes'
 import cookie from '../utils/cookie'
+import { I18nProvider } from '../i18n/i18n-react'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -139,7 +140,7 @@ export default function App() {
           <LanguageContext.Provider
             value={{ selectedLanguage, handleSetSelectedLanguage, translatedLanguage, setTranslatedLanguage }}
           >
-            <TranslationsContext.Provider value={{ translations, setTranslations }}>
+            <TranslationsContext.Provider value={{ translations, setTranslations }}><I18nProvider>
               <HeaderWrapper>
                 <Header />
               </HeaderWrapper>
@@ -168,6 +169,7 @@ export default function App() {
                 {/* <LogoTitle src={LogoH} alt="bg" /> */}
                 <Marginer />
               </BodyWrapper>
+              </I18nProvider>
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
