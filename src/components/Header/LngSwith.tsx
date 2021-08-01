@@ -12,7 +12,7 @@ interface MobileMenuProps {
 }
 const AccountLink: React.FC<MobileMenuProps> = (props) => {
   const { selectedLanguage, handleSetSelectedLanguage } = useContext(LanguageContext)
-  const [language, setLanguage] = useLanguage()
+  const [setLanguage] = useLanguage()
 
   return (
     <StyledButton>

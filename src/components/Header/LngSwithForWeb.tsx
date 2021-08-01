@@ -11,7 +11,7 @@ interface SwithProps {
 }
 const AccountLink: React.FC<SwithProps> = props => {
   const { selectedLanguage, handleSetSelectedLanguage } = useContext(LanguageContext)
-  const [language, setLanguage] = useLanguage()
+  const [setLanguage] = useLanguage()
 
   return (
     <StyledButton className={props.className}>
