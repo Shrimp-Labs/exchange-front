@@ -106,6 +106,12 @@ const views = {
       to: 'https://twitter.com/pippishrimpswap',
       target: '_blank',
     },
+    {
+      label: 'Audit',
+      i18nKey: 'nav-audit',
+      to: 'https://pippi.finance/static/media/Pippi%20Shrimp_audit.1cd63cbb.pdf',
+      target: '_blank',
+    },
   ],
 }
 
@@ -126,7 +132,7 @@ function NavItem({ label, i18nKey, to, target, view, onGotoView, onClick }: any)
       <StyledAbsoluteLink
         className="nav-item"
         target={target}
-        href="https://swap.pippi.finance"
+        href={to}
       >
         {i18n(i18nKey, label)}
       </StyledAbsoluteLink>
