@@ -150,6 +150,9 @@ const AccountCn = styled.div`
       display: block;
     }
   }
+  @media (max-width: 600px) {
+    display: none;
+  }
 `
 const AccountInner = styled.div`
   position: absolute;
