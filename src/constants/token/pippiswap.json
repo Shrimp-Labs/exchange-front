@@ -295,7 +295,7 @@
       "symbol": "USDC",
       "address": "0x9362bbef4b8313a8aa9f0c9808b80577aa26b73b",
       "chainId": 128,
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "https://swap.pippi.finance/images/coins/0x9362bbef4b8313a8aa9f0c9808b80577aa26b73b.png"
     }
   ]
