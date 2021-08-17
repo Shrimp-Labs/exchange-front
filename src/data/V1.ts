@@ -4,7 +4,6 @@ import {
   Currency,
   CurrencyAmount,
   currencyEquals,
-  ETHER,
   JSBI,
   Pair,
   Percent,
@@ -13,9 +12,11 @@ import {
   TokenAmount,
   Trade,
   TradeType,
+  ETHER,
   WETH
 } from '@pancakeswap-libs/sdk'
 import { useMemo } from 'react'
+import { NETWORK_CHAIN_ID } from '../connectors'
 import { useActiveWeb3React } from '../hooks'
 import { useAllTokens } from '../hooks/Tokens'
 import { useV1FactoryContract } from '../hooks/useContract'
@@ -108,8 +109,8 @@ export function useV1Trade(
   const inputPair = useMockV1Pair(inputCurrency)
   const outputPair = useMockV1Pair(outputCurrency)
 
-  const inputIsETH = inputCurrency === ETHER
-  const outputIsETH = outputCurrency === ETHER
+  const inputIsETH = inputCurrency === ETHER(NETWORK_CHAIN_ID)
+  const outputIsETH = outputCurrency === ETHER(NETWORK_CHAIN_ID)
 
   // construct a direct or through ETH v1 route
   let pairs: Pair[] = []

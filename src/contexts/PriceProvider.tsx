@@ -27,12 +27,12 @@ const PriceProvider: React.FC = ({ children }) => {
       {
         address: '0x0298c2b32eae4da002a15f36fdf7615bea3da047',
         name: 'balanceOf',
-        params: ['0x2129e956d7157ffbcfa65abbab3c66c9456dba0d'],
+        params: ['0x2129e956d7157ffbcfa65abbab3c66c9456dba0d']
       },
       {
         address: '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f',
         name: 'balanceOf',
-        params: ['0x2129e956d7157ffbcfa65abbab3c66c9456dba0d'],
+        params: ['0x2129e956d7157ffbcfa65abbab3c66c9456dba0d']
       },
       {
         address: '0xaaae746b5e55d14398879312660e9fde07fbc1dc',
@@ -42,7 +42,7 @@ const PriceProvider: React.FC = ({ children }) => {
       {
         address: '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f',
         name: 'balanceOf',
-        params: ['0xf9783240ecc6126727a43ff43316d932e942fc3a'],
+        params: ['0xf9783240ecc6126727a43ff43316d932e942fc3a']
       }
     ]
     try {

@@ -6,98 +6,103 @@ import { useI18n } from '../../i18n/i18n-react'
 
 import { ReactComponent as ArrowDown } from '../../assets/images/arrow-down.svg'
 import { ReactComponent as ArrowUp } from '../../assets/images/arrow-up.svg'
+import { NETWORK_CHAIN_ID } from '../../connectors'
 
 const navItems = [
   {
     label: 'Exchange',
     i18nKey: 'nav-exchange',
     to: '/',
+    chainId: [128, 66]
   },
   {
     label: 'Mining',
     i18nKey: 'nav-mining',
+    chainId: [128],
     children: [
       {
         label: 'Liquidity Mining',
         i18nKey: 'nav-liquidity-mining',
-        to: 'https://app.pippi.finance/farms',
+        to: 'https://app.pippi.finance/farms'
       },
       {
         label: 'Staking Mining',
         i18nKey: 'nav-staking-mining',
-        to: 'https://app.pippi.finance/staking',
+        to: 'https://app.pippi.finance/staking'
       },
       {
         label: 'xPIPI Pool',
         i18nKey: 'nav-xpipi-pool',
-        to: 'https://app.pippi.finance/xpipi',
+        to: 'https://app.pippi.finance/xpipi'
       },
       {
         label: 'LockDrop',
         i18nKey: 'nav-lockDrop',
-        to: 'https://app.pippi.finance/auto',
-      },
-    ],
+        to: 'https://app.pippi.finance/auto'
+      }
+    ]
   },
   {
     label: 'Tool',
     i18nKey: 'nav-tool',
+    chainId: [128],
     children: [
       {
         label: 'Voting',
         i18nKey: 'nav-voting',
         to: 'https://voting.pippi.finance',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'Analytics',
         i18nKey: 'nav-analytics',
         to: 'https://info.pippi.finance',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'NFT',
         i18nKey: '',
-        to: 'https://app.pippi.finance/nft',
-      },
-    ],
+        to: 'https://app.pippi.finance/nft'
+      }
+    ]
   },
   {
     label: 'More',
     i18nKey: 'nav-more',
+    chainId: [128, 66],
     children: [
       {
         label: 'Docs',
         i18nKey: 'nav-docs',
         to: 'https://docs.pippi.finance/',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'Code',
         i18nKey: 'nav-code',
         to: 'https://github.com/Shrimp-Labs',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'Blog',
         i18nKey: 'nav-blog',
         to: 'https://medium.com/@shrimpswap',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'Annoucement',
         i18nKey: 'nav-annoucement',
         to: 'https://twitter.com/pippishrimpswap',
-        target: '_blank',
+        target: '_blank'
       },
       {
         label: 'Audit',
         i18nKey: 'nav-audit',
         to: 'https://pippi.finance/static/media/Pippi%20Shrimp_audit.1cd63cbb.pdf',
-        target: '_blank',
-      },
-    ],
-  },
+        target: '_blank'
+      }
+    ]
+  }
 ]
 
 function NavItem({ label, i18nKey, to, target, children }: any) {
@@ -138,11 +143,7 @@ function NavItem({ label, i18nKey, to, target, children }: any) {
 
   if (to.startsWith('http')) {
     return (
-      <StyledAbsoluteLink
-        className="nav-item"
-        target={target}
-        href="https://swap.pippi.finance"
-      >
+      <StyledAbsoluteLink className="nav-item" target={target} href="https://swap.pippi.finance">
         {i18n(i18nKey, label)}
       </StyledAbsoluteLink>
     )
@@ -159,9 +160,11 @@ const Nav: React.FC = () => {
   return (
     <>
       <StyledNav>
-        {navItems.map((item, index) => (
-          <NavItem {...item} key={index}/>
-        ))}
+        {navItems
+          .filter(item => item?.chainId.includes(NETWORK_CHAIN_ID))
+          .map((item, index) => (
+            <NavItem {...item} key={index} />
+          ))}
       </StyledNav>
     </>
   )
@@ -219,10 +222,9 @@ const StyledNav = styled.nav`
   .nav-item-container {
     position: relative;
     cursor: pointer;
-   
 
     &:after {
-      content: "";
+      content: '';
       display: none;
       position: absolute;
       top: 0px;
@@ -279,6 +281,5 @@ const StyledLink = styled(NavLink)`
 const StyledAbsoluteLink = styled.a`
   text-decoration: none;
 `
-
 
 export default Nav

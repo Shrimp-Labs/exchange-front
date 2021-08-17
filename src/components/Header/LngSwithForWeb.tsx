@@ -9,19 +9,20 @@ import { ZH_CN } from '../../i18n/languageCode'
 interface SwithProps {
   className?: string
 }
-const AccountLink: React.FC<SwithProps> = props => {
+
+const AccountLink: React.FC<SwithProps> = ({ className }: SwithProps) => {
   const { selectedLanguage, handleSetSelectedLanguage } = useContext(LanguageContext)
-  const [setLanguage] = useLanguage()
+  const language = useLanguage()
 
   return (
-    <StyledButton className={props.className}>
+    <StyledButton className={className}>
       <div className="text">{selectedLanguage?.language}</div>
       <Modal className="modal">
         <Button
           className={selectedLanguage?.code === EN.code ? 'active' : 'unactive'}
           onClick={() => {
             handleSetSelectedLanguage(EN)
-            setLanguage(EN.code)
+            language[1](EN.code)
           }}
         >
           {EN.language}
@@ -30,7 +31,7 @@ const AccountLink: React.FC<SwithProps> = props => {
           className={selectedLanguage?.code === ZHCN.code ? 'active' : 'unactive'}
           onClick={() => {
             handleSetSelectedLanguage(ZHCN)
-            setLanguage(ZH_CN.code)
+            language[1](ZH_CN.code)
           }}
         >
           {ZHCN.language}
@@ -50,7 +51,7 @@ const StyledButton = styled.div`
   align-items: center;
   .text {
     padding-left: 26px;
-    color: #2F3644;
+    color: #2f3644;
     font-weight: bolder;
     position: absolute;
     height: 60px;
@@ -74,7 +75,7 @@ const Button = styled.div`
   font-weight: bolder;
   color: ${props => props.theme.colors.primary};
   &.unactive {
-    color: #2F3644;
+    color: #2f3644;
   }
   &:hover {
     color: ${props => props.theme.colors.primary};
