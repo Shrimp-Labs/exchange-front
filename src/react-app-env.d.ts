@@ -11,6 +11,7 @@ declare interface Window {
     isMetaMask?: true
     on?: (...args: any[]) => void
     removeListener?: (...args: any[]) => void
+    request: (...args: any) => void
   }
   web3?: {}
   BinanceChain?: BinanceChain

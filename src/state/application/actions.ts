@@ -20,6 +20,7 @@ export type PopupContent =
 
 export const updateBlockNumber = createAction<{ chainId: number; blockNumber: number }>('app/updateBlockNumber')
 export const toggleWalletModal = createAction<void>('app/toggleWalletModal')
+export const toggleNetworkModal = createAction<void>('app/toggleNetworkModal')
 export const toggleSettingsMenu = createAction<void>('app/toggleSettingsMenu')
 export const addPopup = createAction<{ key?: string; removeAfterMs?: number | null; content: PopupContent }>(
   'app/addPopup'

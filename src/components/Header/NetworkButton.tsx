@@ -3,6 +3,7 @@ import React, { useEffect, useMemo } from 'react'
 import styled from 'styled-components'
 import { NERWORK_URLS } from '../../constants'
 import { useActiveWeb3React } from '../../hooks'
+import { useNetworkModalToggle } from '../../state/application/hooks'
 import { NetworkSwitchModal } from './NetworkSwitchModal'
 
 const Container = styled.div`
@@ -21,6 +22,7 @@ const Container = styled.div`
 
 export const NetworkButton = () => {
   const { chainId } = useActiveWeb3React()
+  const toggleNetworkModal = useNetworkModalToggle()
   const displayNetwork = useMemo(() => {
     if (chainId === 128) {
       return 'HECO'
@@ -42,7 +44,7 @@ export const NetworkButton = () => {
 
   return (
     <>
-      <Container>{displayNetwork}</Container>
+      <Container onClick={toggleNetworkModal}>{displayNetwork}</Container>
       <NetworkSwitchModal />
     </>
   )
