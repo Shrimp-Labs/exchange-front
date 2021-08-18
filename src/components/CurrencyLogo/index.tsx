@@ -1,8 +1,9 @@
-import { ETHER, Token } from '@pancakeswap-libs/sdk'
+import { ChainId, ETHER, Token } from '@pancakeswap-libs/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
-import EthereumLogo from '../../assets/images/huobi-logo.png'
+import HuobiLogo from '../../assets/images/huobi-logo.png'
+import OkLogo from '../../assets/images/ok-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
@@ -34,6 +35,9 @@ export default function CurrencyLogo({
   style?: React.CSSProperties
 }) {
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
+  const EthereumLogo = useMemo(() => {
+    return NETWORK_CHAIN_ID === ChainId.HECO_MAINNET ? HuobiLogo : OkLogo
+  }, [])
 
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER(NETWORK_CHAIN_ID)) return []
@@ -48,11 +52,10 @@ export default function CurrencyLogo({
     return []
   }, [currency, uriLocations])
 
-  console.log(srcs)
   if (currency === ETHER(NETWORK_CHAIN_ID)) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }
-  return (currency as any)?.address ? (
+  return (currency as any)?.address && NETWORK_CHAIN_ID === ChainId.HECO_MAINNET ? (
     <CoinLogo
       size={size}
       srcs={[`/images/coins/${currency?.address?.replace('/', '') ?? 'token'}.png`]}

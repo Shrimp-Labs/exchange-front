@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import Modal from '../Modal'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
+import { useNetworkModalOpen, useNetworkModalToggle } from '../../state/application/hooks'
+import HuobiLogo from '../../assets/images/huobi-logo.png'
+import OkLogo from '../../assets/images/ok-logo.png'
+import { useSwitchNetwork } from '../../hooks/useNetwork'
+import { ChainId } from '@pancakeswap-libs/sdk'
 
 const Wrapper = styled.div`
   ${({ theme }) => theme.flexColumnNoWrap}
@@ -56,12 +61,28 @@ const NetworkItem = styled.div`
   margin-top: 10px;
   cursor: pointer;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    margin-right: 10px;
+  }
+`
+
+const StyledEthereumLogo = styled.img<{ size: string }>`
+  width: ${({ size }) => size};
+  height: ${({ size }) => size};
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
+  border-radius: 24px;
 `
 
 export const NetworkSwitchModal = () => {
+  const networkModalOpen = useNetworkModalOpen()
+  const switchNetwork = useSwitchNetwork()
+  const toggleNetworkModal = useNetworkModalToggle()
   return (
     <Modal
-      isOpen={false}
+      isOpen={networkModalOpen}
       onDismiss={() => {
         console.log('te')
       }}
@@ -71,10 +92,16 @@ export const NetworkSwitchModal = () => {
       <Wrapper>
         <HeaderRow>Select Network</HeaderRow>
         <ContentWrapper>
-          <NetworkItem>Heco</NetworkItem>
-          <NetworkItem>OEC</NetworkItem>
+          <NetworkItem onClick={() => switchNetwork(ChainId.HECO_MAINNET)}>
+            <StyledEthereumLogo src={HuobiLogo} size="24px" />
+            Heco
+          </NetworkItem>
+          <NetworkItem onClick={() => switchNetwork(ChainId.OEC_MAINNET)}>
+            <StyledEthereumLogo src={OkLogo} size="24px" />
+            OEC
+          </NetworkItem>
         </ContentWrapper>
-        <CloseIcon>
+        <CloseIcon onClick={toggleNetworkModal}>
           <CloseColor />
         </CloseIcon>
       </Wrapper>
