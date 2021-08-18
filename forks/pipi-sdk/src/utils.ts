@@ -86,7 +86,7 @@ export const getInitCodeHash = (chainId: ChainId) => {
     case ChainId.HECO_MAINNET:
       return '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75'
     case ChainId.OEC_MAINNET:
-      return '0x8523147bd14c2b44dc8294639a79467599661eec2240f76aef4db80d5193d401'
+      return '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178'
     default:
       return '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75'
   }
@@ -97,7 +97,7 @@ export const getFactoryAddress = (chainId: ChainId) => {
     case ChainId.HECO_MAINNET:
       return '0x979efE7cA072b72d6388f415d042951dDF13036e'
     case ChainId.OEC_MAINNET:
-      return '0x43cE21cdceeC70828220DF623b3B183D86eD1DB2'
+      return '0x0dDF434108DF168b347428De9C8F595471364A48'
     default:
       return '0x979efE7cA072b72d6388f415d042951dDF13036e'
   }
