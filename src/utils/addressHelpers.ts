@@ -1,7 +1,10 @@
+import { NETWORK_CHAIN_ID } from '../connectors'
+
 export const contractAddresses = {
   sushi: {
     256: '0x8fB1D8C8085663bF574a5c44313CC50e9719FC22',
-    128: '0xaaae746b5e55d14398879312660e9fde07fbc1dc'
+    128: '0xaaae746b5e55d14398879312660e9fde07fbc1dc',
+    66: '0xfdfbc559953557f5442eee7c4ba4aedc1156cae3'
   },
   syrup: {
     256: '0xB5cB3f21A4C241f572857c2f74e197B5D751036E',
@@ -27,20 +30,20 @@ export const contractAddresses = {
 
 const multicall = {
   256: '0xC33994Eb943c61a8a59a918E2de65e03e4e385E0',
-  128: '0x37ab26db3df780e7026f3e767f65efb739f48d8e'
+  128: '0x37ab26db3df780e7026f3e767f65efb739f48d8e',
+  66: '0x9c3bc898fdD0651351ec911b22f69dF7D21BdE8f'
 }
-const chainId = 128
 
-interface AddressProps {
-  128: string // Address of the contract
-}
-export const getAddress = (obj: AddressProps) => {
+const chainId = NETWORK_CHAIN_ID
+
+export const getAddress = (obj: any) => {
   return obj[chainId] ? obj[chainId] : obj
 }
 
 export const getMasterChefAddress = () => {
   return getAddress(contractAddresses.masterChef)
 }
+
 export const getMulticallAddress = () => {
   return multicall[chainId]
 }
