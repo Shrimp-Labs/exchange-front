@@ -47,7 +47,7 @@
       "symbol": "USDK",
       "address": "0xdcac52e001f5bd413aa6ea83956438f29098166b",
       "chainId": 66,
-      "decimals": 8,
+      "decimals": 18,
       "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_usdk.png"
     },
     {
