@@ -118,7 +118,6 @@ export default function AddLiquidity({
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], ROUTER_ADDRESS)
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], ROUTER_ADDRESS)
-
   const addTransaction = useTransactionAdder()
 
   async function onAdd() {
@@ -141,8 +140,8 @@ export default function AddLiquidity({
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
-    if (currencyA === ETHER || currencyB === ETHER) {
-      const tokenBIsETH = currencyB === ETHER
+    if (currencyA === ETHER(chainId) || currencyB === ETHER(chainId)) {
+      const tokenBIsETH = currencyB === ETHER(chainId)
       estimate = router.estimateGas.addLiquidityETH
       method = router.addLiquidityETH
       args = [

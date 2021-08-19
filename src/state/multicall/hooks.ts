@@ -68,8 +68,10 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
   // update listeners when there is an actual change that persists for at least 100ms
   useEffect(() => {
     const callKeys: string[] = JSON.parse(serializedCallKeys)
+
     if (!chainId || callKeys.length === 0) return undefined
     const calls = callKeys.map(key => parseCallKey(key))
+
     dispatch(
       addMulticallListeners({
         chainId,

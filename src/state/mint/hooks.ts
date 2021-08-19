@@ -84,17 +84,22 @@ export function useDerivedMintInfo(
           dependentField === Field.CURRENCY_B
             ? pair.priceOf(tokenA).quote(wrappedIndependentAmount)
             : pair.priceOf(tokenB).quote(wrappedIndependentAmount)
-        return dependentCurrency === ETHER ? CurrencyAmount.ether(dependentTokenAmount.raw) : dependentTokenAmount
+        return dependentCurrency === ETHER(chainId)
+          ? CurrencyAmount.ether(dependentTokenAmount.raw, chainId)
+          : dependentTokenAmount
       }
       return undefined
     } else {
       return undefined
     }
   }, [noLiquidity, otherTypedValue, currencies, dependentField, independentAmount, currencyA, chainId, currencyB, pair])
-  const parsedAmounts: { [field in Field]: CurrencyAmount | undefined } = {
-    [Field.CURRENCY_A]: independentField === Field.CURRENCY_A ? independentAmount : dependentAmount,
-    [Field.CURRENCY_B]: independentField === Field.CURRENCY_A ? dependentAmount : independentAmount
-  }
+  const parsedAmounts: { [field in Field]: CurrencyAmount | undefined } = useMemo(
+    () => ({
+      [Field.CURRENCY_A]: independentField === Field.CURRENCY_A ? independentAmount : dependentAmount,
+      [Field.CURRENCY_B]: independentField === Field.CURRENCY_A ? dependentAmount : independentAmount
+    }),
+    [dependentAmount, independentAmount, independentField]
+  )
 
   const price = useMemo(() => {
     if (noLiquidity) {

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import userlogo from '../../assets/images/user-logo-gray.png'
 import useHTPrice from '../../hooks/useHtPrice'
@@ -10,19 +10,24 @@ import { useActiveWeb3React } from '../../hooks'
 import TranslatedText from '../TranslatedText'
 import { shortenAddress } from '../../utils'
 import copyIcon from '../../assets/images/copy.png'
+import { NETWORK_CHAIN_ID } from '../../connectors'
+import { EXPLORER_URLS } from '../../constants'
+import { ChainId } from '@pancakeswap-libs/sdk'
 
 export const CONNECTOR_STORAGE_ID = 'CONNECTOR_STORAGE_ID'
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AccountButtonProps {}
 
 const AccountButton: React.FC<AccountButtonProps> = () => {
   const { pippiPrice } = useHTPrice()
-  const { account } = useActiveWeb3React()
-  const sushiBalance = useTokenBalance(getPipiAddress())
+  const { account, deactivate, chainId } = useActiveWeb3React()
+  const sushiBalance = useTokenBalance(getPipiAddress() as string)
   const toggleWalletModal = useWalletModalToggle()
   const handleSignOutClick = useCallback(() => {
     window.localStorage.removeItem(CONNECTOR_STORAGE_ID)
+    deactivate()
     // unsetConnector()
-  }, [])
+  }, [deactivate])
   const copy = () => {
     const input = document.createElement('input')
     input.setAttribute('readonly', 'readonly')
@@ -34,6 +39,10 @@ const AccountButton: React.FC<AccountButtonProps> = () => {
     }
     document.body.removeChild(input)
   }
+
+  const dispalyExplorerLabel = useMemo(() => {
+    return chainId === ChainId.HECO_MAINNET ? 'HECO' : 'OKLINK'
+  }, [chainId])
   return (
     <StyledAccountButton>
       {!account ? (
@@ -63,8 +72,8 @@ const AccountButton: React.FC<AccountButtonProps> = () => {
               </div>
               <div className="money">{getBalanceNumber(sushiBalance)}</div>
               <div className="title usdt">=${getBalanceNumber(sushiBalance) * pippiPrice}</div>
-              <Link href={`https://hecoinfo.com/address/${account}`}>
-                <TranslatedText translationId={164}>View on HecoScan</TranslatedText>
+              <Link href={`${EXPLORER_URLS[NETWORK_CHAIN_ID]}/address/${account}`} target="blank">
+                <TranslatedText translationId={164}>{`View on ${dispalyExplorerLabel}`}</TranslatedText>
               </Link>
             </Content>
             <div className="flex">

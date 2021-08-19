@@ -8,6 +8,7 @@ import { AutoColumn } from '../Column'
 import QuestionHelper from '../QuestionHelper'
 import { AutoRow } from '../Row'
 import CurrencyLogo from '../CurrencyLogo'
+import { NETWORK_CHAIN_ID } from '../../connectors'
 
 const BaseWrapper = styled.div<{ disable?: boolean }>`
   border: 1px solid ${({ theme, disable }) => (disable ? 'transparent' : theme.colors.bg3)};
@@ -45,13 +46,13 @@ export default function CommonBases({
       <AutoRow gap="4px">
         <BaseWrapper
           onClick={() => {
-            if (!selectedCurrency || !currencyEquals(selectedCurrency, ETHER)) {
-              onSelect(ETHER)
+            if (!selectedCurrency || !currencyEquals(selectedCurrency, ETHER(NETWORK_CHAIN_ID))) {
+              onSelect(ETHER(NETWORK_CHAIN_ID))
             }
           }}
-          disable={selectedCurrency === ETHER}
+          disable={selectedCurrency === ETHER(NETWORK_CHAIN_ID)}
         >
-          <CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} />
+          <CurrencyLogo currency={ETHER(NETWORK_CHAIN_ID)} style={{ marginRight: 8 }} />
           <Text fontWeight={500} fontSize={16}>
             HT
           </Text>

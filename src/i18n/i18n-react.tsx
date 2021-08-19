@@ -1,16 +1,9 @@
-import React, {
-  useContext,
-  createContext,
-  useMemo,
-  useCallback,
-  useState,
-  useEffect,
-} from 'react'
+import React, { useContext, createContext, useMemo, useCallback, useState, useEffect } from 'react'
 import { i18nFactory } from './i18n'
 
 const resourcesLoader = {
   en: () => import('./locales/en.json'),
-  'zh-CN': () => import('./locales/zh-CN.json'),
+  'zh-CN': () => import('./locales/zh-CN.json')
 }
 
 const I18N_LANGUAGE_KEY = 'i18n-language'
@@ -22,7 +15,7 @@ const I18nLanguageContext = createContext<{
   setLanguage: (lng: string) => void
 }>({
   language: defaultLanguage,
-  setLanguage: () => void 0,
+  setLanguage: () => void 0
 })
 
 const I18nTranslationContext = createContext({})
@@ -35,15 +28,15 @@ const I18nProvider = (props: React.PropsWithChildren<{}>) => {
       _setLanguage(lng)
       localStorage.setItem(I18N_LANGUAGE_KEY, lng)
     },
-    [_setLanguage],
+    [_setLanguage]
   )
 
   const languageValue = useMemo(
     () => ({
       language,
-      setLanguage,
+      setLanguage
     }),
-    [language, setLanguage],
+    [language, setLanguage]
   )
 
   const translationValue = useMemo(() => translation, [translation])
@@ -55,13 +48,9 @@ const I18nProvider = (props: React.PropsWithChildren<{}>) => {
     })
   }, [language])
 
-
-
   return (
     <I18nLanguageContext.Provider value={languageValue}>
-      <I18nTranslationContext.Provider value={translationValue}>
-        {props.children}
-      </I18nTranslationContext.Provider>
+      <I18nTranslationContext.Provider value={translationValue}>{props.children}</I18nTranslationContext.Provider>
     </I18nLanguageContext.Provider>
   )
 }
