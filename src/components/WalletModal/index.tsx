@@ -143,6 +143,7 @@ export default function WalletModal({
   // close modal when a connection is successful
   const activePrevious = usePrevious(active)
   const connectorPrevious = usePrevious(connector)
+
   useEffect(() => {
     if (walletModalOpen && ((active && !activePrevious) || (connector && connector !== connectorPrevious && !error))) {
       setWalletView(WALLET_VIEWS.ACCOUNT)
@@ -284,9 +285,7 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
-              <h5>
-                Please connect to heco Chain network.
-              </h5>
+              <h5>Please connect to heco Chain/OEC network.</h5>
             ) : (
               'Error connecting. Try refreshing the page.'
             )}

@@ -1,12 +1,14 @@
-import { ETHER, Token } from '@pancakeswap-libs/sdk'
+import { ChainId, ETHER, Token } from '@pancakeswap-libs/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
-import EthereumLogo from '../../assets/images/huobi-logo.png'
+import HuobiLogo from '../../assets/images/huobi-logo.png'
+import OkLogo from '../../assets/images/ok-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 import CoinLogo from '../../components/pancake/CoinLogo'
+import { NETWORK_CHAIN_ID } from '../../connectors'
 
 const getTokenLogoURL = (address: string) =>
   `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`
@@ -33,9 +35,12 @@ export default function CurrencyLogo({
   style?: React.CSSProperties
 }) {
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
+  const EthereumLogo = useMemo(() => {
+    return NETWORK_CHAIN_ID === ChainId.HECO_MAINNET ? HuobiLogo : OkLogo
+  }, [])
 
   const srcs: string[] = useMemo(() => {
-    if (currency === ETHER) return []
+    if (currency === ETHER(NETWORK_CHAIN_ID)) return []
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
@@ -47,10 +52,10 @@ export default function CurrencyLogo({
     return []
   }, [currency, uriLocations])
 
-  if (currency === ETHER) {
+  if (currency === ETHER(NETWORK_CHAIN_ID)) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }
-  return (currency as any)?.address ? (
+  return (currency as any)?.address && NETWORK_CHAIN_ID === ChainId.HECO_MAINNET ? (
     <CoinLogo
       size={size}
       srcs={[`/images/coins/${currency?.address?.replace('/', '') ?? 'token'}.png`]}

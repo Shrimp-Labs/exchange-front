@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancakeswap-libs/sdk'
+import { Currency, CurrencyAmount, currencyEquals, Token, ETHER } from '@pancakeswap-libs/sdk'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import { Text } from 'rebass'
@@ -16,9 +16,10 @@ import { MouseoverTooltip } from '../Tooltip'
 import { FadedSpan, MenuItem } from './styleds'
 import Loader from '../Loader'
 import { isTokenOnList } from '../../utils'
+import { NETWORK_CHAIN_ID } from '../../connectors'
 
 function currencyKey(currency: Currency): string {
-  return currency instanceof Token ? currency.address : currency === ETHER ? 'ETHER' : ''
+  return currency instanceof Token ? currency.address : currency === ETHER(NETWORK_CHAIN_ID) ? 'ETHER' : ''
 }
 
 const StyledBalanceText = styled(Text)`
@@ -99,7 +100,6 @@ function CurrencyRow({
   const isOnSelectedList = isTokenOnList(selectedTokenList, currency)
   const customAdded = useIsUserAddedToken(currency)
   const balance = useCurrencyBalance(account ?? undefined, currency)
-
   const removeToken = useRemoveUserAddedToken()
   const addToken = useAddUserToken()
 
@@ -171,7 +171,10 @@ export default function CurrencyList({
   fixedListRef?: MutableRefObject<FixedSizeList | undefined>
   showETH: boolean
 }) {
-  const itemData = useMemo(() => (showETH ? [Currency.ETHER, ...currencies] : [...currencies]), [currencies, showETH])
+  const itemData = useMemo(() => (showETH ? [ETHER(NETWORK_CHAIN_ID), ...currencies] : [...currencies]), [
+    currencies,
+    showETH
+  ])
 
   const Row = useCallback(
     ({ data, index, style }) => {
@@ -193,8 +196,6 @@ export default function CurrencyList({
   )
 
   const itemKey = useCallback((index: number, data: any) => currencyKey(data[index]), [])
-
-  // console.log(itemData)
 
   return (
     <FixedSizeList

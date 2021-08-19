@@ -1,5 +1,6 @@
 import { MaxUint256 } from '@ethersproject/constants'
 import { CurrencyAmount, ETHER, SwapParameters, Token, Trade, TradeOptions, TradeType } from '@pancakeswap-libs/sdk'
+import { NETWORK_CHAIN_ID } from '../connectors'
 import { getTradeVersion } from '../data/V1'
 import { Version } from '../hooks/useToggledVersion'
 
@@ -24,8 +25,8 @@ export default function v1SwapArguments(trade: Trade, options: Omit<TradeOptions
     throw new Error('too many pairs')
   }
   const isExactIn = trade.tradeType === TradeType.EXACT_INPUT
-  const inputETH = trade.inputAmount.currency === ETHER
-  const outputETH = trade.outputAmount.currency === ETHER
+  const inputETH = trade.inputAmount.currency === ETHER(NETWORK_CHAIN_ID)
+  const outputETH = trade.outputAmount.currency === ETHER(NETWORK_CHAIN_ID)
   if (inputETH && outputETH) throw new Error('ETHER to ETHER')
   const minimumAmountOut = toHex(trade.minimumAmountOut(options.allowedSlippage))
   const maximumAmountIn = toHex(trade.maximumAmountIn(options.allowedSlippage))

@@ -6,6 +6,7 @@ import { useActiveWeb3React } from '../../hooks'
 import { useMulticallContract } from '../../hooks/useContract'
 import { isAddress } from '../../utils'
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks'
+import { NETWORK_CHAIN_ID } from '../../connectors'
 
 /**
  * Returns a map of the given addresses to their eventually consistent ETH balances.
@@ -36,7 +37,7 @@ export function useETHBalances(
     () =>
       addresses.reduce<{ [address: string]: CurrencyAmount }>((memo, address, i) => {
         const value = results?.[i]?.result?.[0]
-        if (value) memo[address] = CurrencyAmount.ether(JSBI.BigInt(value.toString()))
+        if (value) memo[address] = CurrencyAmount.ether(JSBI.BigInt(value.toString()), NETWORK_CHAIN_ID)
         return memo
       }, {}),
     [addresses, results]
@@ -101,9 +102,11 @@ export function useCurrencyBalances(
   const tokens = useMemo(() => currencies?.filter((currency): currency is Token => currency instanceof Token) ?? [], [
     currencies
   ])
-
   const tokenBalances = useTokenBalances(account, tokens)
-  const containsETH: boolean = useMemo(() => currencies?.some(currency => currency === ETHER) ?? false, [currencies])
+  const containsETH: boolean = useMemo(
+    () => currencies?.some(currency => currency === ETHER(NETWORK_CHAIN_ID)) ?? false,
+    [currencies]
+  )
   const ethBalance = useETHBalances(containsETH ? [account] : [])
 
   return useMemo(
@@ -111,7 +114,7 @@ export function useCurrencyBalances(
       currencies?.map(currency => {
         if (!account || !currency) return undefined
         if (currency instanceof Token) return tokenBalances[currency.address]
-        if (currency === ETHER) return ethBalance[account]
+        if (currency === ETHER(NETWORK_CHAIN_ID)) return ethBalance[account]
         return undefined
       }) ?? [],
     [account, currencies, ethBalance, tokenBalances]

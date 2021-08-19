@@ -8,12 +8,14 @@ import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
 import { BscConnector } from './bsc/bscConnector'
 
-const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
 const PORTIS_ID = process.env.REACT_APP_PORTIS_ID
 
-export const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '1')
+const storedChainId = window.localStorage.getItem('chainId')
+const storedNetworkUrl = window.localStorage.getItem('networkUrl')
 
+export const NETWORK_CHAIN_ID: number = parseInt((storedChainId || process.env.REACT_APP_CHAIN_ID) ?? '1')
+const NETWORK_URL = storedNetworkUrl || process.env.REACT_APP_NETWORK_URL
 if (typeof NETWORK_URL === 'undefined') {
   throw new Error(`REACT_APP_NETWORK_URL must be a defined environment variable`)
 }
@@ -28,7 +30,7 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [128, 256]
+  supportedChainIds: [128, 256, 66]
 })
 
 export const bsc = new BscConnector({ supportedChainIds: [128, 256] })
