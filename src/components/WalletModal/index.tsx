@@ -10,7 +10,7 @@ import Modal from '../Modal'
 import AccountDetails from '../AccountDetails'
 import PendingView from './PendingView'
 import Option from './Option'
-import { SUPPORTED_WALLETS } from '../../constants'
+import { NERWORK_URLS, SUPPORTED_WALLETS } from '../../constants'
 import MetamaskIcon from '../../assets/images/metamask.png'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { injected, fortmatic, portis } from '../../connectors'
@@ -112,7 +112,7 @@ export default function WalletModal({
   ENSName?: string
 }) {
   // important that these are destructed from the account-specific web3-react context
-  const { active, account, connector, activate, error } = useWeb3React()
+  const { active, account, connector, activate, error, chainId } = useWeb3React()
 
   const [walletView, setWalletView] = useState(WALLET_VIEWS.ACCOUNT)
 
@@ -188,6 +188,15 @@ export default function WalletModal({
       toggleWalletModal()
     })
   }, [toggleWalletModal])
+
+  useEffect(() => {
+    const storedChainId = window.localStorage.getItem('chainId')
+    if (!!chainId && chainId !== Number(storedChainId)) {
+      window.localStorage.setItem('chainId', chainId.toString())
+      window.localStorage.setItem('networkUrl', NERWORK_URLS[chainId])
+      window.location.reload()
+    }
+  }, [chainId])
 
   // get wallets user can switch too, depending on device/browser
   function getOptions() {
