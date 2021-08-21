@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ import { useI18n } from '../../i18n/i18n-react'
 import LngSwith from '../Header/LngSwith'
 import useHTPrice from '../../hooks/useHtPrice'
 import { useActiveWeb3React } from '../../hooks'
+import { NERWORK_URLS } from '../../constants'
 
 interface MobileMenuProps {
   onDismiss: () => void
@@ -22,97 +23,97 @@ const views = {
     {
       to: '/',
       label: 'Exchange',
-      i18nKey: 'nav-exchange',
+      i18nKey: 'nav-exchange'
     },
     {
       label: 'Mining',
       i18nKey: 'nav-mining',
-      view: 'mining',
+      view: 'mining'
     },
     {
       label: 'Tool',
       i18nKey: 'nav-tool',
-      view: 'tool',
+      view: 'tool'
     },
     {
       label: 'More',
       i18nKey: 'nav-more',
-      view: 'more',
-    },
+      view: 'more'
+    }
   ],
   mining: [
     {
       label: 'Liquidity Mining',
       i18nKey: 'nav-liquidity-mining',
-      to: 'https://app.pippi.finance/farms',
+      to: 'https://app.pippi.finance/farms'
     },
     {
       label: 'Staking Mining',
       i18nKey: 'nav-staking-mining',
-      to: 'https://app.pippi.finance/staking',
+      to: 'https://app.pippi.finance/staking'
     },
     {
       label: 'xPIPI Pool',
       i18nKey: 'nav-xpipi-pool',
-      to: 'https://app.pippi.finance/xpipi',
+      to: 'https://app.pippi.finance/xpipi'
     },
     {
       label: 'LockDrop',
       i18nKey: 'nav-lockDrop',
-      to: 'https://app.pippi.finance/auto',
-    },
+      to: 'https://app.pippi.finance/auto'
+    }
   ],
   tool: [
     {
       label: 'Voting',
       i18nKey: 'nav-voting',
       to: 'https://voting.pippi.finance',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'Analytics',
       i18nKey: 'nav-analytics',
       to: 'https://info.pippi.finance',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'NFT',
       i18nKey: '',
-      to: 'https://app.pippi.finance/nft',
-    },
+      to: 'https://app.pippi.finance/nft'
+    }
   ],
   more: [
     {
       label: 'Docs',
       i18nKey: 'nav-docs',
       to: 'https://docs.pippi.finance/',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'Code',
       i18nKey: 'nav-code',
       to: 'https://github.com/Shrimp-Labs',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'Blog',
       i18nKey: 'nav-blog',
       to: 'https://medium.com/@shrimpswap',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'Annoucement',
       i18nKey: 'nav-annoucement',
       to: 'https://twitter.com/pippishrimpswap',
-      target: '_blank',
+      target: '_blank'
     },
     {
       label: 'Audit',
       i18nKey: 'nav-audit',
       to: 'https://pippi.finance/static/media/Pippi%20Shrimp_audit.1cd63cbb.pdf',
-      target: '_blank',
-    },
-  ],
+      target: '_blank'
+    }
+  ]
 }
 
 function NavItem({ label, i18nKey, to, target, view, onGotoView, onClick }: any) {
@@ -129,11 +130,7 @@ function NavItem({ label, i18nKey, to, target, view, onGotoView, onClick }: any)
 
   if (to.startsWith('http')) {
     return (
-      <StyledAbsoluteLink
-        className="nav-item"
-        target={target}
-        href={to}
-      >
+      <StyledAbsoluteLink className="nav-item" target={target} href={to}>
         {i18n(i18nKey, label)}
       </StyledAbsoluteLink>
     )
@@ -146,45 +143,53 @@ function NavItem({ label, i18nKey, to, target, view, onGotoView, onClick }: any)
   )
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }: MobileMenuProps) => {
   const i18n = useI18n()
   // const { account } = useWallet()
   const { pippiPrice } = useHTPrice()
   const [view, setView] = useState('root')
-  const { account } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
 
   const handleClose = () => {
     onDismiss()
     setView('root')
   }
 
+  useEffect(() => {
+    const storedChainId = window.localStorage.getItem('chainId')
+    if (!!chainId && chainId !== Number(storedChainId)) {
+      window.localStorage.setItem('chainId', chainId.toString())
+      window.localStorage.setItem('networkUrl', NERWORK_URLS[chainId])
+      window.location.reload()
+    }
+  }, [chainId])
+
   if (!visible) {
     return null
   }
 
-  let bodyView = (
-      <>
-        <div className="navs">
-          {views[view].map((item) => (
-            <NavItem
-              {...item}
-              key={item.label}
-              onClick={handleClose}
-              onGotoView={() => {
-                if (item.view) {
-                  setView(item.view)
-                }
-              }}
-            />
-          ))}
-        </div>
-        <Bottom>
-          {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
-          <LngSwith className="mobile-lng-swith"></LngSwith>
-        </Bottom>
-      </>
-    )
-  
+  const bodyView = (
+    <>
+      <div className="navs">
+        {views[view].map(item => (
+          <NavItem
+            {...item}
+            key={item.label}
+            onClick={handleClose}
+            onGotoView={() => {
+              if (item.view) {
+                setView(item.view)
+              }
+            }}
+          />
+        ))}
+      </div>
+      <Bottom>
+        {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
+        <LngSwith className="mobile-lng-swith"></LngSwith>
+      </Bottom>
+    </>
+  )
 
   return (
     <StyledMobileMenuWrapper>
@@ -194,12 +199,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
           {view === 'root' ? (
             <>
               <img className="icon icon-logo" src={ImageLogo} alt="" />
-              <img
-                className="icon icon-close"
-                src={ImageClose}
-                alt=""
-                onClick={handleClose}
-              />
+              <img className="icon icon-close" src={ImageClose} alt="" onClick={handleClose} />
             </>
           ) : (
             <>
@@ -207,12 +207,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }) => {
                 <img className="icon icon-back" src={ImageNavBack} alt="" />
                 <span>{i18n('nav-back', 'Back')}</span>
               </div>
-              <img
-                className="icon icon-close"
-                src={ImageClose}
-                alt=""
-                onClick={handleClose}
-              />
+              <img className="icon icon-close" src={ImageClose} alt="" onClick={handleClose} />
             </>
           )}
         </div>
@@ -232,7 +227,7 @@ const Bottom = styled.div`
   margin: auto;
   text-align: center;
   .mobile-lng-swith {
-    width:100%;
+    width: 100%;
     height: 30px;
     line-height: 30px;
     margin-bottom: 20px;
@@ -256,7 +251,7 @@ const StyledMobileMenuWrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1000;
-  background-color: ${(props) => props.theme.colors.cardBg};
+  background-color: ${props => props.theme.colors.cardBg};
 
   .menu-bg {
     position: absolute;
@@ -395,4 +390,3 @@ const StyledAbsoluteLink = styled.a`
 `
 
 export default MobileMenu
-
