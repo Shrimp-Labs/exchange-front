@@ -23,22 +23,26 @@ const views = {
     {
       to: '/',
       label: 'Exchange',
-      i18nKey: 'nav-exchange'
+      i18nKey: 'nav-exchange',
+      chainId: [128, 66]
     },
     {
       label: 'Mining',
       i18nKey: 'nav-mining',
-      view: 'mining'
+      view: 'mining',
+      chainId: [128]
     },
     {
       label: 'Tool',
       i18nKey: 'nav-tool',
-      view: 'tool'
+      view: 'tool',
+      chainId: [128]
     },
     {
       label: 'More',
       i18nKey: 'nav-more',
-      view: 'more'
+      view: 'more',
+      chainId: [128, 66]
     }
   ],
   mining: [
@@ -87,31 +91,36 @@ const views = {
       label: 'Docs',
       i18nKey: 'nav-docs',
       to: 'https://docs.pippi.finance/',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128, 66]
     },
     {
       label: 'Code',
       i18nKey: 'nav-code',
       to: 'https://github.com/Shrimp-Labs',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128, 66]
     },
     {
       label: 'Blog',
       i18nKey: 'nav-blog',
       to: 'https://medium.com/@shrimpswap',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128, 66]
     },
     {
       label: 'Annoucement',
       i18nKey: 'nav-annoucement',
       to: 'https://twitter.com/pippishrimpswap',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128, 66]
     },
     {
       label: 'Audit',
       i18nKey: 'nav-audit',
       to: 'https://pippi.finance/static/media/Pippi%20Shrimp_audit.1cd63cbb.pdf',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128, 66]
     }
   ]
 }
@@ -171,18 +180,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }: MobileMen
   const bodyView = (
     <>
       <div className="navs">
-        {views[view].map(item => (
-          <NavItem
-            {...item}
-            key={item.label}
-            onClick={handleClose}
-            onGotoView={() => {
-              if (item.view) {
-                setView(item.view)
-              }
-            }}
-          />
-        ))}
+        {views[view]
+          .filter(item => item.chainId?.includes(chainId))
+          .map(item => (
+            <NavItem
+              {...item}
+              key={item.label}
+              onClick={handleClose}
+              onGotoView={() => {
+                if (item.view) {
+                  setView(item.view)
+                }
+              }}
+            />
+          ))}
       </div>
       <Bottom>
         {account && <Price className="number">1PIPI= ${pippiPrice.toFixed(3)}</Price>}
