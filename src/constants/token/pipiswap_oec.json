@@ -113,6 +113,14 @@
       "chainId": 66,
       "decimals": 9,
       "logoURI": "https://swap.pippi.finance/images/coins/0xbb25d219cbf8963ec9b8d4e01361fb529e49263e.png"
+    },
+    {
+      "name": "TPT",
+      "symbol": "TPT",
+      "address": "0x2cec1c3f71db54c99d6df687d8ac968cce80cc85",
+      "chainId": 128,
+      "decimals": 4,
+      "logoURI": "https://swap.pippi.finance/images/coins/0x2cec1c3f71db54c99d6df687d8ac968cce80cc85.png"
     }
   ]
 }
