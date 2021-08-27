@@ -18,27 +18,31 @@ const navItems = [
   {
     label: 'Mining',
     i18nKey: 'nav-mining',
-    chainId: [128],
+    chainId: [128, 66],
     children: [
       {
         label: 'Liquidity Mining',
         i18nKey: 'nav-liquidity-mining',
-        to: 'https://app.pippi.finance/farms'
+        to: 'https://app.pippi.finance/farms',
+        chainId: [128, 66],
       },
       {
         label: 'Staking Mining',
         i18nKey: 'nav-staking-mining',
-        to: 'https://app.pippi.finance/staking'
+        to: 'https://app.pippi.finance/staking',
+        chainId: [128, 66],
       },
       {
         label: 'xPIPI Pool',
         i18nKey: 'nav-xpipi-pool',
-        to: 'https://app.pippi.finance/xpipi'
+        to: 'https://app.pippi.finance/xpipi',
+        chainId: [128, 66],
       },
       {
         label: 'LockDrop',
         i18nKey: 'nav-lockDrop',
-        to: 'https://app.pippi.finance/auto'
+        to: 'https://app.pippi.finance/auto',
+        chainId: [128],
       }
     ]
   },
@@ -51,18 +55,21 @@ const navItems = [
         label: 'Voting',
         i18nKey: 'nav-voting',
         to: 'https://voting.pippi.finance',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128],
       },
       {
         label: 'Analytics',
         i18nKey: 'nav-analytics',
         to: 'https://info.pippi.finance',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128],
       },
       {
         label: 'NFT',
         i18nKey: '',
-        to: 'https://app.pippi.finance/nft'
+        to: 'https://app.pippi.finance/nft',
+        chainId: [128],
       }
     ]
   },
@@ -75,31 +82,36 @@ const navItems = [
         label: 'Docs',
         i18nKey: 'nav-docs',
         to: 'https://docs.pippi.finance/',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128, 66],
       },
       {
         label: 'Code',
         i18nKey: 'nav-code',
         to: 'https://github.com/Shrimp-Labs',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128, 66],
       },
       {
         label: 'Blog',
         i18nKey: 'nav-blog',
         to: 'https://medium.com/@shrimpswap',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128, 66],
       },
       {
         label: 'Annoucement',
         i18nKey: 'nav-annoucement',
         to: 'https://twitter.com/pippishrimpswap',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128, 66],
       },
       {
         label: 'Audit',
         i18nKey: 'nav-audit',
         to: 'https://pippi.finance/static/media/Pippi%20Shrimp_audit.1cd63cbb.pdf',
-        target: '_blank'
+        target: '_blank',
+        chainId: [128, 66],
       }
     ]
   }
@@ -118,7 +130,7 @@ function NavItem({ label, i18nKey, to, target, children }: any) {
           <ArrowUp className="icon icon-arrow-up" />
         </div>
         <div className="nav-item-list">
-          {children.map((item, index) => {
+          {children.filter(item => item?.chainId.includes(NETWORK_CHAIN_ID)).map((item, index) => {
             const handleClick = () => {
               if (item.to.startsWith('http')) {
                 if (item.target === '_blank') {

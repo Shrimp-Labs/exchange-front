@@ -30,7 +30,7 @@ const views = {
       label: 'Mining',
       i18nKey: 'nav-mining',
       view: 'mining',
-      chainId: [128]
+      chainId: [128, 66]
     },
     {
       label: 'Tool',
@@ -49,22 +49,26 @@ const views = {
     {
       label: 'Liquidity Mining',
       i18nKey: 'nav-liquidity-mining',
-      to: 'https://app.pippi.finance/farms'
+      to: 'https://app.pippi.finance/farms',
+      chainId: [128, 66]
     },
     {
       label: 'Staking Mining',
       i18nKey: 'nav-staking-mining',
-      to: 'https://app.pippi.finance/staking'
+      to: 'https://app.pippi.finance/staking',
+      chainId: [128, 66]
     },
     {
       label: 'xPIPI Pool',
       i18nKey: 'nav-xpipi-pool',
-      to: 'https://app.pippi.finance/xpipi'
+      to: 'https://app.pippi.finance/xpipi',
+      chainId: [128, 66]
     },
     {
       label: 'LockDrop',
       i18nKey: 'nav-lockDrop',
-      to: 'https://app.pippi.finance/auto'
+      to: 'https://app.pippi.finance/auto',
+      chainId: [128]
     }
   ],
   tool: [
@@ -72,18 +76,21 @@ const views = {
       label: 'Voting',
       i18nKey: 'nav-voting',
       to: 'https://voting.pippi.finance',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128]
     },
     {
       label: 'Analytics',
       i18nKey: 'nav-analytics',
       to: 'https://info.pippi.finance',
-      target: '_blank'
+      target: '_blank',
+      chainId: [128]
     },
     {
       label: 'NFT',
       i18nKey: '',
-      to: 'https://app.pippi.finance/nft'
+      to: 'https://app.pippi.finance/nft',
+      chainId: [128]
     }
   ],
   more: [
