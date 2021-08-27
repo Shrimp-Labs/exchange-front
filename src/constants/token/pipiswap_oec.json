@@ -121,6 +121,14 @@
       "chainId": 128,
       "decimals": 4,
       "logoURI": "https://swap.pippi.finance/images/coins/0x2cec1c3f71db54c99d6df687d8ac968cce80cc85.png"
+    },
+    {
+      "name": "TRXK",
+      "symbol": "TRXK",
+      "address": "0x00505505a7576d6734704fabb16f41924e3e384b",
+      "chainId": 128,
+      "decimals": 4,
+      "logoURI": "https://swap.pippi.finance/images/coins/0x00505505a7576d6734704fabb16f41924e3e384b.png"
     }
   ]
 }
