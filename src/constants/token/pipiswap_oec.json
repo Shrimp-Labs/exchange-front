@@ -1,0 +1,134 @@
+{
+  "name": "pippiswap",
+  "timestamp": "2020-08-25T15:41:29.665Z",
+  "version": {
+    "major": 1,
+    "minor": 3,
+    "patch": 1
+  },
+  "tags": {},
+  "logoURI": "https://swap.pippi.finance/images/192x192_App_Icon.png",
+  "keywords": ["pippi", "default"],
+  "tokens": [
+    {
+      "name": "OEC-Peg ETH Token",
+      "symbol": "ETHK",
+      "address": "0xef71ca2ee68f45b9ad6f72fbdb33d707b872315c",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_ethk.png"
+    },
+    {
+      "name": "Wrapped OKT",
+      "symbol": "WOKT",
+      "address": "0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_ethk.png"
+    },
+    {
+      "name": "Pippi Shrimp Token",
+      "symbol": "PIPI",
+      "address": "0xFdfBC559953557F5442eee7c4bA4AEDc1156caE3",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xaaae746b5e55d14398879312660e9fde07fbc1dc.png"
+    },
+    {
+      "name": "CherrySwapToken",
+      "symbol": "CHE",
+      "address": "0x8179d97eb6488860d816e3ecafe694a4153f216c",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/okexchain_che.png"
+    },
+    {
+      "name": "OEC-Peg USD Token",
+      "symbol": "USDK",
+      "address": "0xdcac52e001f5bd413aa6ea83956438f29098166b",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_usdk.png"
+    },
+    {
+      "name": "OEC-Peg BTC Token",
+      "symbol": "BTCK",
+      "address": "0x54e4622dc504176b3bb432dccaf504569699a7ff",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_btck.png"
+    },
+    {
+      "name": "OEC-Peg USDT Token",
+      "symbol": "USDT",
+      "address": "0x382bb369d343125bfb2117af9c149795c6c65c50",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_usdt.png"
+    },
+    {
+      "name": "OEC-Peg DOT Token",
+      "symbol": "DOTK",
+      "address": "0xabc732f6f69a519f6d508434481376b6221eb7d5",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_dotk.png"
+    },
+    {
+      "name": "OEC-Peg LTC Token",
+      "symbol": "LTCK",
+      "address": "0xfa520efc34c81bfc1e3dd48b7fe9ff326049f986",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://static.oklink.com/cdn/explorer/okexchain/exchain_ltck.png"
+    },
+    {
+      "name": "OEC-Peg BCH Token",
+      "symbol": "BCHK",
+      "address": "0x18d103b7066aeedb6005b78a462ef9027329b1ea",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xef3cebd77e0c52cb6f60875d9306397b5caca375.png"
+    },
+    {
+      "name": "OEC-Peg FIL Token",
+      "symbol": "FILK",
+      "address": "0x3f8969be2fc0770dcc174968e4b4ff146e0acdaf",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xae3a768f9ab104c69a7cd6041fe16ffa235d1810.png"
+    },
+    {
+      "name": "OEC-Peg SHIB Token",
+      "symbol": "SHIBK",
+      "address": "0xaa27badaa3c9ec9081b8f6c9cdd2bf375f143780",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xdd86dd2dc0aca2a8f41a680fc1f88ec1b7fc9b09.png"
+    },
+    {
+      "name": "OKMoon",
+      "symbol": "OKMoon",
+      "address": "0xbb25d219cbf8963ec9b8d4e01361fb529e49263e",
+      "chainId": 66,
+      "decimals": 9,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xbb25d219cbf8963ec9b8d4e01361fb529e49263e.png"
+    },
+    {
+      "name": "TPT",
+      "symbol": "TPT",
+      "address": "0x2cec1c3f71db54c99d6df687d8ac968cce80cc85",
+      "chainId": 66,
+      "decimals": 4,
+      "logoURI": "https://swap.pippi.finance/images/coins/0x2cec1c3f71db54c99d6df687d8ac968cce80cc85.png"
+    },
+    {
+      "name": "TRXK",
+      "symbol": "TRXK",
+      "address": "0x00505505a7576d6734704fabb16f41924e3e384b",
+      "chainId": 66,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0x00505505a7576d6734704fabb16f41924e3e384b.png"
+    }
+  ]
+}

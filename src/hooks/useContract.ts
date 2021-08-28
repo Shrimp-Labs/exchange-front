@@ -52,14 +52,7 @@ export function useWETHContract(withSignerIfPossible?: boolean): Contract | null
 }
 
 export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contract | null {
-  const { chainId } = useActiveWeb3React()
   let address: string | undefined
-  if (chainId) {
-    switch (chainId) {
-      case ChainId.MAINNET:
-      case ChainId.TESTNET:
-    }
-  }
   return useContract(address, ENS_ABI, withSignerIfPossible)
 }
 

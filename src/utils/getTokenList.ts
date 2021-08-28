@@ -7,7 +7,7 @@ import uriToHttp from './uriToHttp'
 
 // bakeryswap defaultTokenJson
 import { DEFAULT_TOKEN_LIST_URL } from '../constants/lists'
-import defaultTokenJson from '../constants/token/pippiswap.json'
+import { defaultTokenList } from '../constants/token'
 
 const tokenListValidator = new Ajv({ allErrors: true }).compile(schema)
 
@@ -21,7 +21,7 @@ export default async function getTokenList(
   resolveENSContentHash: (ensName: string) => Promise<string>
 ): Promise<TokenList> {
   if (listUrl === DEFAULT_TOKEN_LIST_URL) {
-    return defaultTokenJson
+    return defaultTokenList()
   }
   const parsedENS = parseENSAddress(listUrl)
 

@@ -3,7 +3,7 @@ import warning from 'tiny-warning'
 import JSBI from 'jsbi'
 import { getAddress } from '@ethersproject/address'
 
-import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA } from './constants'
+import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA, ChainId } from './constants'
 
 export function validateSolidityTypeInstance(value: JSBI, solidityType: SolidityType): void {
   invariant(JSBI.greaterThanOrEqual(value, ZERO), `${value} is not a ${solidityType}.`)
@@ -78,5 +78,27 @@ export function sortedInsert<T>(items: T[], add: T, maxSize: number, comparator:
     }
     items.splice(lo, 0, add)
     return isFull ? items.pop()! : null
+  }
+}
+
+export const getInitCodeHash = (chainId: ChainId) => {
+  switch (chainId) {
+    case ChainId.HECO_MAINNET:
+      return '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75'
+    case ChainId.OEC_MAINNET:
+      return '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178'
+    default:
+      return '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75'
+  }
+}
+
+export const getFactoryAddress = (chainId: ChainId) => {
+  switch (chainId) {
+    case ChainId.HECO_MAINNET:
+      return '0x979efE7cA072b72d6388f415d042951dDF13036e'
+    case ChainId.OEC_MAINNET:
+      return '0x0dDF434108DF168b347428De9C8F595471364A48'
+    default:
+      return '0x979efE7cA072b72d6388f415d042951dDF13036e'
   }
 }

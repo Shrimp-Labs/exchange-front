@@ -1,29 +1,65 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@pancakeswap-libs/sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
-// import { bsc, fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
-import { injected } from '../connectors'
+import { injected, NETWORK_CHAIN_ID } from '../connectors'
+import { pinnedPairs, pinnedStableCoinPairs } from './token'
+
 // TODO
-export const ROUTER_ADDRESS = '0xBe4AB2603140F134869cb32aB4BC56d762Ae900B'
+export const ROUTER_ADDRESS = (function() {
+  return NETWORK_CHAIN_ID === ChainId.HECO_MAINNET
+    ? '0xBe4AB2603140F134869cb32aB4BC56d762Ae900B'
+    : '0xec5bBf69C6BE29a7566F9b7D8125321DF2c82797'
+})()
 
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
-export const HUSD = new Token(ChainId.MAINNET, '0x0298c2b32eae4da002a15f36fdf7615bea3da047', 8, 'HUSD', 'Heco-Peg HUSD Token')
-export const USDT = new Token(ChainId.MAINNET, '0xa71edc38d189767582c38a3145b5873052c3e47a', 18, 'USDT', 'Heco-Peg USDTHECO Token')
-export const ETH = new Token(ChainId.MAINNET, '0x64ff637fb478863b7468bc97d30a5bf3a428a1fd', 18, 'ETH', 'Heco-Peg ETH Token')
+export const HUSD = new Token(
+  ChainId.HECO_MAINNET,
+  '0x0298c2b32eae4da002a15f36fdf7615bea3da047',
+  8,
+  'HUSD',
+  'Heco-Peg HUSD Token'
+)
+
+export const USDT = new Token(
+  ChainId.HECO_MAINNET,
+  '0xa71edc38d189767582c38a3145b5873052c3e47a',
+  18,
+  'USDT',
+  'Heco-Peg USDTHECO Token'
+)
+
+export const ETH = new Token(
+  ChainId.HECO_MAINNET,
+  '0x64ff637fb478863b7468bc97d30a5bf3a428a1fd',
+  18,
+  'ETH',
+  'Heco-Peg ETH Token'
+)
 
 const WETH_ONLY: ChainTokenList = {
-  [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
-  [ChainId.TESTNET]: [WETH[ChainId.TESTNET]]
+  [ChainId.HECO_MAINNET]: [WETH[ChainId.HECO_MAINNET]],
+  [ChainId.OEC_MAINNET]: [WETH[ChainId.OEC_MAINNET]],
+  [ChainId.HECO_TESTNET]: [WETH[ChainId.HECO_TESTNET]]
+}
+
+export const NERWORK_URLS = {
+  [ChainId.HECO_MAINNET]: 'https://http-mainnet-node.huobichain.com',
+  [ChainId.OEC_MAINNET]: 'https://exchainrpc.okex.org/'
+}
+
+export const EXPLORER_URLS = {
+  [ChainId.HECO_MAINNET]: 'https://hecoinfo.com',
+  [ChainId.OEC_MAINNET]: 'https://www.oklink.com/okexchain'
 }
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], HUSD, USDT]
+  [NETWORK_CHAIN_ID]: [...WETH_ONLY[NETWORK_CHAIN_ID], ...pinnedStableCoinPairs()]
 }
 
 /**
@@ -31,31 +67,25 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  * tokens.
  */
 export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
-  [ChainId.MAINNET]: {
-    [ETH.address]: [HUSD, WETH[ChainId.MAINNET]]
+  [NETWORK_CHAIN_ID]: {
+    [ETH.address]: [HUSD, WETH[NETWORK_CHAIN_ID]]
   }
 }
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], HUSD, USDT]
+  [NETWORK_CHAIN_ID]: [...WETH_ONLY[NETWORK_CHAIN_ID], ...pinnedStableCoinPairs()]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], HUSD, USDT]
+  [NETWORK_CHAIN_ID]: [...WETH_ONLY[NETWORK_CHAIN_ID], ...pinnedStableCoinPairs()]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.MAINNET]: [
-    [
-      new Token(ChainId.MAINNET, '0xaaae746b5e55d14398879312660e9fde07fbc1dc', 18, 'PIPI', 'PIPI SHRIMP Token'),
-      new Token(ChainId.MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT')
-    ],
-    [HUSD, USDT]
-  ]
+  [NETWORK_CHAIN_ID]: [pinnedPairs(), pinnedStableCoinPairs()]
 }
 
 export interface WalletInfo {
