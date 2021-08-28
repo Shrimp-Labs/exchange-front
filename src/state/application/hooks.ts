@@ -1,6 +1,13 @@
 import { useCallback, useMemo } from 'react'
 import { useActiveWeb3React } from '../../hooks'
-import { addPopup, PopupContent, removePopup, toggleWalletModal, toggleSettingsMenu } from './actions'
+import {
+  addPopup,
+  PopupContent,
+  removePopup,
+  toggleWalletModal,
+  toggleSettingsMenu,
+  toggleNetworkModal
+} from './actions'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from '../index'
 
@@ -14,9 +21,18 @@ export function useWalletModalOpen(): boolean {
   return useSelector((state: AppState) => state.application.walletModalOpen)
 }
 
+export function useNetworkModalOpen(): boolean {
+  return useSelector((state: AppState) => state.application.networkModalOpen)
+}
+
 export function useWalletModalToggle(): () => void {
   const dispatch = useDispatch()
   return useCallback(() => dispatch(toggleWalletModal()), [dispatch])
+}
+
+export function useNetworkModalToggle(): () => void {
+  const dispatch = useDispatch()
+  return useCallback(() => dispatch(toggleNetworkModal()), [dispatch])
 }
 
 export function useSettingsMenuOpen(): boolean {

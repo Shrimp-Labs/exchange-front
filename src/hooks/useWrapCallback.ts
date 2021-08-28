@@ -36,7 +36,7 @@ export default function useWrapCallback(
 
     const sufficientBalance = inputAmount && balance && !balance.lessThan(inputAmount)
 
-    if (inputCurrency === ETHER && currencyEquals(WETH[chainId], outputCurrency)) {
+    if (inputCurrency === ETHER(chainId) && currencyEquals(WETH[chainId], outputCurrency)) {
       return {
         wrapType: WrapType.WRAP,
         execute:
@@ -52,7 +52,7 @@ export default function useWrapCallback(
             : undefined,
         inputError: sufficientBalance ? undefined : 'Insufficient ETH balance'
       }
-    } else if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER) {
+    } else if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER(chainId)) {
       return {
         wrapType: WrapType.UNWRAP,
         execute:

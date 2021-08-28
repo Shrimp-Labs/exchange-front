@@ -73,7 +73,7 @@ ReactDOM.render(
         <Provider store={store}>
           <Updaters />
           <RefreshProvider>
-            <PriceProvider >
+            <PriceProvider>
               <ThemeProvider>
                 <ThemedGlobalStyle />
                 <App />

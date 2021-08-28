@@ -1,4 +1,5 @@
 import { CurrencyAmount, ETHER, Percent, Route, TokenAmount, Trade } from '@pancakeswap-libs/sdk'
+import { NETWORK_CHAIN_ID } from '../connectors'
 import { DAI, USDC } from '../constants'
 import { MockV1Pair } from '../data/V1'
 import v1SwapArguments from './v1SwapArguments'
@@ -61,7 +62,7 @@ describe('v1SwapArguments', () => {
     expect(result.value).toEqual('0x0')
   })
   it('eth to exact token', () => {
-    const trade = Trade.exactOut(new Route([USDC_WETH], ETHER), new TokenAmount(USDC, '100'))
+    const trade = Trade.exactOut(new Route([USDC_WETH], ETHER(NETWORK_CHAIN_ID)), new TokenAmount(USDC, '100'))
     const result = v1SwapArguments(trade, {
       recipient: TEST_RECIPIENT_ADDRESS,
       allowedSlippage: new Percent('1', '100'),
@@ -74,7 +75,10 @@ describe('v1SwapArguments', () => {
     expect(result.value).toEqual('0x66')
   })
   it('token to exact eth', () => {
-    const trade = Trade.exactOut(new Route([USDC_WETH], USDC, ETHER), CurrencyAmount.ether('100'))
+    const trade = Trade.exactOut(
+      new Route([USDC_WETH], USDC, ETHER(NETWORK_CHAIN_ID)),
+      CurrencyAmount.ether('100', NETWORK_CHAIN_ID)
+    )
     const result = v1SwapArguments(trade, {
       recipient: TEST_RECIPIENT_ADDRESS,
       allowedSlippage: new Percent('1', '100'),

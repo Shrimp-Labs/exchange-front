@@ -5,6 +5,7 @@ import {
   removePopup,
   toggleWalletModal,
   toggleSettingsMenu,
+  toggleNetworkModal,
   updateBlockNumber
 } from './actions'
 
@@ -14,6 +15,7 @@ export interface ApplicationState {
   blockNumber: { [chainId: number]: number }
   popupList: PopupList
   walletModalOpen: boolean
+  networkModalOpen: boolean
   settingsMenuOpen: boolean
 }
 
@@ -21,6 +23,7 @@ const initialState: ApplicationState = {
   blockNumber: {},
   popupList: [],
   walletModalOpen: false,
+  networkModalOpen: false,
   settingsMenuOpen: false
 }
 
@@ -36,6 +39,9 @@ export default createReducer(initialState, builder =>
     })
     .addCase(toggleWalletModal, state => {
       state.walletModalOpen = !state.walletModalOpen
+    })
+    .addCase(toggleNetworkModal, state => {
+      state.networkModalOpen = !state.networkModalOpen
     })
     .addCase(toggleSettingsMenu, state => {
       state.settingsMenuOpen = !state.settingsMenuOpen

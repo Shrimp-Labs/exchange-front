@@ -133,7 +133,7 @@ export function CurrencySearch({
       if (e.key === 'Enter') {
         const s = searchQuery.toLowerCase().trim()
         if (s === 'eth') {
-          handleCurrencySelect(ETHER)
+          handleCurrencySelect(ETHER(chainId))
         } else if (filteredSortedTokens.length > 0) {
           if (
             filteredSortedTokens[0].symbol?.toLowerCase() === searchQuery.trim().toLowerCase() ||
@@ -144,11 +144,10 @@ export function CurrencySearch({
         }
       }
     },
-    [filteredSortedTokens, handleCurrencySelect, searchQuery]
+    [chainId, filteredSortedTokens, handleCurrencySelect, searchQuery]
   )
 
   const selectedListInfo = useSelectedListInfo()
-
 
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>

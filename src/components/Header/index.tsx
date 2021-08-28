@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react'
+import React, { useCallback, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 // import { Text } from 'rebass'
 
@@ -13,6 +13,7 @@ import menuIcon from '../../assets/images/menu.png'
 import MobileMenu from '../MobileMenu'
 import AccountButton from './AccountButton'
 import Web3Status from '../Web3Status'
+import { NetworkButton } from './NetworkButton'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -95,6 +96,7 @@ const StyledAccountButtonWrapper = styled.div`
     }
   `};
 `
+
 const Price = styled.div`
   color: ${props => props.theme.colors.primary};
   margin-right: 24px;
@@ -134,6 +136,7 @@ export default function Header() {
             <HeaderElement>
               <StyledAccountButtonWrapper>
                 <Web3Status />
+                <NetworkButton />
                 <Price className="number price">1PIPI=${pippiPrice.toFixed(3)}</Price>
                 <AccountButton />
                 <Settings />
