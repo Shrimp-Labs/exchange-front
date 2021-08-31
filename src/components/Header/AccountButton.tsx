@@ -41,7 +41,16 @@ const AccountButton: React.FC<AccountButtonProps> = () => {
   }
 
   const dispalyExplorerLabel = useMemo(() => {
-    return chainId === ChainId.HECO_MAINNET ? 'HECO' : 'OKLINK'
+    switch (chainId) {
+      case ChainId.HECO_MAINNET:
+        return 'HECO'
+      case ChainId.OEC_MAINNET:
+        return 'OKLINK'
+      case ChainId.POLYGON:
+        return 'PolygonScan'
+      default:
+        return 'HECO'
+    }
   }, [chainId])
   return (
     <StyledAccountButton>
@@ -73,7 +82,7 @@ const AccountButton: React.FC<AccountButtonProps> = () => {
               <div className="money">{getBalanceNumber(sushiBalance)}</div>
               <div className="title usdt">=${getBalanceNumber(sushiBalance) * pippiPrice}</div>
               <Link href={`${EXPLORER_URLS[NETWORK_CHAIN_ID]}/address/${account}`} target="blank">
-                <TranslatedText translationId={164}>{`View on ${dispalyExplorerLabel}`}</TranslatedText>
+                {`View on ${dispalyExplorerLabel}`}
               </Link>
             </Content>
             <div className="flex">

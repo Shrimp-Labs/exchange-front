@@ -23,6 +23,7 @@ var _FACTORY_ADDRESS, _INIT_CODE_HASH, _SOLIDITY_TYPE_MAXIMA;
   ChainId[ChainId["HECO_MAINNET"] = 128] = "HECO_MAINNET";
   ChainId[ChainId["HECO_TESTNET"] = 256] = "HECO_TESTNET";
   ChainId[ChainId["OEC_MAINNET"] = 66] = "OEC_MAINNET";
+  ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
 })(exports.ChainId || (exports.ChainId = {}));
 
 (function (TradeType) {
@@ -36,8 +37,8 @@ var _FACTORY_ADDRESS, _INIT_CODE_HASH, _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.HECO_MAINNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[exports.ChainId.HECO_TESTNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[exports.ChainId.OEC_MAINNET] = '0x0dDF434108DF168b347428De9C8F595471364A48', _FACTORY_ADDRESS);
-var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.HECO_MAINNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[exports.ChainId.HECO_TESTNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[exports.ChainId.OEC_MAINNET] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH);
+var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.HECO_MAINNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[exports.ChainId.HECO_TESTNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[exports.ChainId.OEC_MAINNET] = '0x0dDF434108DF168b347428De9C8F595471364A48', _FACTORY_ADDRESS[exports.ChainId.POLYGON] = '0x43cE21cdceeC70828220DF623b3B183D86eD1DB2', _FACTORY_ADDRESS);
+var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.HECO_MAINNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[exports.ChainId.HECO_TESTNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[exports.ChainId.OEC_MAINNET] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH[exports.ChainId.POLYGON] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH);
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -370,15 +371,18 @@ function Currency(decimals, symbol, name) {
 Currency.ETHER = /*#__PURE__*/new Currency(18, 'HT', 'HUOBI');
 Currency.HT = /*#__PURE__*/new Currency(18, 'HT', 'HUOBI');
 Currency.OKT = /*#__PURE__*/new Currency(18, 'OKT', 'OKEX');
+Currency.MATIC = /*#__PURE__*/new Currency(18, 'MATIC', 'POLYGON');
 
 var ETHER = function ETHER(chainId) {
   if (chainId === exports.ChainId.HECO_MAINNET) return Currency.HT;
   if (chainId === exports.ChainId.OEC_MAINNET) return Currency.OKT;
+  if (chainId === exports.ChainId.POLYGON) return Currency.MATIC;
   return Currency.HT;
 };
 
 var HT = Currency.HT;
 var OKT = Currency.OKT;
+var MATIC = Currency.MATIC;
 
 var _WETH;
 /**
@@ -443,7 +447,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[exports.ChainId.HECO_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT'), _WETH[exports.ChainId.HECO_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.HECO_TESTNET, '0xb49f19289857f4499781aab9afd4a428c4be9ca8', 18, 'WHT', 'Wrapped HT'), _WETH[exports.ChainId.OEC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.OEC_MAINNET, '0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15', 18, 'WOKT', 'Wrapped OKT'), _WETH);
+var WETH = (_WETH = {}, _WETH[exports.ChainId.HECO_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT'), _WETH[exports.ChainId.HECO_TESTNET] = /*#__PURE__*/new Token(exports.ChainId.HECO_TESTNET, '0xb49f19289857f4499781aab9afd4a428c4be9ca8', 18, 'WHT', 'Wrapped HT'), _WETH[exports.ChainId.OEC_MAINNET] = /*#__PURE__*/new Token(exports.ChainId.OEC_MAINNET, '0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15', 18, 'WOKT', 'Wrapped OKT'), _WETH[exports.ChainId.POLYGON] = /*#__PURE__*/new Token(exports.ChainId.POLYGON, '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270', 18, 'WMATIC', 'Wrapped MATIC'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -1586,6 +1590,7 @@ exports.HT = HT;
 exports.INIT_CODE_HASH = INIT_CODE_HASH;
 exports.InsufficientInputAmountError = InsufficientInputAmountError;
 exports.InsufficientReservesError = InsufficientReservesError;
+exports.MATIC = MATIC;
 exports.MINIMUM_LIQUIDITY = MINIMUM_LIQUIDITY;
 exports.OKT = OKT;
 exports.Pair = Pair;

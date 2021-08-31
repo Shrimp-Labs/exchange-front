@@ -9,23 +9,42 @@ const NETWORKS = {
   [ChainId.OEC_MAINNET]: {
     rpc: 'https://exchainrpc.okex.org/',
     explorer: 'https://www.oklink.com/okexchain'
+  },
+  [ChainId.POLYGON]: {
+    rpc: 'https://rpc-mainnet.maticvigil.com/',
+    explorer: 'https://polygonscan.com/'
   }
 }
+
+const NETWORK_NAME_MAPPING = {
+  [ChainId.HECO_MAINNET]: 'heco-mainnet',
+  [ChainId.OEC_MAINNET]: 'oec-mainnet',
+  [ChainId.POLYGON]: 'polygon'
+}
+
+const NATIVE_CURRENCY_MAPPING = {
+  [ChainId.HECO_MAINNET]: {
+    name: 'HT',
+    Symbol: 'HT',
+    decimals: 18
+  },
+  [ChainId.OEC_MAINNET]: {
+    name: 'OKT',
+    Symbol: 'OKT',
+    decimals: 18
+  },
+  [ChainId.POLYGON]: {
+    name: 'MATIC',
+    Symbol: 'MATIC',
+    decimals: 18
+  }
+}
+
 export const useSwitchNetwork = () => {
   return useCallback(async (destChainId: number) => {
-    const networkId = destChainId === ChainId.HECO_MAINNET ? 'heco-mainnet' : 'oec-mainnet'
-    const nativeCurrency =
-      destChainId === ChainId.HECO_MAINNET
-        ? {
-            name: 'HT',
-            Symbol: 'HT',
-            decimals: 18
-          }
-        : {
-            name: 'OKT',
-            Symbol: 'OKT',
-            decimals: 18
-          }
+    const networkId = NETWORK_NAME_MAPPING[destChainId]
+    const nativeCurrency = NATIVE_CURRENCY_MAPPING[destChainId]
+
     return new Promise(async (resolve, reject) => {
       try {
         const data = [

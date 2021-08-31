@@ -6,9 +6,17 @@ import { pinnedPairs, pinnedStableCoinPairs } from './token'
 
 // TODO
 export const ROUTER_ADDRESS = (function() {
-  return NETWORK_CHAIN_ID === ChainId.HECO_MAINNET
-    ? '0xBe4AB2603140F134869cb32aB4BC56d762Ae900B'
-    : '0xec5bBf69C6BE29a7566F9b7D8125321DF2c82797'
+  if (NETWORK_CHAIN_ID === ChainId.HECO_MAINNET) {
+    return '0xBe4AB2603140F134869cb32aB4BC56d762Ae900B'
+  }
+
+  if (NETWORK_CHAIN_ID === ChainId.OEC_MAINNET) {
+    return '0xec5bBf69C6BE29a7566F9b7D8125321DF2c82797'
+  }
+
+  if (NETWORK_CHAIN_ID === ChainId.POLYGON) {
+    return '0xE9aAeB66D0CAE183f8C8d33682491Bf01389Fb53'
+  }
 })()
 
 // a list of tokens by chain
@@ -43,17 +51,20 @@ export const ETH = new Token(
 const WETH_ONLY: ChainTokenList = {
   [ChainId.HECO_MAINNET]: [WETH[ChainId.HECO_MAINNET]],
   [ChainId.OEC_MAINNET]: [WETH[ChainId.OEC_MAINNET]],
-  [ChainId.HECO_TESTNET]: [WETH[ChainId.HECO_TESTNET]]
+  [ChainId.HECO_TESTNET]: [WETH[ChainId.HECO_TESTNET]],
+  [ChainId.POLYGON]: [WETH[ChainId.POLYGON]]
 }
 
 export const NERWORK_URLS = {
   [ChainId.HECO_MAINNET]: 'https://http-mainnet-node.huobichain.com',
-  [ChainId.OEC_MAINNET]: 'https://exchainrpc.okex.org/'
+  [ChainId.OEC_MAINNET]: 'https://exchainrpc.okex.org/',
+  [ChainId.POLYGON]: 'https://rpc-mainnet.maticvigil.com/'
 }
 
 export const EXPLORER_URLS = {
   [ChainId.HECO_MAINNET]: 'https://hecoinfo.com',
-  [ChainId.OEC_MAINNET]: 'https://www.oklink.com/okexchain'
+  [ChainId.OEC_MAINNET]: 'https://www.oklink.com/okexchain',
+  [ChainId.POLYGON]: 'https://polygonscan.com/'
 }
 
 // used to construct intermediary pairs for trading
