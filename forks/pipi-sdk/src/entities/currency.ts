@@ -19,6 +19,7 @@ export class Currency {
   public static readonly ETHER: Currency = new Currency(18, 'HT', 'HUOBI')
   public static readonly HT: Currency = new Currency(18, 'HT', 'HUOBI')
   public static readonly OKT: Currency = new Currency(18, 'OKT', 'OKEX')
+  public static readonly MATIC: Currency = new Currency(18, 'MATIC', 'POLYGON')
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
@@ -38,9 +39,11 @@ export class Currency {
 const ETHER = (chainId: ChainId) => {
   if (chainId === ChainId.HECO_MAINNET) return Currency.HT
   if (chainId === ChainId.OEC_MAINNET) return Currency.OKT
+  if (chainId === ChainId.POLYGON) return Currency.MATIC
   return Currency.HT
 }
 
 const HT = Currency.HT
 const OKT = Currency.OKT
-export { ETHER, HT, OKT }
+const MATIC = Currency.MATIC
+export { ETHER, HT, OKT, MATIC }

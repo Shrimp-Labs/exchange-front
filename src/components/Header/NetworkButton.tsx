@@ -30,12 +30,16 @@ export const NetworkButton = () => {
     if (chainId === 66) {
       return 'OEC'
     }
+    if (chainId === 137) {
+      return 'Polygon'
+    }
   }, [chainId])
 
   useEffect(() => {
     window.ethereum?.on('chainChanged', _chainId => {
       const chainId = Number(_chainId)
-      if (chainId !== ChainId.HECO_MAINNET && chainId !== ChainId.OEC_MAINNET) return
+      if (chainId !== ChainId.HECO_MAINNET && chainId !== ChainId.OEC_MAINNET && chainId !== ChainId.POLYGON) return
+      console.log(chainId)
       window.localStorage.setItem('chainId', chainId.toString())
       window.localStorage.setItem('networkUrl', NERWORK_URLS[chainId])
       window.location.reload()

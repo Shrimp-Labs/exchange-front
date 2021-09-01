@@ -173,6 +173,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onDismiss, visible }: MobileMen
 
   useEffect(() => {
     const storedChainId = window.localStorage.getItem('chainId')
+    console.log('mobile menus ', chainId)
     if (!!chainId && chainId !== Number(storedChainId)) {
       window.localStorage.setItem('chainId', chainId.toString())
       window.localStorage.setItem('networkUrl', NERWORK_URLS[chainId])
