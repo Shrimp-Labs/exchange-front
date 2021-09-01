@@ -102,11 +102,14 @@ export function useCurrencyBalances(
   const tokens = useMemo(() => currencies?.filter((currency): currency is Token => currency instanceof Token) ?? [], [
     currencies
   ])
+
   const tokenBalances = useTokenBalances(account, tokens)
+
   const containsETH: boolean = useMemo(
     () => currencies?.some(currency => currency === ETHER(NETWORK_CHAIN_ID)) ?? false,
     [currencies]
   )
+
   const ethBalance = useETHBalances(containsETH ? [account] : [])
 
   return useMemo(

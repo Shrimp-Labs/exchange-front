@@ -3,7 +3,8 @@ export declare type BigintIsh = JSBI | bigint | string;
 export declare enum ChainId {
     HECO_MAINNET = 128,
     HECO_TESTNET = 256,
-    OEC_MAINNET = 66
+    OEC_MAINNET = 66,
+    POLYGON = 137
 }
 export declare enum TradeType {
     EXACT_INPUT = 0,
@@ -18,11 +19,13 @@ export declare const FACTORY_ADDRESS: {
     128: string;
     256: string;
     66: string;
+    137: string;
 };
 export declare const INIT_CODE_HASH: {
     128: string;
     256: string;
     66: string;
+    137: string;
 };
 export declare const MINIMUM_LIQUIDITY: JSBI;
 export declare const ZERO: JSBI;

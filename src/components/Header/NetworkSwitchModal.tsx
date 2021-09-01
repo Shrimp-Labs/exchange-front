@@ -5,6 +5,7 @@ import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { useNetworkModalOpen, useNetworkModalToggle } from '../../state/application/hooks'
 import HuobiLogo from '../../assets/images/huobi-logo.png'
 import OkLogo from '../../assets/images/ok-logo.png'
+import PolygonLogo from '../../assets/images/polygon-logo.png'
 import { useSwitchNetwork } from '../../hooks/useNetwork'
 import { ChainId } from '@pancakeswap-libs/sdk'
 
@@ -99,6 +100,10 @@ export const NetworkSwitchModal = () => {
           <NetworkItem onClick={() => switchNetwork(ChainId.OEC_MAINNET)}>
             <StyledEthereumLogo src={OkLogo} size="24px" />
             OEC
+          </NetworkItem>
+          <NetworkItem onClick={() => switchNetwork(ChainId.POLYGON)}>
+            <StyledEthereumLogo src={PolygonLogo} size="24px" />
+            Polygon
           </NetworkItem>
         </ContentWrapper>
         <CloseIcon onClick={toggleNetworkModal}>
