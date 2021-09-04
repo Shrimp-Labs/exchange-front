@@ -15,7 +15,7 @@ export const ROUTER_ADDRESS = (function() {
   }
 
   if (NETWORK_CHAIN_ID === ChainId.POLYGON) {
-    return '0xE9aAeB66D0CAE183f8C8d33682491Bf01389Fb53'
+    return '0x07839F6F3CD0BB5b92F51c4fAc3Ab6d62cB16B47'
   }
 })()
 
