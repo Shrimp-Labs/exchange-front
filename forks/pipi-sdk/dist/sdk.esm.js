@@ -3,6 +3,7 @@ export { default as JSBI } from 'jsbi';
 import invariant from 'tiny-invariant';
 import warning from 'tiny-warning';
 import { getAddress, getCreate2Address } from '@ethersproject/address';
+import 'entities';
 import _Big from 'big.js';
 import toFormat from 'toformat';
 import _Decimal from 'decimal.js-light';
@@ -1397,9 +1398,14 @@ var Router = /*#__PURE__*/function () {
 
 
   Router.swapCallParameters = function swapCallParameters(trade, options) {
-    var nativeToken = trade.route.chainId === ChainId.HECO_MAINNET ? HT : OKT;
+    console.log(trade.route.chainId); // const nativeToken = getNativeToken(trade.route.chainId)
+
+    var nativeToken = trade.route.chainId === ChainId.HECO_MAINNET ? HT : trade.route.chainId === ChainId.OEC_MAINNET ? OKT : MATIC;
+    console.log(nativeToken);
     var etherIn = trade.inputAmount.currency === nativeToken;
-    var etherOut = trade.outputAmount.currency === nativeToken; // the router does not support both ether in and out
+    var etherOut = trade.outputAmount.currency === nativeToken;
+    console.log('etherIn ', etherIn);
+    console.log('etherOut ', etherOut); // the router does not support both ether in and out
 
     !!(etherIn && etherOut) ? process.env.NODE_ENV !== "production" ? invariant(false, 'ETHER_IN_OUT') : invariant(false) : void 0;
     !(options.ttl > 0) ? process.env.NODE_ENV !== "production" ? invariant(false, 'TTL') : invariant(false) : void 0;

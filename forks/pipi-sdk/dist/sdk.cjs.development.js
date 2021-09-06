@@ -8,6 +8,7 @@ var JSBI = _interopDefault(require('jsbi'));
 var invariant = _interopDefault(require('tiny-invariant'));
 var warning = _interopDefault(require('tiny-warning'));
 var address = require('@ethersproject/address');
+require('entities');
 var _Big = _interopDefault(require('big.js'));
 var toFormat = _interopDefault(require('toformat'));
 var _Decimal = _interopDefault(require('decimal.js-light'));
@@ -1397,9 +1398,14 @@ var Router = /*#__PURE__*/function () {
 
 
   Router.swapCallParameters = function swapCallParameters(trade, options) {
-    var nativeToken = trade.route.chainId === exports.ChainId.HECO_MAINNET ? HT : OKT;
+    console.log(trade.route.chainId); // const nativeToken = getNativeToken(trade.route.chainId)
+
+    var nativeToken = trade.route.chainId === exports.ChainId.HECO_MAINNET ? HT : trade.route.chainId === exports.ChainId.OEC_MAINNET ? OKT : MATIC;
+    console.log(nativeToken);
     var etherIn = trade.inputAmount.currency === nativeToken;
-    var etherOut = trade.outputAmount.currency === nativeToken; // the router does not support both ether in and out
+    var etherOut = trade.outputAmount.currency === nativeToken;
+    console.log('etherIn ', etherIn);
+    console.log('etherOut ', etherOut); // the router does not support both ether in and out
 
     !!(etherIn && etherOut) ?  invariant(false, 'ETHER_IN_OUT')  : void 0;
     !(options.ttl > 0) ?  invariant(false, 'TTL')  : void 0;

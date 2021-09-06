@@ -1,7 +1,7 @@
 import { ChainId, TradeType } from './constants'
 import invariant from 'tiny-invariant'
 import { validateAndParseAddress } from './utils'
-import { CurrencyAmount, HT, OKT, Percent, Trade } from './entities'
+import { CurrencyAmount, HT, MATIC, OKT, Percent, Trade } from './entities'
 
 /**
  * Options for producing the arguments to send call to the router.
@@ -66,9 +66,15 @@ export abstract class Router {
    * @param options options for the call parameters
    */
   public static swapCallParameters(trade: Trade, options: TradeOptions): SwapParameters {
-    const nativeToken = trade.route.chainId === ChainId.HECO_MAINNET ? HT : OKT
+    console.log(trade.route.chainId)
+    // const nativeToken = getNativeToken(trade.route.chainId)
+    const nativeToken =
+      trade.route.chainId === ChainId.HECO_MAINNET ? HT : trade.route.chainId === ChainId.OEC_MAINNET ? OKT : MATIC
+    console.log(nativeToken)
     const etherIn = trade.inputAmount.currency === nativeToken
     const etherOut = trade.outputAmount.currency === nativeToken
+    console.log('etherIn ', etherIn)
+    console.log('etherOut ', etherOut)
     // the router does not support both ether in and out
     invariant(!(etherIn && etherOut), 'ETHER_IN_OUT')
     invariant(options.ttl > 0, 'TTL')
