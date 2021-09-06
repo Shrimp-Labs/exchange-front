@@ -4,6 +4,7 @@ import JSBI from 'jsbi'
 import { getAddress } from '@ethersproject/address'
 
 import { BigintIsh, ZERO, ONE, TWO, THREE, SolidityType, SOLIDITY_TYPE_MAXIMA, ChainId } from './constants'
+import { HT, MATIC, OKT } from 'entities'
 
 export function validateSolidityTypeInstance(value: JSBI, solidityType: SolidityType): void {
   invariant(JSBI.greaterThanOrEqual(value, ZERO), `${value} is not a ${solidityType}.`)
@@ -100,5 +101,18 @@ export const getFactoryAddress = (chainId: ChainId) => {
       return '0x0dDF434108DF168b347428De9C8F595471364A48'
     default:
       return '0x979efE7cA072b72d6388f415d042951dDF13036e'
+  }
+}
+
+export const getNativeToken = (chainId: ChainId) => {
+  switch (chainId) {
+    case ChainId.HECO_MAINNET:
+      return HT
+    case ChainId.OEC_MAINNET:
+      return OKT
+    case ChainId.POLYGON:
+      return MATIC
+    default:
+      return HT
   }
 }

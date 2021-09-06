@@ -70,6 +70,7 @@ function useSwapCallArguments(
 
     switch (tradeVersion) {
       case Version.v2:
+        console.log(trade)
         swapMethods.push(
           Router.swapCallParameters(trade, {
             feeOnTransfer: false,
@@ -100,6 +101,7 @@ function useSwapCallArguments(
         )
         break
     }
+    console.log(swapMethods)
     return swapMethods.map(parameters => ({ parameters, contract }))
   }, [account, allowedSlippage, chainId, deadline, library, recipient, trade, v1Exchange])
 }
