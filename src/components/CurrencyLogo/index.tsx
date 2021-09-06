@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import HuobiLogo from '../../assets/images/huobi-logo.png'
 import OkLogo from '../../assets/images/ok-logo.png'
+import PolygonLogo from '../../assets/images/polygon-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
@@ -36,7 +37,15 @@ export default function CurrencyLogo({
 }) {
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
   const EthereumLogo = useMemo(() => {
-    return NETWORK_CHAIN_ID === ChainId.HECO_MAINNET ? HuobiLogo : OkLogo
+    switch (NETWORK_CHAIN_ID) {
+      case ChainId.HECO_MAINNET:
+        return HuobiLogo
+      case ChainId.OEC_MAINNET:
+        return OkLogo
+      case ChainId.POLYGON:
+        return PolygonLogo
+    }
+    return HuobiLogo
   }, [])
 
   const srcs: string[] = useMemo(() => {
