@@ -313,14 +313,6 @@
       "chainId": 128,
       "decimals": 18,
       "logoURI": "https://swap.pippi.finance/images/coins/0x2f1805CD2bBc416492890ae7fE123B50Cd15F53F.png"
-    },
-    {
-      "name": "BabyDoge",
-      "symbol": "BabyDoge",
-      "address": "0xe6801928061cdbe32ac5ad0634427e140efd05f9",
-      "chainId": 128,
-      "decimals": 9,
-      "logoURI": "https://swap.pippi.finance/images/coins/0xe6801928061cdbe32ac5ad0634427e140efd05f9.png"
     }
   ]
 }
