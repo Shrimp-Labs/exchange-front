@@ -1,0 +1,78 @@
+{
+  "name": "pippiswap",
+  "timestamp": "2020-08-25T15:41:29.665Z",
+  "version": {
+    "major": 1,
+    "minor": 3,
+    "patch": 1
+  },
+  "tags": {},
+  "logoURI": "https://swap.pippi.finance/images/192x192_App_Icon.png",
+  "keywords": ["pippi", "default"],
+  "tokens": [
+    {
+      "name": "WETH",
+      "symbol": "WETH",
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "chainId": 137,
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/wETH_32.png"
+    },
+    {
+      "name": "Pippi Shrimp Token",
+      "symbol": "PIPI",
+      "address": "0x1732477eDd2C494c596570A63cb1D8BDd0a8c40D",
+      "chainId": 137,
+      "decimals": 18,
+      "logoURI": "https://swap.pippi.finance/images/coins/0xaaae746b5e55d14398879312660e9fde07fbc1dc.png"
+    },
+    {
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "chainId": 137,
+      "decimals": 6,
+      "logoURI": "https://polygonscan.com/token/images/centre-usdc_32.png"
+    },
+    {
+      "name": "Tether USD",
+      "symbol": "USDT",
+      "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "chainId": 137,
+      "decimals": 6,
+      "logoURI": "https://polygonscan.com/token/images/tether_32.png"
+    },
+    {
+      "name": "Uniswap Token",
+      "symbol": "UNI",
+      "address": "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
+      "chainId": 137,
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/uniswap_32.png"
+    },
+    {
+      "name": "Wrapped BTC Token",
+      "symbol": "WBTC",
+      "address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "chainId": 137,
+      "decimals": 8,
+      "logoURI": "https://polygonscan.com/token/images/wBTC_32.png"
+    },
+    {
+      "name": "Dai Stablecoin",
+      "symbol": "DAI",
+      "address": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "chainId": 137,
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/mcdDai_32.png"
+    },
+    {
+      "name": "Wrapped Matic",
+      "symbol": "WMATIC",
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "chainId": 137,
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/token/images/wMatic_32.png"
+    }
+  ]
+}

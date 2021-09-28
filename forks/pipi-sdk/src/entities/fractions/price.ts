@@ -63,6 +63,7 @@ export class Price extends Fraction {
     if (this.quoteCurrency instanceof Token) {
       return new TokenAmount(this.quoteCurrency, super.multiply(currencyAmount.raw).quotient)
     }
+
     return CurrencyAmount.ether(super.multiply(currencyAmount.raw).quotient, ChainId.HECO_MAINNET)
   }
 

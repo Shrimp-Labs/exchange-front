@@ -3,6 +3,7 @@ export { default as JSBI } from 'jsbi';
 import invariant from 'tiny-invariant';
 import warning from 'tiny-warning';
 import { getAddress, getCreate2Address } from '@ethersproject/address';
+import 'entities';
 import _Big from 'big.js';
 import toFormat from 'toformat';
 import _Decimal from 'decimal.js-light';
@@ -19,6 +20,7 @@ var ChainId;
   ChainId[ChainId["HECO_MAINNET"] = 128] = "HECO_MAINNET";
   ChainId[ChainId["HECO_TESTNET"] = 256] = "HECO_TESTNET";
   ChainId[ChainId["OEC_MAINNET"] = 66] = "OEC_MAINNET";
+  ChainId[ChainId["POLYGON"] = 137] = "POLYGON";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -36,8 +38,8 @@ var Rounding;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(Rounding || (Rounding = {}));
 
-var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.HECO_MAINNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[ChainId.HECO_TESTNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[ChainId.OEC_MAINNET] = '0x0dDF434108DF168b347428De9C8F595471364A48', _FACTORY_ADDRESS);
-var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[ChainId.HECO_MAINNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[ChainId.HECO_TESTNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[ChainId.OEC_MAINNET] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH);
+var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.HECO_MAINNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[ChainId.HECO_TESTNET] = '0x979efE7cA072b72d6388f415d042951dDF13036e', _FACTORY_ADDRESS[ChainId.OEC_MAINNET] = '0x0dDF434108DF168b347428De9C8F595471364A48', _FACTORY_ADDRESS[ChainId.POLYGON] = '0x43cE21cdceeC70828220DF623b3B183D86eD1DB2', _FACTORY_ADDRESS);
+var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[ChainId.HECO_MAINNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[ChainId.HECO_TESTNET] = '0xd805d4c8a7fb3567167020352386905de5d4bd188fe2284675e3ed584653df75', _INIT_CODE_HASH[ChainId.OEC_MAINNET] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH[ChainId.POLYGON] = '0x39049b80b4bd4fa78c175418c9994a334451144332c03e8b77b994857fc62178', _INIT_CODE_HASH);
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -370,15 +372,18 @@ function Currency(decimals, symbol, name) {
 Currency.ETHER = /*#__PURE__*/new Currency(18, 'HT', 'HUOBI');
 Currency.HT = /*#__PURE__*/new Currency(18, 'HT', 'HUOBI');
 Currency.OKT = /*#__PURE__*/new Currency(18, 'OKT', 'OKEX');
+Currency.MATIC = /*#__PURE__*/new Currency(18, 'MATIC', 'POLYGON');
 
 var ETHER = function ETHER(chainId) {
   if (chainId === ChainId.HECO_MAINNET) return Currency.HT;
   if (chainId === ChainId.OEC_MAINNET) return Currency.OKT;
+  if (chainId === ChainId.POLYGON) return Currency.MATIC;
   return Currency.HT;
 };
 
 var HT = Currency.HT;
 var OKT = Currency.OKT;
+var MATIC = Currency.MATIC;
 
 var _WETH;
 /**
@@ -443,7 +448,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.HECO_MAINNET] = /*#__PURE__*/new Token(ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT'), _WETH[ChainId.HECO_TESTNET] = /*#__PURE__*/new Token(ChainId.HECO_TESTNET, '0xb49f19289857f4499781aab9afd4a428c4be9ca8', 18, 'WHT', 'Wrapped HT'), _WETH[ChainId.OEC_MAINNET] = /*#__PURE__*/new Token(ChainId.OEC_MAINNET, '0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15', 18, 'WOKT', 'Wrapped OKT'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.HECO_MAINNET] = /*#__PURE__*/new Token(ChainId.HECO_MAINNET, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WHT', 'Wrapped HT'), _WETH[ChainId.HECO_TESTNET] = /*#__PURE__*/new Token(ChainId.HECO_TESTNET, '0xb49f19289857f4499781aab9afd4a428c4be9ca8', 18, 'WHT', 'Wrapped HT'), _WETH[ChainId.OEC_MAINNET] = /*#__PURE__*/new Token(ChainId.OEC_MAINNET, '0x8f8526dbfd6e38e3d8307702ca8469bae6c56c15', 18, 'WOKT', 'Wrapped OKT'), _WETH[ChainId.POLYGON] = /*#__PURE__*/new Token(ChainId.POLYGON, '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270', 18, 'WMATIC', 'Wrapped MATIC'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -1393,9 +1398,14 @@ var Router = /*#__PURE__*/function () {
 
 
   Router.swapCallParameters = function swapCallParameters(trade, options) {
-    var nativeToken = trade.route.chainId === ChainId.HECO_MAINNET ? HT : OKT;
+    console.log(trade.route.chainId); // const nativeToken = getNativeToken(trade.route.chainId)
+
+    var nativeToken = trade.route.chainId === ChainId.HECO_MAINNET ? HT : trade.route.chainId === ChainId.OEC_MAINNET ? OKT : MATIC;
+    console.log(nativeToken);
     var etherIn = trade.inputAmount.currency === nativeToken;
-    var etherOut = trade.outputAmount.currency === nativeToken; // the router does not support both ether in and out
+    var etherOut = trade.outputAmount.currency === nativeToken;
+    console.log('etherIn ', etherIn);
+    console.log('etherOut ', etherOut); // the router does not support both ether in and out
 
     !!(etherIn && etherOut) ? process.env.NODE_ENV !== "production" ? invariant(false, 'ETHER_IN_OUT') : invariant(false) : void 0;
     !(options.ttl > 0) ? process.env.NODE_ENV !== "production" ? invariant(false, 'TTL') : invariant(false) : void 0;
@@ -1575,5 +1585,5 @@ var Fetcher = /*#__PURE__*/function () {
   return Fetcher;
 }();
 
-export { ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, HT, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MINIMUM_LIQUIDITY, OKT, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
+export { ChainId, Currency, CurrencyAmount, ETHER, FACTORY_ADDRESS, Fetcher, Fraction, HT, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, MATIC, MINIMUM_LIQUIDITY, OKT, Pair, Percent, Price, Rounding, Route, Router, Token, TokenAmount, Trade, TradeType, WETH, currencyEquals, inputOutputComparator, tradeComparator };
 //# sourceMappingURL=sdk.esm.js.map
