@@ -1,23 +1,23 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { LanguageContext } from '../../hooks/LanguageContext'
-import { ZHCN, EN } from '../../constants/localisation/languageCodes'
+// import { ZHCN, EN } from '../../constants/localisation/languageCodes'
 
-import { useLanguage } from '../../i18n/i18n-react'
-import { ZH_CN } from '../../i18n/languageCode'
+// import { useLanguage } from '../../i18n/i18n-react'
+// import { ZH_CN } from '../../i18n/languageCode'
 
 interface SwithProps {
   className?: string
 }
 
 const AccountLink: React.FC<SwithProps> = ({ className }: SwithProps) => {
-  const { selectedLanguage, handleSetSelectedLanguage } = useContext(LanguageContext)
-  const language = useLanguage()
+  const { selectedLanguage } = useContext(LanguageContext)
+  // const language = useLanguage()
 
   return (
     <StyledButton className={className}>
       <div className="text">{selectedLanguage?.language}</div>
-      <Modal className="modal">
+      {/* <Modal className="modal">
         <Button
           className={selectedLanguage?.code === EN.code ? 'active' : 'unactive'}
           onClick={() => {
@@ -36,7 +36,7 @@ const AccountLink: React.FC<SwithProps> = ({ className }: SwithProps) => {
         >
           {ZHCN.language}
         </Button>
-      </Modal>
+      </Modal> */}
     </StyledButton>
   )
 }
@@ -68,33 +68,33 @@ const StyledButton = styled.div`
     display: none;
   `};
 `
-const Button = styled.div`
-  margin-bottom: 24px;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: bolder;
-  color: ${props => props.theme.colors.primary};
-  &.unactive {
-    color: #2f3644;
-  }
-  &:hover {
-    color: ${props => props.theme.colors.primary};
-  }
-`
-const Modal = styled.div`
-  position: absolute;
-  left: 0;
-  top: 56px;
-  width: 100px;
-  display: none;
-  border-radius: 12px;
-  padding: 24px;
-  padding-left: 20px;
-  padding-bottom: 0;
-  box-sizing: border-box;
-  background: #fdfdfd;
-  box-shadow: 0px 4px 20px rgba(117, 117, 117, 0.1);
-  border-radius: 12px;
-`
+// const Button = styled.div`
+//   margin-bottom: 24px;
+//   text-align: center;
+//   border-radius: 8px;
+//   font-weight: bolder;
+//   color: ${props => props.theme.colors.primary};
+//   &.unactive {
+//     color: #2f3644;
+//   }
+//   &:hover {
+//     color: ${props => props.theme.colors.primary};
+//   }
+// `
+// const Modal = styled.div`
+//   position: absolute;
+//   left: 0;
+//   top: 56px;
+//   width: 100px;
+//   display: none;
+//   border-radius: 12px;
+//   padding: 24px;
+//   padding-left: 20px;
+//   padding-bottom: 0;
+//   box-sizing: border-box;
+//   background: #fdfdfd;
+//   box-shadow: 0px 4px 20px rgba(117, 117, 117, 0.1);
+//   border-radius: 12px;
+// `
 
 export default AccountLink

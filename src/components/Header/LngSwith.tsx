@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { LanguageContext } from '../../hooks/LanguageContext'
-import { ZHCN, EN } from '../../constants/localisation/languageCodes'
+import { EN } from '../../constants/localisation/languageCodes'
 
 import { useLanguage } from '../../i18n/i18n-react'
-import { ZH_CN } from '../../i18n/languageCode'
+// import { ZH_CN } from '../../i18n/languageCode'
 
 
 interface MobileMenuProps {
@@ -25,7 +25,7 @@ const AccountLink: React.FC<MobileMenuProps> = (props) => {
       >
         {EN.language}
       </Button>
-      <span>/</span>
+      {/* <span>/</span>
       <Button
         className={selectedLanguage && selectedLanguage.code === ZHCN.code ? 'active' : 'unactive'}
         onClick={() => {
@@ -34,7 +34,7 @@ const AccountLink: React.FC<MobileMenuProps> = (props) => {
         }}
       >
         {ZHCN.language}
-      </Button>
+      </Button> */}
     </StyledButton>
   )
 }
