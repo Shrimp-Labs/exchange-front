@@ -162,14 +162,14 @@ function NavItem({ label, i18nKey, to, target, children }: any) {
 
   if (to.startsWith('http')) {
     return (
-      <StyledAbsoluteLink className="nav-item" target={target} href="https://swap.pippi.finance">
+      <StyledAbsoluteLink className="nav-item" target={target} href={to}>
         {i18n(i18nKey, label)}
       </StyledAbsoluteLink>
     )
   }
 
   return (
-    <StyledLink className="nav-item" exact activeClassName="active" to="/farms">
+    <StyledLink className="nav-item" exact activeClassName="active" to={to}>
       {i18n(i18nKey, label)}
     </StyledLink>
   )
