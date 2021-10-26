@@ -33,6 +33,13 @@ const views = {
       chainId: [128, 66]
     },
     {
+      label: 'Yield',
+      i18nKey: 'nav-yield',
+      chainId: [66],
+      target: '_blank',
+      to: 'https://yield.pippi.finance/',
+    },
+    {
       label: 'Tool',
       i18nKey: 'nav-tool',
       view: 'tool',
